@@ -318,4 +318,38 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  /* ==========================================================================
+     Mobile Navigation Toggle
+     ========================================================================== */
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navLinksMain = document.querySelector('.nav-links-main');
+  const navLinksItems = document.querySelectorAll('.nav-links-main .nav-link');
+
+  if (mobileToggle && navLinksMain) {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileToggle.classList.toggle('active');
+      navLinksMain.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+
+    // Close mobile menu when clicking a link
+    navLinksItems.forEach(item => {
+      item.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        navLinksMain.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    });
+
+    // Close mobile menu when clicking anywhere outside
+    document.addEventListener('click', (e) => {
+      if (!navLinksMain.contains(e.target) && !mobileToggle.contains(e.target)) {
+        mobileToggle.classList.remove('active');
+        navLinksMain.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    });
+  }
 });
