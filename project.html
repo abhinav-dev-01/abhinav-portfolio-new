@@ -17,6 +17,39 @@
 </head>
 
 <body class="project-detail-body">
+  <!-- Preloader Screen -->
+  <div id="loader-wrapper">
+    <div class="loader-scanline"></div>
+    <div class="loader-ambient-glow"></div>
+    <div class="loader-content">
+      <div class="loader-avatar-container">
+        <!-- SVG Circular Progress Ring -->
+        <svg class="loader-svg-ring" viewBox="0 0 120 120">
+          <defs>
+            <linearGradient id="loader-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="var(--primary-glow)" />
+              <stop offset="100%" stop-color="var(--secondary-accent)" />
+            </linearGradient>
+          </defs>
+          <!-- Background track -->
+          <circle class="loader-ring-track" cx="60" cy="60" r="54" />
+          <!-- Animated progress circle -->
+          <circle class="loader-ring-progress" id="loader-circle" cx="60" cy="60" r="54" />
+          <!-- Outer Dashed HUD Ring -->
+          <circle class="loader-hud-ring" cx="60" cy="60" r="58" />
+        </svg>
+        <img src="/cyber_avatar.png" alt="Abhinav" class="loader-avatar">
+        <!-- Target Corner Braces -->
+        <div class="loader-corner top-left"></div>
+        <div class="loader-corner top-right"></div>
+        <div class="loader-corner bottom-left"></div>
+        <div class="loader-corner bottom-right"></div>
+      </div>
+      <div class="loader-percentage" id="loader-percent">0%</div>
+      <div class="loader-status" id="loader-status">INITIALIZING NEURAL LINK...</div>
+    </div>
+  </div>
+
   <!-- Animated Background Canvas -->
   <canvas id="particle-canvas"></canvas>
 

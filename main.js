@@ -1,4 +1,62 @@
 /* ==========================================================================
+   Page Preloader Logic
+   ========================================================================== */
+document.body.classList.add('loading');
+
+function runPreloader() {
+  const loaderWrapper = document.getElementById('loader-wrapper');
+  const percentText = document.getElementById('loader-percent');
+  const progressCircle = document.getElementById('loader-circle');
+  const statusText = document.getElementById('loader-status');
+  
+  if (!loaderWrapper) return;
+  
+  let progress = 0;
+  const maxOffset = 339.29; // 2 * PI * 54 (radius)
+  
+  const statusPhrases = {
+    0: 'Initializing neural link...',
+    20: 'Loading component modules...',
+    45: 'Connecting to database vaults...',
+    70: 'Generating backdrop canvas grid...',
+    90: 'Syncing system aesthetics...'
+  };
+  
+  const interval = setInterval(() => {
+    if (progress < 100) {
+      progress += Math.floor(Math.random() * 3) + 1;
+      if (progress > 100) progress = 100;
+      
+      if (percentText) percentText.textContent = `${progress}%`;
+      
+      if (progressCircle) {
+        const offset = maxOffset - (progress / 100) * maxOffset;
+        progressCircle.style.strokeDashoffset = offset;
+      }
+      
+      const currentPhraseThreshold = Object.keys(statusPhrases)
+        .map(Number)
+        .sort((a, b) => b - a)
+        .find(threshold => progress >= threshold);
+      
+      if (currentPhraseThreshold !== undefined && statusText) {
+        statusText.textContent = statusPhrases[currentPhraseThreshold].toUpperCase();
+      }
+    } else {
+      clearInterval(interval);
+      
+      setTimeout(() => {
+        loaderWrapper.classList.add('fade-out');
+        document.body.classList.remove('loading');
+      }, 300);
+    }
+  }, 30);
+}
+
+// Initialize preloader immediately
+runPreloader();
+
+/* ==========================================================================
    Canvas Particle Background
    ========================================================================== */
 const canvas = document.getElementById('particle-canvas');

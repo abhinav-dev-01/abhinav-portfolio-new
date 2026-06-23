@@ -3119,3 +3119,197 @@ body.menu-open {
     padding: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   Preloader Styles
+   ========================================================================== */
+body.loading {
+  overflow: hidden !important;
+}
+
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+  overflow: hidden;
+}
+
+#loader-wrapper.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(var(--primary-glow-rgb), 0.25), transparent);
+  z-index: 2;
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
+}
+
+.loader-ambient-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(var(--primary-glow-rgb), 0.08) 0%, transparent 70%);
+  filter: blur(50px);
+  z-index: 1;
+  pointer-events: none;
+  animation: loader-pulse 2s infinite alternate;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.loader-avatar-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.loader-svg-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.loader-ring-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.03);
+  stroke-width: 4;
+}
+
+.loader-ring-progress {
+  fill: none;
+  stroke: url(#loader-grad);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 339.29;
+  stroke-dashoffset: 339.29;
+  filter: drop-shadow(0 0 6px var(--primary-glow));
+  transition: stroke-dashoffset 0.1s ease-out;
+}
+
+.loader-hud-ring {
+  fill: none;
+  stroke: rgba(var(--primary-glow-rgb), 0.15);
+  stroke-width: 1;
+  stroke-dasharray: 4 8;
+  animation: spin-counter-clockwise 8s linear infinite;
+  transform-origin: center;
+}
+
+.loader-avatar {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 2;
+}
+
+/* Target Corner Brackets */
+.loader-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--primary-glow);
+  border-style: solid;
+  opacity: 0.6;
+  z-index: 3;
+  animation: corner-pulse 1.5s infinite alternate;
+}
+
+.loader-corner.top-left {
+  top: -6px;
+  left: -6px;
+  border-width: 2px 0 0 2px;
+}
+
+.loader-corner.top-right {
+  top: -6px;
+  right: -6px;
+  border-width: 2px 2px 0 0;
+}
+
+.loader-corner.bottom-left {
+  bottom: -6px;
+  left: -6px;
+  border-width: 0 0 2px 2px;
+}
+
+.loader-corner.bottom-right {
+  bottom: -6px;
+  right: -6px;
+  border-width: 0 2px 2px 0;
+}
+
+.loader-percentage {
+  font-family: var(--font-cyber);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(var(--primary-glow-rgb), 0.3);
+}
+
+.loader-status {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-gray);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: pulse-opacity 1.5s infinite alternate;
+}
+
+@keyframes loader-pulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes pulse-opacity {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes scanline {
+  0% { top: -2%; }
+  100% { top: 102%; }
+}
+
+@keyframes spin-counter-clockwise {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes corner-pulse {
+  0% { transform: scale(0.9); opacity: 0.4; }
+  100% { transform: scale(1.15); opacity: 0.95; filter: drop-shadow(0 0 4px var(--primary-glow)); }
+}
