@@ -4,422 +4,278 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhinav | Full Stack Developer Portfolio</title>
+  <title>Abhinav | Full Stack Developer</title>
   <meta name="description"
-    content="Futuristic developer portfolio of Abhinav - Full Stack Developer. Building scalable web applications and digital experiences using modern technologies.">
+    content="Portfolio of Abhinav — Full Stack Developer building clean, modern & scalable web applications with passion and purpose.">
 
-  <!-- Fonts -->
+  <!-- Google Fonts: Kalam, Caveat, Architects Daughter, Fira Code, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&family=Syncopate:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@600;700&family=Fira+Code:wght@400;500;600&family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
-  <!-- Preloader Screen -->
-  <div id="loader-wrapper">
-    <div class="loader-scanline"></div>
-    <div class="loader-ambient-glow"></div>
-    <div class="loader-content">
-      <div class="loader-avatar-container">
-        <!-- SVG Circular Progress Ring -->
-        <svg class="loader-svg-ring" viewBox="0 0 120 120">
-          <defs>
-            <linearGradient id="loader-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="var(--primary-glow)" />
-              <stop offset="100%" stop-color="var(--secondary-accent)" />
-            </linearGradient>
-          </defs>
-          <!-- Background track -->
-          <circle class="loader-ring-track" cx="60" cy="60" r="54" />
-          <!-- Animated progress circle -->
-          <circle class="loader-ring-progress" id="loader-circle" cx="60" cy="60" r="54" />
-          <!-- Outer Dashed HUD Ring -->
-          <circle class="loader-hud-ring" cx="60" cy="60" r="58" />
-        </svg>
-        <img src="/cyber_avatar.png" alt="Abhinav" class="loader-avatar">
-        <!-- Target Corner Braces -->
-        <div class="loader-corner top-left"></div>
-        <div class="loader-corner top-right"></div>
-        <div class="loader-corner bottom-left"></div>
-        <div class="loader-corner bottom-right"></div>
-      </div>
-      <div class="loader-percentage" id="loader-percent">0%</div>
-      <div class="loader-status" id="loader-status">INITIALIZING NEURAL LINK...</div>
-    </div>
-  </div>
+<body class="paper-sketch-theme">
 
-  <!-- Animated Background Canvas -->
-  <canvas id="particle-canvas"></canvas>
+  <!-- Graph Paper Grid Background -->
+  <div class="graph-paper-grid"></div>
 
-  <!-- Animated Grid Background -->
-  <div class="grid-background"></div>
+  <!-- Pencil Trail Canvas Overlay for Cursor -->
+  <canvas id="pencil-trail-canvas"></canvas>
 
-  <!-- Ambient Glow Effects -->
-  <div class="ambient-glow purple-glow"></div>
-  <div class="ambient-glow cyan-glow"></div>
-
-  <!-- Navbar -->
-  <nav class="navbar" id="main-navbar">
-    <div class="nav-container">
-      <a href="#" class="logo" id="logo-dev">
-        <span class="logo-bracket">&lt;</span>
-        <span class="logo-text">DEV</span>
-        <span class="logo-bracket">/&gt;</span>
+  <!-- Top Dark Navbar -->
+  <nav class="top-dark-navbar">
+    <div class="nav-sketch-container">
+      <a href="#" class="nav-brand">
+        <span class="nav-code-symbol">&lt;/&gt;</span>
+        <span class="nav-brand-text">Abhinav.dev</span>
       </a>
-      <div class="nav-right">
-        <ul class="nav-links nav-links-main">
-          <li><a href="#about" class="nav-link" id="nav-about">ABOUT</a></li>
-          <li><a href="#skills" class="nav-link" id="nav-skills">SKILLS</a></li>
-          <li><a href="#projects" class="nav-link" id="nav-projects">PROJECTS</a></li>
-          <li><a href="#education" class="nav-link" id="nav-education">EDUCATION</a></li>
-          <li><a href="#contact" class="nav-link" id="nav-contact">CONTACT</a></li>
-        </ul>
-        <a href="/Abhinav_P_Full%20stack_Resume.pdf" download="Abhinav_P_Full stack_Resume.pdf" class="btn-resume-download">
-          <span>RESUME</span>
-          <svg class="resume-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
+
+      <!-- Desktop Links -->
+      <ul class="nav-menu-links">
+        <li><a href="#hero" class="nav-item active">HOME</a></li>
+        <li><a href="#skills" class="nav-item">SKILLS</a></li>
+        <li><a href="#projects" class="nav-item">PROJECTS</a></li>
+        <li><a href="#experience" class="nav-item">EXPERIENCE</a></li>
+        <li><a href="#contact" class="nav-item">CONTACT</a></li>
+      </ul>
+
+      <div class="nav-right-actions">
+        <!-- Theme Switcher / Mode Toggle -->
+        <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-        </a>
-        <button class="mobile-menu-toggle" aria-label="Toggle Menu" id="mobile-toggle">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+          <span class="toggle-pill"></span>
+        </button>
+
+        <!-- Mobile Hamburger Toggle Button -->
+        <button class="mobile-nav-toggle" id="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu Links -->
+    <div class="mobile-drawer-menu" id="mobile-drawer">
+      <a href="#hero" class="mobile-nav-item">HOME</a>
+      <a href="#skills" class="mobile-nav-item">SKILLS</a>
+      <a href="#projects" class="mobile-nav-item">PROJECTS</a>
+      <a href="#experience" class="mobile-nav-item">EXPERIENCE</a>
+      <a href="#contact" class="mobile-nav-item">CONTACT</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <main class="hero-section" id="hero">
-    <div class="hero-container">
+  <header id="hero" class="hero-sketch-section">
+    <div class="hero-sketch-container">
 
-      <!-- Hero Left Section (55%) -->
-      <section class="hero-left">
-        <div class="status-container">
-          <div class="corner-bracket top-left"></div>
-          <div class="corner-bracket top-right"></div>
-          <div class="corner-bracket bottom-left"></div>
-          <div class="corner-bracket bottom-right"></div>
-          <span class="status-pulse"></span>
-          <span class="status-text">OPEN TO OPPORTUNITIES</span>
+      <!-- Left Column: Hero Greeting & Today's Plan -->
+      <div class="hero-left-col">
+        <!-- Flying paper airplane doodle -->
+        <div class="floating-airplane-doodle" id="paper-plane-trigger" title="Click to launch paper airplane! ✈️">
+          <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 25 L45 5 L28 45 L20 28 Z M20 28 L45 5" />
+          </svg>
         </div>
 
-        <h2 class="hero-greeting">Hello, I'm</h2>
-        <h1 class="hero-name" data-text="ABHINAV">ABHINAV</h1>
+        <div class="hero-greeting-box">
+          <h1 class="hero-title-sketch">
+            Hi, I'm <br>
+            <span class="hero-name-first">Abhinav</span> <span class="hero-name-highlight">P</span>
+          </h1>
 
-        <div class="hero-subtitle">
-          <span id="typing-text"></span><span class="cursor">|</span>
-        </div>
-
-        <p class="hero-description">
-          Building scalable web applications and digital experiences using modern technologies.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary" id="btn-projects">
-            <span>VIEW PROJECTS</span>
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </a>
-          <a href="#contact" class="btn btn-secondary" id="btn-contact">
-            <span>CONTACT ME</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- Hero Right Section (45%) -->
-      <section class="hero-right">
-        <!-- Floating Terminal Window -->
-        <div class="terminal-card" id="profile-terminal">
-          <!-- Terminal Header -->
-          <div class="terminal-header">
-            <div class="window-controls">
-              <span class="control-dot close"></span>
-              <span class="control-dot minimize"></span>
-              <span class="control-dot expand"></span>
-            </div>
-            <div class="terminal-title">abhinav@portfolio ~</div>
-            <div class="terminal-status-indicator">● Online</div>
+          <div class="role-pill-black wobble-hover">
+            <span>Full Stack Developer</span>
+            <span class="role-code-brackets">&lt;/&gt;</span>
           </div>
 
-          <!-- Terminal Body -->
-          <div class="terminal-body">
-            <!-- Command line prompt -->
-            <div class="terminal-row cmd-row">
-              <span class="prompt-user">abhinav@portfolio</span><span class="prompt-symbol">:~$</span> <span
-                class="cmd-text">neofetch</span>
-            </div>
-
-            <!-- Side-by-side Layout -->
-            <div class="terminal-dashboard">
-
-              <!-- Left Column: Holographic Avatar Core -->
-              <div class="avatar-container">
-                <!-- Holographic Rings -->
-                <div class="holo-ring ring-outer"></div>
-                <div class="holo-ring ring-middle"></div>
-                <div class="holo-ring ring-inner"></div>
-
-                <!-- Orbiting Technology Icons -->
-                <div class="orbiting-icons">
-                  <!-- Mern (React/MongoDB) -->
-                  <div class="orbit-icon icon-react" title="Mern">
-                    <svg viewBox="-11.5 -10.23174 23 20.46348" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="0" cy="0" r="2.05" fill="var(--primary-glow)" />
-                      <g stroke="var(--primary-glow)" stroke-width="1">
-                        <ellipse rx="11" ry="4.2" />
-                        <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-                        <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-                      </g>
-                    </svg>
-                  </div>
-                  <!-- Python -->
-                  <div class="orbit-icon icon-python" title="Python">
-                    <svg viewBox="0 0 458.74 459" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M229.35 0c-43.23.1-80.44 2.8-111.45 8.2-54.8 9.5-84.5 32-98.8 77.2-16.1 51-12.7 101.4-.2 150.3 8.3 32.5 29.5 53 64.9 57.7 20.2 2.7 41.5 3.3 62 3.6v-44.5c0-37.1 16-66.2 46.1-80.3 22.3-10.4 46-13.6 70.3-13.6 22 0 43.6 2.3 64 8.2 29 8.4 49.3 26.6 57 56.4 6 23.3 5.4 47.4 5.5 71.3V370c.2 28.5-8.2 51.5-28.5 69.3-25 22-56.7 24-89.5 24-40.8-.2-75.7-2.6-104.9-7.4-26.6-4.4-44.1-17.7-49-44.8l-8.5-47h34.6c18 0 32.8-5 42.7-18 6.4-8.5 9-18.7 9-29.3v-23.7h-40c-35 0-66.3-5-91.2-28.9C2.7 282.8-.2 254.2 0 223.3v-4c0-26.5 4.5-50.6 19.8-71.1 21-28 50.8-34 83.6-35.8 40-.2 80-.1 120-.1 12.3 0 20.7-7.8 20.7-20.2v-29.7c0-22-6-40.2-22-54C208.5 2.2 195 .2 178 .1c-16.2 0-32.5 0-48.7 0v29.5c0 14.8-12 26.8-26.8 26.8s-26.8-12-26.8-26.8V0c51.2 0 102.5 0 153.65 0z"
-                        fill="var(--secondary-accent)" />
-                      <path
-                        d="M229.35 459c43.24-.1 80.44-2.8 111.45-8.2 54.8-9.5 84.5-32 98.8-77.2 16.1-51 12.7-101.4.2-150.3-8.3-32.5-29.5-53-64.9-57.7-20.2-2.7-41.5-3.3-62-3.6v44.5c0 37.1-16 66.2-46.1 80.3-22.3 10.4-46 13.6-70.3 13.6-22 0-43.6-2.3-64-8.2-29-8.4-49.3-26.6-57-56.4-6-23.3-5.4-47.4-5.5-71.3V89c-.2-28.5 8.2-51.5 28.5-69.3 25-22 56.7-24 89.5-24 40.8.2 75.7 2.6 104.9 7.4 26.6 4.4 44.1 17.7 49 44.8l8.5 47H375.4c-18 0-32.8 5-42.7 18-6.4 8.5-9 18.7-9 29.3v23.7h40c35 0 66.3 5 91.2 28.9 20.9 20.1 23.8 48.7 23.6 79.6v4c0 26.5-4.5 50.6-19.8 71.1-21 28-50.8 34-83.6 35.8-40 .2-80 .1-120 .1-12.3 0-20.7 7.8-20.7 20.2v29.7c0 22 6 40.2 22 54 13.6 11.7 27 13.7 44 13.8 16.2 0 32.5 0 48.7 0v-29.5c0-14.8 12-26.8 26.8-26.8s26.8 12 26.8 26.8V459c-51.2 0-102.48 0-153.65 0z"
-                        fill="var(--primary-glow)" />
-                    </svg>
-                  </div>
-                  <!-- Django -->
-                  <div class="orbit-icon icon-django" title="Django">
-                    <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M49 11C28 11 11 28 11 49C11 70 28 87 49 87C59 87 68 83 75 76V87H87V11H75V40C68 33 59 29 49 29C28 29 11 46 11 67C11 88 28 105 49 105C70 105 87 88 87 67V11H49ZM49 89C37 89 27 79 27 67C27 55 37 45 49 45C61 45 71 55 71 67C71 79 61 89 49 89Z"
-                        fill="var(--primary-glow)" />
-                    </svg>
-                  </div>
-                  <!-- PostgreSQL -->
-                  <div class="orbit-icon icon-postgresql" title="PostgreSQL">
-                    <svg viewBox="0 0 128 128" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M64 4c-12.8 0-25 5-34 14C21 27 16 39.2 16 52c0 24 18 43.6 42 47.4V124h12V99.4c24-3.8 42-23.4 42-47.4 0-12.8-5-25-14-34C89 9 76.8 4 64 4zm28.7 80.7C85.5 90 75 93 64 93c-11 0-21.5-3-28.7-8.3C27.5 79 22 70.3 22 60c0-10.3 5.5-19 13.3-24.7C42.5 30 53 27 64 27c11 0 21.5 3 28.7 8.3C100.5 41 106 49.7 106 60c0 10.3-5.5 19-13.3 24.7z"
-                        fill="var(--secondary-accent)" />
-                      <path
-                        d="M64 35c-8 0-15.4 2.3-20.7 6.4C37.8 45.4 34 51.5 34 58c0 6.5 3.8 12.6 9.3 16.6C48.6 78.7 56 81 64 81c8 0 15.4-2.3 20.7-6.4C90.2 70.6 94 64.5 94 58c0-6.5-3.8-12.6-9.3-16.6C79.4 37.3 72 35 64 35z"
-                        fill="var(--primary-glow)" />
-                    </svg>
-                  </div>
-                  <!-- PHP -->
-                  <div class="orbit-icon icon-php" title="PHP">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M50 82C22.3858 82 0 59.6142 0 32C0 19.5 8 10 18 10C28 10 32 18 32 28C32 40 22 50 14 58C22.5 58 31 52 38 46M38 46C42 42 46 36 46 28C46 16 38 10 28 10M38 46C44.5 40 50.5 32 50.5 22C50.5 12 44.5 6 34.5 6M62 6C72 6 78 12 78 22C78 34 68 44 60 52C68.5 52 77 46 84 40M84 40C88 36 92 30 92 22C92 10 84 6 74 6"
-                        stroke="var(--primary-glow)" stroke-width="6" stroke-linecap="round" />
-                    </svg>
-                  </div>
-                </div>
-
-                <!-- Main Glowing Avatar -->
-                <div class="avatar-wrapper">
-                  <img src="/cyber_avatar.png" alt="Abhinav Cybernetic Avatar" class="avatar-image">
-                  <div class="avatar-glow"></div>
-                </div>
-              </div>
-
-              <!-- Right Column: Profile Info Monospace Section -->
-              <div class="profile-info">
-                <div class="profile-header">
-                  <span class="profile-user">abhinav</span><span class="profile-at">@</span><span
-                    class="profile-host">portfolio</span>
-                </div>
-                <div class="profile-divider">-----------------</div>
-                <div class="profile-list">
-                  <div class="profile-line">
-                    <span class="label">Username</span>: <span class="value val-primary">abhinav@portfolio</span>
-                  </div>
-                  <div class="profile-line">
-                    <span class="label">Role</span>: <span class="value val-secondary">Full Stack Developer</span>
-                  </div>
-                  <div class="profile-line">
-                    <span class="label">Location</span>: <span class="value val-white">Kerala, India</span>
-                  </div>
-                  <div class="profile-line">
-                    <span class="label">Stack</span>: <span class="value val-white">Mern • Php • Python Django •
-                      Flutter</span>
-                  </div>
-                  <div class="profile-line">
-                    <span class="label">Status</span>: <span class="value val-green">Available for Work ✓</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- System Message Output at Bottom -->
-            <div class="terminal-row output-row">
-              <span class="system-message">&gt;&gt; SYSTEM READY</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- HUD Accent Elements -->
-        <div class="hud-element hud-line-y"></div>
-        <div class="hud-element hud-angle-ur"></div>
-        <div class="hud-element hud-angle-bl"></div>
-        <div class="hud-element hud-dots"></div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <div class="about-container">
-
-      <!-- Left Area (55%): Story & Bento Grid -->
-      <div class="about-left">
-        <div class="section-header">
-          <span class="section-label">01 — ABOUT</span>
-          <h2 class="section-title">Building Digital Products with Purpose</h2>
-          <p class="section-subtitle">Transforming ideas into scalable, user-focused web experiences through modern
-            technologies and clean architecture.</p>
-        </div>
-
-        <div class="personal-story">
-          <h3 class="story-heading">Who Am I?</h3>
-          <p class="story-content">
-            I'm Abhinav, a passionate Full Stack Developer focused on building modern web applications using React,
-            Next.js, Django, and PostgreSQL. I enjoy solving real-world problems, learning new technologies, and
-            creating clean, efficient digital experiences that users love.
+          <p class="hero-subtext">
+            I build clean, modern &amp; scalable web applications with passion and purpose.
           </p>
+
+          <div class="hero-btn-group">
+            <a href="#projects" class="btn-blue-primary">
+              <span>View My Work</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="/Abhinav_P_Full%20stack_Resume.pdf" download="Abhinav_P_Full stack_Resume.pdf" class="link-download-cv">
+              <span>Download CV</span>
+              <i data-lucide="download"></i>
+            </a>
+          </div>
         </div>
 
-        <!-- Bento Grid -->
-        <div class="bento-grid">
-          <!-- Card 1: Projects -->
-          <div class="bento-card">
-            <div class="bento-card-header">
-              <span class="bento-counter" data-value="10" data-suffix="+">0</span>
-              <div class="bento-icon-wrapper icon-rose">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" class="bento-icon">
-                  <path d="M4.5 16.5c-1.5 1.26-2 3.42-2 3.42s2.16-.5 3.42-2L17.5 6.5 13.5 2.5 4.5 16.5z" />
-                  <path d="M12 5l7 7-1.5 1.5-7-7L12 5z" />
-                  <path d="M9 15l-1.5-1.5" />
-                  <path d="M19 9l2.5-2.5a2.12 2.12 0 0 0-3-3L16 6" />
-                </svg>
-              </div>
-            </div>
-            <div class="bento-card-footer">
-              <h4 class="bento-title">Projects</h4>
-              <p class="bento-description">Full Stack Applications</p>
-            </div>
-          </div>
-
-          <!-- Card 2: Technologies -->
-          <div class="bento-card">
-            <div class="bento-card-header">
-              <span class="bento-counter" data-value="15" data-suffix="+">0</span>
-              <div class="bento-icon-wrapper icon-purple">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" class="bento-icon">
-                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
-                  <rect x="9" y="9" width="6" height="6" />
-                  <path d="M9 1v3" />
-                  <path d="M15 1v3" />
-                  <path d="M9 20v3" />
-                  <path d="M15 20v3" />
-                  <path d="M20 9h3" />
-                  <path d="M20 15h3" />
-                  <path d="M1 9h3" />
-                  <path d="M1 15h3" />
-                </svg>
-              </div>
-            </div>
-            <div class="bento-card-footer">
-              <h4 class="bento-title">Technologies</h4>
-              <p class="bento-description">Modern Tools & Frameworks</p>
-            </div>
-          </div>
-
-          <!-- Card 3: Learning -->
-          <div class="bento-card">
-            <div class="bento-card-header">
-              <span class="bento-counter" data-value="∞">∞</span>
-              <div class="bento-icon-wrapper icon-purple">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" class="bento-icon">
-                  <path
-                    d="M12 12C9.5 8.7 6.5 7 4.5 7a5.5 5.5 0 0 0 0 11c2 0 5-1.7 7.5-5zm0 0c2.5 3.3 5.5 5 7.5 5a5.5 5.5 0 0 0 0-11c-2 0-5 1.7-7.5 5z" />
-                </svg>
-              </div>
-            </div>
-            <div class="bento-card-footer">
-              <h4 class="bento-title">Learning</h4>
-              <p class="bento-description">Continuous Growth</p>
-            </div>
-          </div>
-
-          <!-- Card 4: Status -->
-          <div class="bento-card">
-            <div class="bento-card-header">
-              <span class="bento-counter" data-value="Open">Open</span>
-              <div class="bento-icon-wrapper icon-rose">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" class="bento-icon">
-                  <path d="M12 2v4" />
-                  <path d="M12 18v4" />
-                  <path d="M4.93 4.93l2.83 2.83" />
-                  <path d="M16.24 16.24l2.83 2.83" />
-                  <path d="M2 12h4" />
-                  <path d="M18 12h4" />
-                  <path d="M4.93 19.07l2.83-2.83" />
-                  <path d="M16.24 7.76l2.83-2.83" />
-                </svg>
-              </div>
-            </div>
-            <div class="bento-card-footer">
-              <h4 class="bento-title">Status</h4>
-              <p class="bento-description">Available for Opportunities</p>
-            </div>
+        <!-- Today's Plan Notebook Card -->
+        <div class="todays-plan-card wobble-hover">
+          <div class="plan-card-header">TODAY'S PLAN</div>
+          <ul class="plan-checkbox-list">
+            <li>
+              <input type="checkbox" id="chk1" checked>
+              <label for="chk1">Build something cool</label>
+            </li>
+            <li>
+              <input type="checkbox" id="chk2" checked>
+              <label for="chk2">Learn something new</label>
+            </li>
+            <li>
+              <input type="checkbox" id="chk3" checked>
+              <label for="chk3">Help someone</label>
+            </li>
+            <li>
+              <input type="checkbox" id="chk4" checked>
+              <label for="chk4">Repeat</label>
+            </li>
+          </ul>
+          <span class="plan-star-doodle">★</span>
+          <!-- Pen doodle lying next to notebook -->
+          <div class="pen-sketch-doodle">
+            <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 10 L85 10 L95 14 L85 18 L5 18 Z M15 10 L15 18" />
+            </svg>
           </div>
         </div>
       </div>
 
-      <!-- Right Area (45%): Profile Dashboard -->
-      <div class="about-right">
-        <div class="terminal-card about-terminal">
-          <div class="terminal-header">
-            <div class="window-controls">
-              <span class="control-dot close"></span>
-              <span class="control-dot minimize"></span>
-              <span class="control-dot expand"></span>
-            </div>
-            <div class="terminal-title">developer_profile.json</div>
-            <div class="terminal-status-indicator">● JSON</div>
+      <!-- Right Column: Hand-drawn Workspace Scene -->
+      <div class="hero-right-col">
+
+        <!-- Available Sticky Note (Top Right) -->
+        <div class="sticky-available-note wobble-hover">
+          <div class="sticky-tape-top"></div>
+          <p>Available for Freelance &amp; Full-time Opportunities</p>
+          <span class="sticky-star">⭐</span>
+        </div>
+
+        <!-- Plant Sketch (Far Right) -->
+        <div class="potted-plant-sketch">
+          <div class="plant-leaves">🪴</div>
+          <div class="plant-pot">
+            <span>Stay Hungry<br>Stay Foolish</span>
           </div>
-          <div class="terminal-body">
-            <pre class="json-code"><code>{
-  <span class="json-key">"name"</span>: <span class="json-val-string">"Abhinav"</span>,
-  <span class="json-key">"role"</span>: <span class="json-val-string">"Full Stack Developer"</span>,
-  <span class="json-key">"location"</span>: <span class="json-val-string">"Kerala, India"</span>,
-  <span class="json-key">"experience"</span>: <span class="json-val-string">"Building Since 2023"</span>,
-  <span class="json-key">"specialization"</span>: [
-    <span class="json-val-string">"React"</span>,
-    <span class="json-val-string">"Next.js"</span>,
-    <span class="json-val-string">"Django"</span>,
-    <span class="json-val-string">"Node.js"</span>,
-    <span class="json-val-string">"PostgreSQL"</span>
-  ],
-  <span class="json-key">"currentlyLearning"</span>: [
-    <span class="json-val-string">"AWS"</span>,
-    <span class="json-val-string">"Docker"</span>,
-    <span class="json-val-string">"System Design"</span>
-  ],
-  <span class="json-key">"availability"</span>: <span class="json-val-string">"Available for Work"</span>,
-  <span class="json-key">"focus"</span>: <span class="json-val-string">"Scalable Web Applications"</span>
-}</code></pre>
+        </div>
+
+        <!-- Laptop Workspace Illustration Card with Interactive Terminal -->
+        <div class="sketch-laptop-wrapper">
+          <div class="laptop-screen-frame">
+            <div class="terminal-body-text" id="terminal-output">
+              <div class="terminal-line green-text">~ about_me.sh</div>
+              <div class="terminal-line">&gt; whoami</div>
+              <div class="terminal-line indent-text">Abhinav P</div>
+              <div class="terminal-line">&gt; role</div>
+              <div class="terminal-line indent-text">Full Stack Developer</div>
+              <div class="terminal-line">&gt; passion</div>
+              <div class="terminal-line indent-text">Building digital solutions that make an impact</div>
+            </div>
+
+            <!-- Interactive Terminal Command Line Input -->
+            <div class="terminal-interactive-line">
+              <span class="terminal-prompt">&gt;</span>
+              <input type="text" id="terminal-input" placeholder="type 'help' or 'skills'..." autocomplete="off">
+            </div>
+
+            <!-- Taped Note on Screen -->
+            <div class="sticky-screen-note wobble-hover">
+              <p>Code. Create. Solve. Repeat. 🙂</p>
+            </div>
+          </div>
+
+          <div class="laptop-keyboard-base">
+            <div class="trackpad-sketch"></div>
+          </div>
+        </div>
+
+        <!-- Coffee Mug & Flowchart Section (Below Laptop) -->
+        <div class="hero-desk-bottom-row">
+
+          <!-- Coffee Mug (Interactive Sip Counter!) -->
+          <div class="coffee-mug-sketch wobble-hover" id="coffee-mug-trigger" title="Click to take a sip! ☕">
+            <div class="mug-branding">{ }</div>
+            <div class="mug-text">COFFEE FUELS CODE</div>
+            <div class="sip-counter-badge">Sips: <span id="sip-count">4</span></div>
+          </div>
+
+          <!-- Flowchart Spiral Notebook -->
+          <div class="flowchart-notebook wobble-hover">
+            <div class="notebook-spiral-top"></div>
+            <div class="flowchart-diagram">
+              <div class="flow-box">IDEA</div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-box">PLAN</div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-box">IMPACT</div>
+              <div class="flow-row-2">
+                <div class="flow-box">CODE</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">TEST</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">DEPLOY</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 100% Developer Badge -->
+          <div class="badge-developer-black wobble-hover">
+            <span class="badge-line-1">100%</span>
+            <span class="badge-line-2">DEVELOPER</span>
+            <span class="badge-line-3">0% LUCK</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- // TECH STACK Section with Continuous Infinite Sliding Marquee -->
+  <section id="skills" class="tech-stack-sketch-section">
+    <div class="section-sketch-container">
+
+      <div class="section-sketch-header">
+        <h2 class="highlighter-heading purple-highlight">// TECH STACK</h2>
+      </div>
+
+      <!-- Sliding Infinite Marquee Track -->
+      <div class="sketch-marquee-banner">
+        <div class="sketch-marquee-track">
+          <!-- Group 1 -->
+          <div class="sketch-marquee-group">
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="atom" class="tech-icon react"></i> <span class="tech-name">React</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="server" class="tech-icon node"></i> <span class="tech-name">Node.js</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="network" class="tech-icon express"></i> <span class="tech-name">Express.js</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="database" class="tech-icon mongo"></i> <span class="tech-name">MongoDB</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="wind" class="tech-icon tailwind"></i> <span class="tech-name">Tailwind</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="file-json" class="tech-icon js"></i> <span class="tech-name">JavaScript</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="code-2" class="tech-icon ts"></i> <span class="tech-name">TypeScript</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="git-branch" class="tech-icon git"></i> <span class="tech-name">Git</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="flame" class="tech-icon firebase"></i> <span class="tech-name">Firebase</span></div>
+          </div>
+          <!-- Group 2 Duplicate for Seamless Loop -->
+          <div class="sketch-marquee-group" aria-hidden="true">
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="atom" class="tech-icon react"></i> <span class="tech-name">React</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="server" class="tech-icon node"></i> <span class="tech-name">Node.js</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="network" class="tech-icon express"></i> <span class="tech-name">Express.js</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="database" class="tech-icon mongo"></i> <span class="tech-name">MongoDB</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="wind" class="tech-icon tailwind"></i> <span class="tech-name">Tailwind</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="file-json" class="tech-icon js"></i> <span class="tech-name">JavaScript</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="code-2" class="tech-icon ts"></i> <span class="tech-name">TypeScript</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="git-branch" class="tech-icon git"></i> <span class="tech-name">Git</span></div>
+            <div class="tech-sketch-item wobble-hover"><i data-lucide="flame" class="tech-icon firebase"></i> <span class="tech-name">Firebase</span></div>
           </div>
         </div>
       </div>
@@ -427,636 +283,235 @@
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <div class="skills-container">
-      <div class="section-header">
-        <span class="section-label">02 — SKILLS</span>
-        <h2 class="section-title">UNLOCKED ABILITIES</h2>
-        <p class="section-subtitle">Categorized modules of my core software engineering and technological capabilities.
-        </p>
+  <!-- // FEATURED PROJECTS Section -->
+  <section id="projects" class="projects-sketch-section">
+    <div class="section-sketch-container">
+
+      <div class="section-sketch-header space-between">
+        <h2 class="highlighter-heading green-highlight">// FEATURED PROJECTS</h2>
+        <a href="#projects" class="link-view-all">View All Projects →</a>
       </div>
 
-      <!-- Skills Grid Layout -->
-      <div class="skills-grid-wrapper">
-        <div class="skills-grid-container">
-          <!-- FRONTEND MAGIC -->
-          <div class="skills-grid-card">
-            <div class="skills-grid-card-header">
-              <h3 class="skills-grid-card-title">FRONTEND MAGIC</h3>
-              <span class="skills-grid-card-icon">✨</span>
-            </div>
-            <div class="skills-grid-card-body">
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-html5">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M1.5 0h21l-1.9 21.2L12 24l-8.6-2.8L1.5 0zm17.3 17.3l1.3-14.7H3.9l1.3 14.7L12 20.1l6.8-2.8zM12 5.5l3.8-.1-.4 3.7H12v2.7h3.1l-.4 4-2.7 1.1-2.7-1.1-.2-2h-2.7l.4 4.7 5.2 2.1 5.2-2.1.8-8.7H8.7l-.2-2.7H12V5.5z" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">HTML5</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-css3">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M1.5 0h21l-1.9 21.2L12 24l-8.6-2.8L1.5 0zm17.3 17.3l1.3-14.7H3.9l1.3 14.7L12 20.1l6.8-2.8zM12 5.5v2.7H8.6l-.2-2.7H12zm0 5.4v2.7H9.2l-.2-2.7H12zm0 5.4l-2.7-1.1-.2-2H6.4l.4 4.7 5.2 2.1 5.2-2.1.8-8.7H12v2.7h3.1l-.4 4.4z" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">CSS3</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-js">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M0 0h24v24H0V0zm20.8 17.8c-.8-1.5-2.2-2.3-4.1-2.3-1.8 0-2.8.9-2.8 2.2 0 1.2.7 1.8 2.3 2.5l1 .4c2 .9 3.1 1.8 3.1 4.1 0 2.7-2.1 4.4-5.3 4.4-3.1 0-5.1-1.4-5.9-3.7l2.2-1.3c.5 1.3 1.6 2.1 3.7 2.1 1.9 0 3-.9 3-2.1 0-1.4-.8-2-2.4-2.7l-1-.4c-2.3-.9-3.3-2.1-3.3-4.1 0-2.5 2-4.1 4.9-4.1 2.6 0 4.3 1.1 5.2 3.1l-2.1 1.4z" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">JavaScript</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-react">
-                  <svg viewBox="-11.5 -10.23174 23 20.46348" fill="none">
-                    <circle cx="0" cy="0" r="2.05" fill="currentColor" />
-                    <g stroke="currentColor" stroke-width="1">
-                      <ellipse rx="11" ry="4.2" />
-                      <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-                      <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-                    </g>
-                  </svg>
-                </div>
-                <span class="skill-badge-label">React</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-tailwind">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Tailwind CSS</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-bootstrap">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-12.7-4v8.1h3.3c1.5 0 2.2-.7 2.2-1.9 0-.9-.5-1.5-1.4-1.7.7-.2 1.1-.8 1.1-1.6 0-1.1-.7-1.9-2.1-1.9H9.3zm1.6 1.4h1.3c.6 0 .9.3.9.8s-.3.8-.9.8h-1.3V9.4zm0 2.9h1.5c.6 0 .9.3.9.8s-.3.8-.9.8h-1.5v-1.8z" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Bootstrap</span>
-              </div>
+      <div class="projects-sketch-grid">
+
+        <!-- Card 1: TaskVibe -->
+        <article class="project-sketch-card paper-clipped wobble-hover">
+          <div class="paper-clip-icon">📎</div>
+          
+          <div class="project-cover-frame">
+            <span class="cover-tag-sketch">// TASKVIBE_UI.PNG</span>
+            <img src="/taskvibe.png" alt="TaskVibe Cover" class="project-cover-img">
+            <div class="cover-doodle-overlay">
+              <span class="cover-star">★</span>
             </div>
           </div>
 
-          <!-- BACKEND SORCERY -->
-          <div class="skills-grid-card">
-            <div class="skills-grid-card-header">
-              <h3 class="skills-grid-card-title">BACKEND SORCERY</h3>
-              <span class="skills-grid-card-icon">⚙️</span>
+          <div class="card-sketch-header">
+            <div class="project-title-meta">
+              <h3 class="project-sketch-name">TaskVibe</h3>
+              <p class="project-sketch-tagline">Kanban Workspace Platform</p>
             </div>
-            <div class="skills-grid-card-body">
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-node">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Node.js</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-express">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 12h18M3 6h18M3 18h18" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Express.js</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-php">
-                  <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round">
-                    <path
-                      d="M50 82C22.3858 82 0 59.6142 0 32C0 19.5 8 10 18 10C28 10 32 18 32 28C32 40 22 50 14 58C22.5 58 31 52 38 46M38 46C42 42 46 36 46 28C46 16 38 10 28 10M38 46C44.5 40 50.5 32 50.5 22C50.5 12 44.5 6 34.5 6M62 6C72 6 78 12 78 22C78 34 68 44 60 52C68.5 52 77 46 84 40M84 40C88 36 92 30 92 22C92 10 84 6 74 6" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">PHP</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-laravel">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="2" width="20" height="20" rx="4" />
-                    <path d="M8 12h8m-4-4v8" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Laravel</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-python">
-                  <svg viewBox="0 0 458.74 459" fill="currentColor">
-                    <path
-                      d="M229.35 0c-43.23.1-80.44 2.8-111.45 8.2-54.8 9.5-84.5 32-98.8 77.2-16.1 51-12.7 101.4-.2 150.3 8.3 32.5 29.5 53 64.9 57.7 20.2 2.7 41.5 3.3 62 3.6v-44.5c0-37.1 16-66.2 46.1-80.3 22.3-10.4 46-13.6 70.3-13.6 22 0 43.6 2.3 64 8.2 29 8.4 49.3 26.6 57 56.4 6 23.3 5.4 47.4 5.5 71.3V370c.2 28.5-8.2 51.5-28.5 69.3-25 22-56.7 24-89.5 24-40.8-.2-75.7-2.6-104.9-7.4-26.6-4.4-44.1-17.7-49-44.8l-8.5-47h34.6c18 0 32.8-5 42.7-18 6.4-8.5 9-18.7 9-29.3v-23.7h-40c-35 0-66.3-5-91.2-28.9C2.7 282.8-.2 254.2 0 223.3v-4c0-26.5 4.5-50.6 19.8-71.1 21-28 50.8-34 83.6-35.8 40-.2 80-.1 120-.1 12.3 0 20.7-7.8 20.7-20.2v-29.7c0-22-6-40.2-22-54C208.5 2.2 195 .2 178 .1c-16.2 0-32.5 0-48.7 0v29.5c0 14.8-12 26.8-26.8 26.8s-26.8-12-26.8-26.8V0c51.2 0 102.5 0 153.65 0z" />
-                    <path
-                      d="M229.35 459c43.24-.1 80.44-2.8 111.45-8.2 54.8-9.5 84.5-32 98.8-77.2 16.1-51 12.7-101.4.2-150.3-8.3-32.5-29.5-53-64.9-57.7-20.2-2.7-41.5-3.3-62-3.6v44.5c0 37.1-16 66.2-46.1 80.3-22.3 10.4-46 13.6-70.3 13.6-22 0-43.6-2.3-64-8.2-29-8.4-49.3-26.6-57-56.4-6-23.3-5.4-47.4-5.5-71.3V89c-.2-28.5 8.2-51.5 28.5-69.3 25-22 56.7-24 89.5-24 40.8.2 75.7 2.6 104.9 7.4 26.6 4.4 44.1 17.7 49 44.8l8.5 47H375.4c-18 0-32.8 5-42.7 18-6.4 8.5-9 18.7-9 29.3v23.7h40c35 0 66.3 5 91.2 28.9 20.9 20.1 23.8 48.7 23.6 79.6v4c0 26.5-4.5 50.6-19.8 71.1-21 28-50.8 34-83.6 35.8-40 .2-80 .1-120 .1-12.3 0-20.7 7.8-20.7 20.2v29.7c0 22 6 40.2 22 54 13.6 11.7 27 13.7 44 13.8 16.2 0 32.5 0 48.7 0v-29.5c0-14.8 12-26.8 26.8-26.8s26.8 12 26.8 26.8V459c-51.2 0-102.48 0-153.65 0z" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Python</span>
-              </div>
+          </div>
+          <p class="project-sketch-desc">
+            Sleek Kanban board application featuring drag-and-drop task management, tag filtering, and persistent state storage.
+          </p>
+          <div class="project-sketch-tech-badges">
+            <span class="tech-mini-badge"><i data-lucide="atom"></i></span>
+            <span class="tech-mini-badge"><i data-lucide="server"></i></span>
+            <span class="tech-mini-badge"><i data-lucide="database"></i></span>
+          </div>
+          <div class="card-sketch-footer">
+            <a href="project.html?id=taskvibe" class="btn-live-demo">View Project Details →</a>
+            <div class="card-doodle-doodles">
+              <span class="doodle-heart">♡</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: FitTrack -->
+        <article class="project-sketch-card green-taped wobble-hover">
+          <div class="tape-strip green-tape"></div>
+          
+          <div class="project-cover-frame">
+            <span class="cover-tag-sketch">// FITTRACK_UI.PNG</span>
+            <img src="/fittrack.png" alt="FitTrack Cover" class="project-cover-img">
+            <div class="cover-doodle-overlay">
+              <span class="cover-star">☆</span>
             </div>
           </div>
 
-          <!-- DATA VAULTS -->
-          <div class="skills-grid-card">
-            <div class="skills-grid-card-header">
-              <h3 class="skills-grid-card-title">DATA VAULTS</h3>
-              <span class="skills-grid-card-icon">🗄️</span>
+          <div class="card-sketch-header">
+            <div class="project-title-meta">
+              <h3 class="project-sketch-name">FitTrack</h3>
+              <p class="project-sketch-tagline">Fitness Analytics Dashboard</p>
             </div>
-            <div class="skills-grid-card-body">
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-mongo">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zM12 6v12M8 10h8" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">MongoDB</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-mysql">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <ellipse cx="12" cy="5" rx="9" ry="3" />
-                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-                    <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">MySQL</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-firebase">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="5 3 19 12 5 21 5 3" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Firebase</span>
-              </div>
+          </div>
+          <p class="project-sketch-desc">
+            A digital fitness analytics platform to track, manage, and explore workout routines and calorie goals online.
+          </p>
+          <div class="project-sketch-tech-badges">
+            <span class="tech-mini-badge"><i data-lucide="atom"></i></span>
+            <span class="tech-mini-badge"><i data-lucide="server"></i></span>
+            <span class="tech-mini-badge"><i data-lucide="database"></i></span>
+          </div>
+          <div class="card-sketch-footer">
+            <a href="project.html?id=fittrack" class="btn-live-demo">View Project Details →</a>
+            <div class="card-doodle-doodles">
+              <span class="doodle-star-sm">☆</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: ByteForge -->
+        <article class="project-sketch-card blue-taped wobble-hover">
+          <div class="tape-strip blue-tape"></div>
+
+          <div class="project-cover-frame">
+            <span class="cover-tag-sketch">// BYTEFORGE_UI.PNG</span>
+            <img src="/byteforge.png" alt="ByteForge Cover" class="project-cover-img">
+            <div class="cover-doodle-overlay">
+              <span class="cover-star">&lt;/&gt;</span>
             </div>
           </div>
 
-          <!-- CLOUD KINGDOMS -->
-          <div class="skills-grid-card">
-            <div class="skills-grid-card-header">
-              <h3 class="skills-grid-card-title">CLOUD KINGDOMS</h3>
-              <span class="skills-grid-card-icon">☁️</span>
-            </div>
-            <div class="skills-grid-card-body">
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-api">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="16 18 22 12 16 6" />
-                    <polyline points="8 6 2 12 8 18" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">REST APIs</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-jwt">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">JWT Authentication</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-git">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="18" cy="18" r="3" />
-                    <circle cx="6" cy="6" r="3" />
-                    <circle cx="6" cy="18" r="3" />
-                    <path d="M18 15V9a4 4 0 0 0-4-4H9" />
-                    <line x1="6" y1="9" x2="6" y2="15" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Git</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-github">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">GitHub</span>
-              </div>
+          <div class="card-sketch-header">
+            <div class="project-title-meta">
+              <h3 class="project-sketch-name">ByteForge</h3>
+              <p class="project-sketch-tagline">AI Developer Assistant</p>
             </div>
           </div>
+          <p class="project-sketch-desc">
+            AI-driven development companion that auto-generates unit tests, explains functions, and suggests optimizations in real time.
+          </p>
+          <div class="project-sketch-tech-badges">
+            <span class="tech-mini-badge"><i data-lucide="atom"></i></span>
+            <span class="tech-mini-badge"><i data-lucide="server"></i></span>
+            <span class="tech-mini-badge"><i data-lucide="database"></i></span>
+          </div>
+          <div class="card-sketch-footer">
+            <a href="project.html?id=byteforge" class="btn-live-demo">View Project Details →</a>
+            <div class="card-doodle-doodles">
+              <span class="doodle-brackets">&lt;/&gt;</span>
+            </div>
+          </div>
+        </article>
 
-          <!-- APP DEVELOPMENT -->
-          <div class="skills-grid-card">
-            <div class="skills-grid-card-header">
-              <h3 class="skills-grid-card-title">APP DEVELOPMENT</h3>
-              <span class="skills-grid-card-icon">📱</span>
-            </div>
-            <div class="skills-grid-card-body">
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-flutter">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="12 2 2 12 12 22 22 12" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Flutter</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-dart">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Dart</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-firebase">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="5 3 19 12 5 21 5 3" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Firebase</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- AI & AUTOMATION -->
-          <div class="skills-grid-card">
-            <div class="skills-grid-card-header">
-              <h3 class="skills-grid-card-title">AI & AUTOMATION</h3>
-              <span class="skills-grid-card-icon">🤖</span>
-            </div>
-            <div class="skills-grid-card-body">
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-openai">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10" />
-                    <path
-                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">OpenAI API</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-brain">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                      d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1 0-3.12 3 3 0 0 1 0-4.88 2.5 2.5 0 0 1 0-3.12A2.5 2.5 0 0 1 9.5 2zM14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 0-3.12 3 3 0 0 0 0-4.88 2.5 2.5 0 0 0 0-3.12A2.5 2.5 0 0 0 14.5 2z" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Prompt Engineering</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-robot">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="11" width="18" height="10" rx="2" />
-                    <path d="M12 2v4M12 6H8m4 0h4M6 16h.01M18 16h.01" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">AI Integrations</span>
-              </div>
-              <div class="skill-badge">
-                <div class="skill-badge-icon icon-python">
-                  <svg viewBox="0 0 458.74 459" fill="currentColor">
-                    <path
-                      d="M229.35 0c-43.23.1-80.44 2.8-111.45 8.2-54.8 9.5-84.5 32-98.8 77.2-16.1 51-12.7 101.4-.2 150.3 8.3 32.5 29.5 53 64.9 57.7 20.2 2.7 41.5 3.3 62 3.6v-44.5c0-37.1 16-66.2 46.1-80.3 22.3-10.4 46-13.6 70.3-13.6 22 0 43.6 2.3 64 8.2 29 8.4 49.3 26.6 57 56.4 6 23.3 5.4 47.4 5.5 71.3V370c.2 28.5-8.2 51.5-28.5 69.3-25 22-56.7 24-89.5 24-40.8-.2-75.7-2.6-104.9-7.4-26.6-4.4-44.1-17.7-49-44.8l-8.5-47h34.6c18 0 32.8-5 42.7-18 6.4-8.5 9-18.7 9-29.3v-23.7h-40c-35 0-66.3-5-91.2-28.9C2.7 282.8-.2 254.2 0 223.3v-4c0-26.5 4.5-50.6 19.8-71.1 21-28 50.8-34 83.6-35.8 40-.2 80-.1 120-.1 12.3 0 20.7-7.8 20.7-20.2v-29.7c0-22-6-40.2-22-54C208.5 2.2 195 .2 178 .1c-16.2 0-32.5 0-48.7 0v29.5c0 14.8-12 26.8-26.8 26.8s-26.8-12-26.8-26.8V0c51.2 0 102.5 0 153.65 0z" />
-                    <path
-                      d="M229.35 459c43.24-.1 80.44-2.8 111.45-8.2 54.8-9.5 84.5-32 98.8-77.2 16.1-51 12.7-101.4.2-150.3-8.3-32.5-29.5-53-64.9-57.7-20.2-2.7-41.5-3.3-62-3.6v44.5c0 37.1-16 66.2-46.1 80.3-22.3 10.4-46 13.6-70.3 13.6-22 0-43.6-2.3-64-8.2-29-8.4-49.3-26.6-57-56.4-6-23.3-5.4-47.4-5.5-71.3V89c-.2-28.5 8.2-51.5 28.5-69.3 25-22 56.7-24 89.5-24 40.8.2 75.7 2.6 104.9 7.4 26.6 4.4 44.1 17.7 49 44.8l8.5 47H375.4c-18 0-32.8 5-42.7 18-6.4 8.5-9 18.7-9 29.3v23.7h40c35 0 66.3 5 91.2 28.9 20.9 20.1 23.8 48.7 23.6 79.6v4c0 26.5-4.5 50.6-19.8 71.1-21 28-50.8 34-83.6 35.8-40 .2-80 .1-120 .1-12.3 0-20.7 7.8-20.7 20.2v29.7c0 22 6 40.2 22 54 13.6 11.7 27 13.7 44 13.8 16.2 0 32.5 0 48.7 0v-29.5c0-14.8 12-26.8 26.8-26.8s26.8 12 26.8 26.8V459c-51.2 0-102.48 0-153.65 0z" />
-                  </svg>
-                </div>
-                <span class="skill-badge-label">Python Automation</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Tech & Tools Marquee Banner Section -->
-  <section class="tech-marquee-section">
-    <div class="skills-marquee-container">
-      <div class="skills-marquee-track">
-        <!-- Group 1 -->
-        <div class="skills-marquee-group">
-          <div class="marquee-item">
-            <svg viewBox="-11.5 -10.23174 23 20.46348" fill="none">
-              <circle cx="0" cy="0" r="2.05" fill="currentColor" />
-              <ellipse rx="11" ry="4.2" />
-              <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-              <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-            </svg>
-            <span>REACT</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-            <span>NODE.JS</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
-              <path
-                d="M50 82C22.3858 82 0 59.6142 0 32C0 19.5 8 10 18 10C28 10 32 18 32 28C32 40 22 50 14 58C22.5 58 31 52 38 46M38 46C42 42 46 36 46 28C46 16 38 10 28 10M38 46C44.5 40 50.5 32 50.5 22C50.5 12 44.5 6 34.5 6M62 6C72 6 78 12 78 22C78 34 68 44 60 52C68.5 52 77 46 84 40M84 40C88 36 92 30 92 22C92 10 84 6 74 6" />
-            </svg>
-            <span>PHP</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 2 12 12 22 22 12" />
-            </svg>
-            <span>FLUTTER</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 458.74 459" fill="currentColor">
-              <path
-                d="M229.35 0c-43.23.1-80.44 2.8-111.45 8.2-54.8 9.5-84.5 32-98.8 77.2-16.1 51-12.7 101.4-.2 150.3 8.3 32.5 29.5 53 64.9 57.7 20.2 2.7 41.5 3.3 62 3.6v-44.5c0-37.1 16-66.2 46.1-80.3 22.3-10.4 46-13.6 70.3-13.6 22 0 43.6 2.3 64 8.2 29 8.4 49.3 26.6 57 56.4 6 23.3 5.4 47.4 5.5 71.3V370c.2 28.5-8.2 51.5-28.5 69.3-25 22-56.7 24-89.5 24-40.8-.2-75.7-2.6-104.9-7.4-26.6-4.4-44.1-17.7-49-44.8l-8.5-47h34.6c18 0 32.8-5 42.7-18 6.4-8.5 9-18.7 9-29.3v-23.7h-40c-35 0-66.3-5-91.2-28.9C2.7 282.8-.2 254.2 0 223.3v-4c0-26.5 4.5-50.6 19.8-71.1 21-28 50.8-34 83.6-35.8 40-.2 80-.1 120-.1 12.3 0 20.7-7.8 20.7-20.2v-29.7c0-22-6-40.2-22-54C208.5 2.2 195 .2 178 .1c-16.2 0-32.5 0-48.7 0v29.5c0 14.8-12 26.8-26.8 26.8s-26.8-12-26.8-26.8V0c51.2 0 102.5 0 153.65 0z" />
-              <path
-                d="M229.35 459c43.24-.1 80.44-2.8 111.45-8.2 54.8-9.5 84.5-32 98.8-77.2 16.1-51 12.7-101.4.2-150.3-8.3-32.5-29.5-53-64.9-57.7-20.2-2.7-41.5-3.3-62-3.6v44.5c0 37.1-16 66.2-46.1 80.3-22.3 10.4-46 13.6-70.3 13.6-22 0-43.6-2.3-64-8.2-29-8.4-49.3-26.6-57-56.4-6-23.3-5.4-47.4-5.5-71.3V89c-.2-28.5 8.2-51.5 28.5-69.3 25-22 56.7-24 89.5-24 40.8.2 75.7 2.6 104.9 7.4 26.6 4.4 44.1 17.7 49 44.8l8.5 47H375.4c-18 0-32.8 5-42.7 18-6.4 8.5-9 18.7-9 29.3v23.7h40c35 0 66.3 5 91.2 28.9 20.9 20.1 23.8 48.7 23.6 79.6v4c0 26.5-4.5 50.6-19.8 71.1-21 28-50.8 34-83.6 35.8-40 .2-80 .1-120 .1-12.3 0-20.7 7.8-20.7 20.2v29.7c0 22 6 40.2 22 54 13.6 11.7 27 13.7 44 13.8 16.2 0 32.5 0 48.7 0v-29.5c0-14.8 12-26.8 26.8-26.8s26.8 12 26.8 26.8V459c-51.2 0-102.48 0-153.65 0z" />
-            </svg>
-            <span>PYTHON</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-              <path d="M12 6v6l4 2" />
-            </svg>
-            <span>REDIS</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" />
-            </svg>
-            <span>VS CODE</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="2" width="20" height="20" rx="4" />
-              <path d="M8 12h8m-4-4v8" />
-            </svg>
-            <span>DOCKER</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="18" cy="18" r="3" />
-              <circle cx="6" cy="6" r="3" />
-              <circle cx="6" cy="18" r="3" />
-              <path d="M18 15V9a4 4 0 0 0-4-4H9" />
-              <line x1="6" y1="9" x2="6" y2="15" />
-            </svg>
-            <span>GIT</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" />
-              <path
-                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20" />
-            </svg>
-            <span>POSTMAN</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 2 22 22 22" />
-            </svg>
-            <span>VERCEL</span>
-          </div>
-        </div>
-        <!-- Group 2 (Duplicate for seamless loop) -->
-        <div class="skills-marquee-group" aria-hidden="true">
-          <div class="marquee-item">
-            <svg viewBox="-11.5 -10.23174 23 20.46348" fill="none">
-              <circle cx="0" cy="0" r="2.05" fill="currentColor" />
-              <ellipse rx="11" ry="4.2" />
-              <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-              <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-            </svg>
-            <span>REACT</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-            <span>NODE.JS</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
-              <path
-                d="M50 82C22.3858 82 0 59.6142 0 32C0 19.5 8 10 18 10C28 10 32 18 32 28C32 40 22 50 14 58C22.5 58 31 52 38 46M38 46C42 42 46 36 46 28C46 16 38 10 28 10M38 46C44.5 40 50.5 32 50.5 22C50.5 12 44.5 6 34.5 6M62 6C72 6 78 12 78 22C78 34 68 44 60 52C68.5 52 77 46 84 40M84 40C88 36 92 30 92 22C92 10 84 6 74 6" />
-            </svg>
-            <span>PHP</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 2 12 12 22 22 12" />
-            </svg>
-            <span>FLUTTER</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 458.74 459" fill="currentColor">
-              <path
-                d="M229.35 0c-43.23.1-80.44 2.8-111.45 8.2-54.8 9.5-84.5 32-98.8 77.2-16.1 51-12.7 101.4-.2 150.3 8.3 32.5 29.5 53 64.9 57.7 20.2 2.7 41.5 3.3 62 3.6v-44.5c0-37.1 16-66.2 46.1-80.3 22.3-10.4 46-13.6 70.3-13.6 22 0 43.6 2.3 64 8.2 29 8.4 49.3 26.6 57 56.4 6 23.3 5.4 47.4 5.5 71.3V370c.2 28.5-8.2 51.5-28.5 69.3-25 22-56.7 24-89.5 24-40.8-.2-75.7-2.6-104.9-7.4-26.6-4.4-44.1-17.7-49-44.8l-8.5-47h34.6c18 0 32.8-5 42.7-18 6.4-8.5 9-18.7 9-29.3v-23.7h-40c-35 0-66.3-5-91.2-28.9C2.7 282.8-.2 254.2 0 223.3v-4c0-26.5 4.5-50.6 19.8-71.1 21-28 50.8-34 83.6-35.8 40-.2 80-.1 120-.1 12.3 0 20.7-7.8 20.7-20.2v-29.7c0-22-6-40.2-22-54C208.5 2.2 195 .2 178 .1c-16.2 0-32.5 0-48.7 0v29.5c0 14.8-12 26.8-26.8 26.8s-26.8-12-26.8-26.8V0c51.2 0 102.5 0 153.65 0z" />
-              <path
-                d="M229.35 459c43.24-.1 80.44-2.8 111.45-8.2 54.8-9.5 84.5-32 98.8-77.2 16.1-51 12.7-101.4.2-150.3-8.3-32.5-29.5-53-64.9-57.7-20.2-2.7-41.5-3.3-62-3.6v44.5c0 37.1-16 66.2-46.1 80.3-22.3 10.4-46 13.6-70.3 13.6-22 0-43.6-2.3-64-8.2-29-8.4-49.3-26.6-57-56.4-6-23.3-5.4-47.4-5.5-71.3V89c-.2-28.5 8.2-51.5 28.5-69.3 25-22 56.7-24 89.5-24 40.8.2 75.7 2.6 104.9 7.4 26.6 4.4 44.1 17.7 49 44.8l8.5 47H375.4c-18 0-32.8 5-42.7 18-6.4 8.5-9 18.7-9 29.3v23.7h40c35 0 66.3 5 91.2 28.9 20.9 20.1 23.8 48.7 23.6 79.6v4c0 26.5-4.5 50.6-19.8 71.1-21 28-50.8 34-83.6 35.8-40 .2-80 .1-120 .1-12.3 0-20.7 7.8-20.7 20.2v29.7c0 22 6 40.2 22 54 13.6 11.7 27 13.7 44 13.8 16.2 0 32.5 0 48.7 0v-29.5c0-14.8 12-26.8 26.8-26.8s26.8 12 26.8 26.8V459c-51.2 0-102.48 0-153.65 0z" />
-            </svg>
-            <span>PYTHON</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-              <path d="M12 6v6l4 2" />
-            </svg>
-            <span>REDIS</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" />
-            </svg>
-            <span>VS CODE</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="2" width="20" height="20" rx="4" />
-              <path d="M8 12h8m-4-4v8" />
-            </svg>
-            <span>DOCKER</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="18" cy="18" r="3" />
-              <circle cx="6" cy="6" r="3" />
-              <circle cx="6" cy="18" r="3" />
-              <path d="M18 15V9a4 4 0 0 0-4-4H9" />
-              <line x1="6" y1="9" x2="6" y2="15" />
-            </svg>
-            <span>GIT</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" />
-              <path
-                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20" />
-            </svg>
-            <span>POSTMAN</span>
-          </div>
-          <div class="marquee-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 2 22 22 22" />
-            </svg>
-            <span>VERCEL</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- // EXPERIENCE & EDUCATION Section (Side-by-Side 2-Column Notebook Layout) -->
+  <section id="experience" class="exp-edu-sketch-section">
+    <div class="section-sketch-container">
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section">
-    <div class="projects-container">
-      <div class="section-header">
-        <span class="section-label">03 — PROJECTS</span>
-        <h2 class="section-title">PROJECTS</h2>
-        <p class="section-subtitle">Showcase of projects categorized by complexity level.</p>
-      </div>
+      <div class="exp-edu-grid">
 
-      <!-- Project Filter Controls -->
-      <div class="project-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="beginner">Beginner</button>
-        <button class="filter-btn" data-filter="intermediate">Intermediate</button>
-        <button class="filter-btn" data-filter="advanced">Advanced</button>
-      </div>
+        <!-- LEFT COLUMN: EXPERIENCE -->
+        <div class="exp-edu-notebook-card wobble-hover">
+          <div class="tape-strip green-tape top-center"></div>
 
-      <!-- Projects Grid -->
-      <div class="projects-grid">
-        <!-- Project 1: TaskVibe (Beginner) -->
-        <div class="project-card" data-complexity="beginner">
-          <div class="project-image-wrapper">
-            <img src="/taskvibe.png" alt="TaskVibe Project Thumbnail" class="project-image">
+          <div class="exp-edu-card-header">
+            <h2 class="highlighter-heading blue-highlight">// EXPERIENCE</h2>
+            <span class="exp-trophy-badge">🏆 Work History</span>
           </div>
-          <div class="project-card-content">
-            <div class="project-tags">
-              <span class="project-tag">HTML5</span>
-              <span class="project-tag">CSS3</span>
-              <span class="project-tag">JavaScript</span>
+
+          <div class="experience-timeline-container">
+            
+            <!-- Experience Item 1 -->
+            <div class="exp-timeline-card">
+              <div class="exp-timeline-marker"></div>
+              <div class="exp-card-content">
+                <div class="exp-meta-row">
+                  <span class="exp-date-badge">2024 — PRESENT</span>
+                  <span class="exp-role-hl green-hl">Freelance Developer</span>
+                </div>
+                <h4 class="exp-company-name">Independent Client Projects</h4>
+                <p class="exp-description-text">
+                  Building scalable web applications, REST APIs &amp; database schemas for global clients.
+                </p>
+                <ul class="exp-bullets">
+                  <li>Full-stack React &amp; Node.js applications</li>
+                  <li>Modern UI designs with custom micro-interactions</li>
+                  <li>PostgreSQL &amp; MongoDB database architecture</li>
+                </ul>
+              </div>
             </div>
-            <h3 class="project-name">TaskVibe</h3>
-            <p class="project-description">A sleek Kanban board application with drag-and-drop task management, custom
-              task tags, and persistent local storage.</p>
-            <a href="project.html?id=taskvibe" class="btn-case-study round">Case Study</a>
+
+            <!-- Experience Item 2 -->
+            <div class="exp-timeline-card">
+              <div class="exp-timeline-marker"></div>
+              <div class="exp-card-content">
+                <div class="exp-meta-row">
+                  <span class="exp-date-badge">2023 — 2024</span>
+                  <span class="exp-role-hl blue-hl">Full Stack Intern</span>
+                </div>
+                <h4 class="exp-company-name">Tech Solutions Lab</h4>
+                <p class="exp-description-text">
+                  Collaborated with senior engineering team on user modules and REST endpoint APIs.
+                </p>
+                <ul class="exp-bullets">
+                  <li>Built interactive dashboard components in React</li>
+                  <li>Optimized API response performance by 30%</li>
+                  <li>Participated in daily agile sprints &amp; code reviews</li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- Project 2: FitTrack (Intermediate) -->
-        <div class="project-card" data-complexity="intermediate">
-          <div class="project-image-wrapper">
-            <img src="/fittrack.png" alt="FitTrack Project Thumbnail" class="project-image">
-          </div>
-          <div class="project-card-content">
-            <div class="project-tags">
-              <span class="project-tag">React</span>
-              <span class="project-tag">Tailwind CSS</span>
-              <span class="project-tag">Firebase</span>
-            </div>
-            <h3 class="project-name">FitTrack</h3>
-            <p class="project-description">A modern dashboard offering real-time progress charts, goal tracking, and
-              calorie counting integrations.</p>
-            <a href="project.html?id=fittrack" class="btn-case-study round">Case Study</a>
-          </div>
-        </div>
+        <!-- RIGHT COLUMN: EDUCATION -->
+        <div class="exp-edu-notebook-card wobble-hover">
+          <div class="tape-strip blue-tape top-center"></div>
 
-        <!-- Project 3: ByteForge (Advanced) -->
-        <div class="project-card" data-complexity="advanced">
-          <div class="project-image-wrapper">
-            <img src="/byteforge.png" alt="ByteForge Project Thumbnail" class="project-image">
-          </div>
-          <div class="project-card-content">
-            <div class="project-tags">
-              <span class="project-tag">Next.js</span>
-              <span class="project-tag">Django</span>
-              <span class="project-tag">PostgreSQL</span>
-              <span class="project-tag">OpenAI API</span>
-            </div>
-            <h3 class="project-name">ByteForge</h3>
-            <p class="project-description">An AI-driven development companion that auto-generates unit tests, explains
-              complex functions, and suggests optimizations.</p>
-            <a href="project.html?id=byteforge" class="btn-case-study round">Case Study</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience & Education Section -->
-  <section id="education" class="resume-section">
-    <div class="resume-container">
-
-      <!-- Experience Column -->
-      <div class="resume-column experience-column">
-        <h2 class="resume-column-title">EXPERIENCE</h2>
-
-        <div class="timeline">
-          <!-- Timeline Item 1 -->
-          <div class="timeline-item">
-            <div class="timeline-dot-wrapper">
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-card">
-              <span class="timeline-date">2024-NOW</span>
-              <h3 class="timeline-card-title">Sr. Full-Stack Dev</h3>
-              <h4 class="timeline-card-subtitle">FREELANCE & STARTUP DEV</h4>
-              <p class="timeline-card-desc">Building high-performance SaaS platforms and AI integrations.</p>
-            </div>
+          <div class="exp-edu-card-header">
+            <h2 class="highlighter-heading purple-highlight">// EDUCATION</h2>
+            <span class="exp-trophy-badge">🎓 Academic Background</span>
           </div>
 
-          <!-- Timeline Item 2 -->
-          <div class="timeline-item">
-            <div class="timeline-dot-wrapper">
-              <div class="timeline-dot"></div>
+          <div class="experience-timeline-container">
+            
+            <!-- Education Item 1 -->
+            <div class="exp-timeline-card">
+              <div class="exp-timeline-marker"></div>
+              <div class="exp-card-content">
+                <div class="exp-meta-row">
+                  <span class="exp-date-badge">2020 — 2024</span>
+                  <span class="exp-role-hl purple-hl">B.Tech Computer Science</span>
+                </div>
+                <h4 class="exp-company-name">APJ Abdul Kalam Technological University</h4>
+                <p class="exp-description-text">
+                  Comprehensive degree focused on software engineering, data structures &amp; web architecture.
+                </p>
+                <ul class="exp-bullets">
+                  <li>Data Structures &amp; Algorithms</li>
+                  <li>Full Stack Web Development &amp; Database Systems</li>
+                  <li>Software Engineering Principles &amp; System Design</li>
+                </ul>
+              </div>
             </div>
-            <div class="timeline-card">
-              <span class="timeline-date">2022-2024</span>
-              <h3 class="timeline-card-title">Frontend Engineer</h3>
-              <h4 class="timeline-card-subtitle">TECHCORP SOLUTIONS</h4>
-              <p class="timeline-card-desc">Managed React migrations and architecture for enterprise tools.</p>
-            </div>
-          </div>
-        </div>
 
-      </div>
+            <!-- Education Item 2 -->
+            <div class="exp-timeline-card">
+              <div class="exp-timeline-marker"></div>
+              <div class="exp-card-content">
+                <div class="exp-meta-row">
+                  <span class="exp-date-badge">2018 — 2020</span>
+                  <span class="exp-role-hl yellow-hl">Higher Secondary (CS &amp; Math)</span>
+                </div>
+                <h4 class="exp-company-name">Model Higher Secondary School</h4>
+                <p class="exp-description-text">
+                  Specialized in Computer Science, Mathematics &amp; Physics with distinction honors.
+                </p>
+                <ul class="exp-bullets">
+                  <li>Core Programming &amp; Logic Building</li>
+                  <li>Advanced Mathematics &amp; Problem Solving</li>
+                  <li>Computer Science Fundamentals</li>
+                </ul>
+              </div>
+            </div>
 
-      <!-- Education Column -->
-      <div class="resume-column education-column">
-        <h2 class="resume-column-title">EDUCATION</h2>
-
-        <div class="timeline">
-          <!-- Timeline Item 1 -->
-          <div class="timeline-item">
-            <div class="timeline-dot-wrapper">
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-card">
-              <span class="timeline-date">2022-2025</span>
-              <h3 class="timeline-card-title">BSc Computer Science</h3>
-              <h4 class="timeline-card-subtitle">CAS CHEEMENI</h4>
-              <p class="timeline-card-desc">Completed Bachelor of Science in Computer Science with a focus on software
-                engineering and web technologies.</p>
-            </div>
-          </div>
-
-          <!-- Timeline Item 2 -->
-          <div class="timeline-item">
-            <div class="timeline-dot-wrapper">
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-card">
-              <span class="timeline-date">2020-2022</span>
-              <h3 class="timeline-card-title">Biology Science</h3>
-              <h4 class="timeline-card-subtitle">G.H.S.S CHAYOTH</h4>
-              <p class="timeline-card-desc">Completed higher secondary education in science stream with distinction.</p>
-            </div>
           </div>
         </div>
 
@@ -1065,136 +520,159 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="contact-container">
-      <div class="section-header">
-        <span class="section-label">04 — CONTACT</span>
-        <h2 class="section-title">ESTABLISH CONNECTION</h2>
-        <p class="section-subtitle">Reach out for collaborations, opportunities, or just to say hello.</p>
-      </div>
+  <!-- 2-Column Bottom Grid: About / Stats -->
+  <section class="bottom-two-col-section">
+    <div class="section-sketch-container">
+      <div class="two-col-grid">
 
-      <div class="contact-content">
-        <!-- Left Side: Interactive Contact Info Matrix -->
-        <div class="contact-info">
-          <div class="terminal-card contact-terminal">
-            <div class="terminal-header">
-              <div class="window-controls">
-                <span class="control-dot close"></span>
-                <span class="control-dot minimize"></span>
-                <span class="control-dot expand"></span>
-              </div>
-              <div class="terminal-title">channels_matrix.sh</div>
-              <div class="terminal-status-indicator">● Active</div>
+        <!-- Profile Sketch Card with Real Illustrated Profile Photo -->
+        <div class="profile-sketch-card blue-taped wobble-hover">
+          <div class="tape-strip blue-tape"></div>
+          <div class="portrait-frame-sketch">
+            <img src="/profile.jpg" alt="Abhinav P" class="portrait-img-sketch">
+          </div>
+          <p class="profile-sketch-text">
+            I'm a Full Stack developer who loves turning ideas into real-world digital products. I enjoy solving problems, learning new technologies and building projects that make impact.
+          </p>
+          <a href="#about" class="btn-outline-paper">More About Me →</a>
+        </div>
+
+        <!-- Stats Ring Notebook Card -->
+        <div class="stats-ring-notebook wobble-hover" id="about">
+          <div class="notebook-wire-left">
+            <span class="ring-hole"></span>
+            <span class="ring-hole"></span>
+            <span class="ring-hole"></span>
+            <span class="ring-hole"></span>
+            <span class="ring-hole"></span>
+            <span class="ring-hole"></span>
+            <span class="ring-hole"></span>
+          </div>
+
+          <h3 class="highlighter-heading blue-highlight">// SOME STATS</h3>
+
+          <div class="stats-sketch-grid">
+            <div class="stat-box">
+              <div class="stat-num">15+</div>
+              <div class="stat-label">Projects Completed</div>
+              <span class="stat-doodle">&lt;/&gt;</span>
             </div>
-            <div class="terminal-body">
-              <p class="contact-intro">// Run connections to establish direct communication line:</p>
-
-              <div class="contact-grid">
-                <!-- LinkedIn Card -->
-                <a href="https://www.linkedin.com/in/abhinav-p-dev" target="_blank" class="contact-card-link card-linkedin">
-                  <div class="card-glow"></div>
-                  <div class="card-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" class="contact-icon-svg">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                      <rect x="2" y="9" width="4" height="12"></rect>
-                      <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                  </div>
-                  <div class="card-details">
-                    <span class="card-platform">LINKEDIN</span>
-                    <span class="card-handle">in/abhinav-p-dev</span>
-                  </div>
-                  <span class="card-status-pulse"></span>
-                </a>
-
-                <!-- WhatsApp Card -->
-                <a href="https://wa.me/919778033362" target="_blank" class="contact-card-link card-whatsapp">
-                  <div class="card-glow"></div>
-                  <div class="card-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" class="contact-icon-svg">
-                      <path
-                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div class="card-details">
-                    <span class="card-platform">WHATSAPP</span>
-                    <span class="card-handle">9778033362</span>
-                  </div>
-                  <span class="card-status-pulse"></span>
-                </a>
-
-                <!-- GitHub Card -->
-                <a href="https://github.com/abhinav" target="_blank" class="contact-card-link card-github">
-                  <div class="card-glow"></div>
-                  <div class="card-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" class="contact-icon-svg">
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                      </path>
-                    </svg>
-                  </div>
-                  <div class="card-details">
-                    <span class="card-platform">GITHUB</span>
-                    <span class="card-handle">github/abhinav</span>
-                  </div>
-                  <span class="card-status-pulse"></span>
-                </a>
-
-                <!-- Email Card -->
-                <a href="mailto:abhinavpadoli@gmail.com" class="contact-card-link card-email">
-                  <div class="card-glow"></div>
-                  <div class="card-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" class="contact-icon-svg">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                      <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                  </div>
-                  <div class="card-details">
-                    <span class="card-platform">EMAIL</span>
-                    <span class="card-handle">abhinavpadoli@gmail.com</span>
-                  </div>
-                  <span class="card-status-pulse"></span>
-                </a>
-              </div>
+            <div class="stat-box">
+              <div class="stat-num">10+</div>
+              <div class="stat-label">Happy Clients</div>
+              <span class="stat-doodle">🙂</span>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">2+</div>
+              <div class="stat-label">Years of Experience</div>
+              <span class="stat-doodle">🚀</span>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">∞</div>
+              <div class="stat-label">Lines of Code</div>
+              <span class="stat-doodle">{ }</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Side: Contact Form -->
-        <div class="contact-form-wrapper">
-          <form class="contact-form">
-            <div class="form-group">
-              <label for="form-name" class="form-label">NAME</label>
-              <input type="text" id="form-name" class="form-input" placeholder="Your Name" required>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Card-Based Contact Section (No Black Block) -->
+  <section id="contact" class="modern-contact-section">
+    <div class="section-sketch-container">
+
+      <div class="section-sketch-header centered">
+        <h2 class="highlighter-heading blue-highlight">// LET'S CONNECT</h2>
+        <p class="contact-sketch-subtitle">Have a project in mind or just want to say hi? I'd love to hear from you!</p>
+      </div>
+
+      <div class="contact-cards-layout">
+
+        <!-- Left Column: Social Channels Paper Index Cards Matrix -->
+        <div class="contact-channels-grid">
+          
+          <a href="mailto:abhinavpadoli@gmail.com" class="contact-paper-tile paper-clipped wobble-hover">
+            <div class="paper-clip-mini">📎</div>
+            <div class="tile-icon-box">
+              <i data-lucide="mail"></i>
             </div>
-            <div class="form-group">
-              <label for="form-email" class="form-label">EMAIL</label>
-              <input type="email" id="form-email" class="form-input" placeholder="your@email.com" required>
+            <div class="tile-meta">
+              <span class="tile-channel">EMAIL</span>
+              <span class="tile-handle">abhinavpadoli@gmail.com</span>
             </div>
-            <div class="form-group">
-              <label for="form-message" class="form-label">MESSAGE</label>
-              <textarea id="form-message" class="form-input form-textarea" placeholder="Type your message here..."
-                required></textarea>
+          </a>
+
+          <a href="https://github.com/abhinav-dev-01" target="_blank" class="contact-paper-tile blue-taped wobble-hover">
+            <div class="tape-strip blue-tape"></div>
+            <div class="tile-icon-box">
+              <i data-lucide="git-branch"></i>
             </div>
-            <button type="submit" class="btn btn-primary btn-submit">
-              <span>SEND MESSAGE</span>
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-              </svg>
+            <div class="tile-meta">
+              <span class="tile-channel">GITHUB</span>
+              <span class="tile-handle">github/abhinav-dev-01</span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/abhinav-p-dev" target="_blank" class="contact-paper-tile green-taped wobble-hover">
+            <div class="tape-strip green-tape"></div>
+            <div class="tile-icon-box">
+              <i data-lucide="link-2"></i>
+            </div>
+            <div class="tile-meta">
+              <span class="tile-channel">LINKEDIN</span>
+              <span class="tile-handle">in/abhinav-p-dev</span>
+            </div>
+          </a>
+
+          <a href="https://wa.me/919778033362" target="_blank" class="contact-paper-tile paper-clipped wobble-hover">
+            <div class="paper-clip-mini">📎</div>
+            <div class="tile-icon-box">
+              <i data-lucide="message-square"></i>
+            </div>
+            <div class="tile-meta">
+              <span class="tile-channel">WHATSAPP</span>
+              <span class="tile-handle">+91 9778033362</span>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Right Column: Modern Paper Message Sheet Card -->
+        <div class="contact-message-card wobble-hover">
+          <div class="tape-strip blue-tape top-center"></div>
+          <h3 class="message-card-title">Send Me A Note 📝</h3>
+          <p class="message-card-subtitle">Drop a quick message and I'll get back to you within 24 hours.</p>
+
+          <form class="sketch-paper-form">
+            <div class="form-grid">
+              <input type="text" placeholder="Your Name" required class="sketch-input">
+              <input type="email" placeholder="Your Email" required class="sketch-input">
+            </div>
+            <textarea placeholder="Tell me about your project goals or ideas..." required class="sketch-input sketch-textarea"></textarea>
+            <button type="submit" class="btn-blue-primary">
+              <span>Send Message</span>
+              <span class="btn-arrow">→</span>
             </button>
           </form>
         </div>
+
       </div>
+
     </div>
   </section>
 
-  <!-- Script -->
+  <!-- Clean Paper Footer Bar -->
+  <footer class="clean-paper-footer">
+    <div class="section-sketch-container footer-flex">
+      <span class="copy-text">&copy; 2026 Abhinav P. All rights reserved.</span>
+      <span class="made-with-text">Made with ❤️ and lots of ☕</span>
+      <a href="#hero" class="btn-back-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script type="module" src="/main.js"></script>
 </body>
 

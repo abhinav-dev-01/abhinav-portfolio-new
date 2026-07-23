@@ -1,413 +1,286 @@
-/* ==========================================================================
-   Page Preloader Logic
-   ========================================================================== */
-document.body.classList.add('loading');
+import {
+  createIcons,
+  Download,
+  Play,
+  Atom,
+  Code2,
+  Server,
+  Database,
+  FileCode,
+  FolderGit2,
+  Cpu,
+  Infinity as InfinityIcon,
+  Zap,
+  Sparkles,
+  Palette,
+  FileJson,
+  Wind,
+  LayoutGrid,
+  Network,
+  Code,
+  Layers,
+  Terminal,
+  HardDrive,
+  Flame,
+  Globe,
+  ShieldCheck,
+  GitBranch,
+  Smartphone,
+  Box,
+  BrainCircuit,
+  Bot,
+  Workflow,
+  Container,
+  Send,
+  Triangle,
+  Link2,
+  Mail,
+  Briefcase,
+  GraduationCap,
+  MessageSquare
+} from 'lucide';
 
-function runPreloader() {
-  const loaderWrapper = document.getElementById('loader-wrapper');
-  const percentText = document.getElementById('loader-percent');
-  const progressCircle = document.getElementById('loader-circle');
-  const statusText = document.getElementById('loader-status');
-  
-  if (!loaderWrapper) return;
-  
-  let progress = 0;
-  const maxOffset = 339.29; // 2 * PI * 54 (radius)
-  
-  const statusPhrases = {
-    0: 'Initializing neural link...',
-    20: 'Loading component modules...',
-    45: 'Connecting to database vaults...',
-    70: 'Generating backdrop canvas grid...',
-    90: 'Syncing system aesthetics...'
-  };
-  
-  const interval = setInterval(() => {
-    if (progress < 100) {
-      progress += Math.floor(Math.random() * 3) + 1;
-      if (progress > 100) progress = 100;
-      
-      if (percentText) percentText.textContent = `${progress}%`;
-      
-      if (progressCircle) {
-        const offset = maxOffset - (progress / 100) * maxOffset;
-        progressCircle.style.strokeDashoffset = offset;
+/* ==========================================================================
+   1. Lucide Icons Initializer
+   ========================================================================== */
+function initLucideIcons() {
+  createIcons({
+    icons: {
+      Download,
+      Play,
+      Atom,
+      Code2,
+      Server,
+      Database,
+      FileCode,
+      FolderGit2,
+      Cpu,
+      Infinity: InfinityIcon,
+      Zap,
+      Sparkles,
+      Palette,
+      FileJson,
+      Wind,
+      LayoutGrid,
+      Network,
+      Code,
+      Layers,
+      Terminal,
+      HardDrive,
+      Flame,
+      Globe,
+      ShieldCheck,
+      GitBranch,
+      Smartphone,
+      Box,
+      BrainCircuit,
+      Bot,
+      Workflow,
+      Container,
+      Send,
+      Triangle,
+      Link2,
+      Mail,
+      Briefcase,
+      GraduationCap,
+      MessageSquare
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLucideIcons);
+} else {
+  initLucideIcons();
+}
+
+/* ==========================================================================
+   2. Pencil Cursor Trail Effect
+   ========================================================================== */
+const trailCanvas = document.getElementById('pencil-trail-canvas');
+if (trailCanvas) {
+  const ctx = trailCanvas.getContext('2d');
+  let points = [];
+
+  function resizeCanvas() {
+    trailCanvas.width = window.innerWidth;
+    trailCanvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  window.addEventListener('mousemove', (e) => {
+    points.push({
+      x: e.clientX,
+      y: e.clientY,
+      size: Math.random() * 2.5 + 1.5,
+      opacity: 0.5,
+      color: '#2563EB'
+    });
+
+    if (points.length > 20) points.shift();
+  });
+
+  function renderTrail() {
+    ctx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+    for (let i = 0; i < points.length; i++) {
+      const pt = points[i];
+      pt.opacity -= 0.02;
+
+      if (pt.opacity > 0) {
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, pt.size, 0, Math.PI * 2);
+        ctx.fillStyle = pt.color;
+        ctx.globalAlpha = Math.max(0, pt.opacity);
+        ctx.fill();
       }
-      
-      const currentPhraseThreshold = Object.keys(statusPhrases)
-        .map(Number)
-        .sort((a, b) => b - a)
-        .find(threshold => progress >= threshold);
-      
-      if (currentPhraseThreshold !== undefined && statusText) {
-        statusText.textContent = statusPhrases[currentPhraseThreshold].toUpperCase();
+    }
+    requestAnimationFrame(renderTrail);
+  }
+  renderTrail();
+}
+
+/* ==========================================================================
+   3. Interactive Laptop Terminal Prompt
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const terminalInput = document.getElementById('terminal-input');
+  const terminalOutput = document.getElementById('terminal-output');
+
+  if (terminalInput && terminalOutput) {
+    terminalInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const cmd = terminalInput.value.trim().toLowerCase();
+        terminalInput.value = '';
+
+        const userCmdLine = document.createElement('div');
+        userCmdLine.className = 'terminal-line';
+        userCmdLine.innerHTML = `&gt; <span class="green-text">${cmd}</span>`;
+        terminalOutput.appendChild(userCmdLine);
+
+        let responseText = '';
+        if (cmd === 'help') {
+          responseText = 'Available commands: whoami, skills, projects, contact, clear';
+        } else if (cmd === 'whoami') {
+          responseText = 'Abhinav P — Full Stack Developer & UI Craftsman';
+        } else if (cmd === 'skills') {
+          responseText = 'React, Node.js, Django, PostgreSQL, MongoDB, Tailwind, TypeScript';
+        } else if (cmd === 'projects') {
+          responseText = 'TaskVibe, FitTrack, ByteForge — Click View My Work for details!';
+        } else if (cmd === 'contact') {
+          responseText = 'Email: abhinavpadoli@gmail.com | LinkedIn: in/abhinav-p-dev';
+        } else if (cmd === 'clear') {
+          terminalOutput.innerHTML = '';
+          return;
+        } else if (cmd !== '') {
+          responseText = `Command not recognized: '${cmd}'. Type 'help' for options.`;
+        }
+
+        if (responseText) {
+          const respLine = document.createElement('div');
+          respLine.className = 'terminal-line indent-text';
+          respLine.textContent = responseText;
+          terminalOutput.appendChild(respLine);
+        }
+
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
       }
-    } else {
-      clearInterval(interval);
-      
+    });
+  }
+});
+
+/* ==========================================================================
+   4. Coffee Sip Counter Trigger
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const coffeeTrigger = document.getElementById('coffee-mug-trigger');
+  const sipCountText = document.getElementById('sip-count');
+  let sipCount = 4;
+
+  if (coffeeTrigger && sipCountText) {
+    coffeeTrigger.addEventListener('click', () => {
+      sipCount++;
+      sipCountText.textContent = sipCount;
+      coffeeTrigger.style.transform = 'scale(1.2) rotate(8deg)';
       setTimeout(() => {
-        loaderWrapper.classList.add('fade-out');
-        document.body.classList.remove('loading');
-      }, 300);
-    }
-  }, 30);
-}
-
-// Initialize preloader immediately
-runPreloader();
-
-/* ==========================================================================
-   Canvas Particle Background
-   ========================================================================== */
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-
-let particlesArray = [];
-const activeColors = ['#FF4D9D', '#C026D3', '#8A2BE2'];
-
-// Mouse state
-const mouse = {
-  x: null,
-  y: null,
-  radius: 120
-};
-
-// Set canvas dimensions
-function setCanvasSize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-setCanvasSize();
-window.addEventListener('resize', () => {
-  setCanvasSize();
-  initParticles();
+        coffeeTrigger.style.transform = 'scale(1) rotate(-3deg)';
+      }, 250);
+    });
+  }
 });
 
-// Capture mouse movements
-window.addEventListener('mousemove', (event) => {
-  mouse.x = event.x;
-  mouse.y = event.y;
-});
-
-// Clear mouse coordinates when leaving window
-window.addEventListener('mouseout', () => {
-  mouse.x = null;
-  mouse.y = null;
-});
-
-// Particle Constructor
-class Particle {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 2 + 1;
-    this.speedX = (Math.random() - 0.5) * 0.4;
-    this.speedY = (Math.random() - 0.5) * 0.4;
-    this.color = activeColors[Math.floor(Math.random() * activeColors.length)];
-    this.opacity = Math.random() * 0.5 + 0.2;
-    this.baseOpacity = this.opacity;
-  }
-
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-
-    // Bounce off edges
-    if (this.x < 0 || this.x > canvas.width) this.speedX = -this.speedX;
-    if (this.y < 0 || this.y > canvas.height) this.speedY = -this.speedY;
-
-    // Interactive mouse glow/hover repulsion
-    if (mouse.x !== null && mouse.y !== null) {
-      const dx = mouse.x - this.x;
-      const dy = mouse.y - this.y;
-      const distance = Math.hypot(dx, dy);
-
-      if (distance < mouse.radius) {
-        // Light repulsion effect
-        const force = (mouse.radius - distance) / mouse.radius;
-        const dirX = dx / distance;
-        const dirY = dy / distance;
-        this.x -= dirX * force * 1.5;
-        this.y -= dirY * force * 1.5;
-        this.opacity = Math.min(1, this.baseOpacity + force * 0.5);
-        this.size = Math.min(3.5, this.size + force * 0.5);
-      } else {
-        if (this.opacity > this.baseOpacity) this.opacity -= 0.02;
-        if (this.size > 2) this.size -= 0.05;
-      }
-    }
-  }
-
-  draw() {
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.globalAlpha = this.opacity;
-
-    // Add glow to brighter particles
-    if (this.opacity > 0.5) {
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = this.color;
-    }
-    ctx.fill();
-    ctx.restore();
-  }
-}
-
-// Populate particle array
-function initParticles() {
-  particlesArray = [];
-  const numberOfParticles = Math.floor((canvas.width * canvas.height) / 14000);
-  for (let i = 0; i < numberOfParticles; i++) {
-    particlesArray.push(new Particle());
-  }
-}
-initParticles();
-
-// Particle Animation Loop
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < particlesArray.length; i++) {
-    particlesArray[i].update();
-    particlesArray[i].draw();
-  }
-  requestAnimationFrame(animateParticles);
-}
-animateParticles();
-
-
 /* ==========================================================================
-   Typing Animation Subtitle
-   ========================================================================== */
-const typingTextElement = document.getElementById('typing-text');
-const phrases = [
-  "> Full Stack Developer",
-  "> MERN Stack Architect",
-  "> Python & Php Dev",
-  "> UI/UX Modern Innovator"
-];
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingSpeed = 100;
-
-function typeAnimation() {
-  const currentPhrase = phrases[phraseIndex];
-
-  if (isDeleting) {
-    // Deleting character
-    typingTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
-    charIndex--;
-    typingSpeed = 50; // faster deletion
-  } else {
-    // Typing character
-    typingTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
-    charIndex++;
-    typingSpeed = 120; // standard typing
-  }
-
-  // Handle typing progression
-  if (!isDeleting && charIndex === currentPhrase.length) {
-    // Delay at end of phrase
-    typingSpeed = 2500;
-    isDeleting = true;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    // Move to next phrase
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    typingSpeed = 500; // brief pause before next phrase
-  }
-
-  setTimeout(typeAnimation, typingSpeed);
-}
-
-// Start typing animation
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(typeAnimation, 1000);
-});
-
-
-/* ==========================================================================
-   Terminal Card 3D Tilt Parallax Effect
-   ========================================================================== */
-const terminal = document.getElementById('profile-terminal');
-
-if (terminal) {
-  const container = document.querySelector('.hero-right');
-
-  container.addEventListener('mousemove', (e) => {
-    // Get mouse position relative to terminal card
-    const rect = terminal.getBoundingClientRect();
-    const cardWidth = rect.width;
-    const cardHeight = rect.height;
-
-    // Card center coords
-    const centerX = rect.left + cardWidth / 2;
-    const centerY = rect.top + cardHeight / 2;
-
-    // Mouse distance from center
-    const mouseX = e.clientX - centerX;
-    const mouseY = e.clientY - centerY;
-
-    // Calculate rotation angle (max 12deg tilt)
-    const rotateX = -12 * (mouseY / (window.innerHeight / 2));
-    const rotateY = 12 * (mouseX / (window.innerWidth / 2));
-
-    // Apply styling dynamically
-    // Pause CSS float animation to avoid conflicts during hover
-    terminal.style.animation = 'none';
-    terminal.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-  });
-
-  container.addEventListener('mouseleave', () => {
-    // Reset layout smoothing back to baseline
-    terminal.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-    terminal.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-
-    // Resume CSS float animation after transition completes
-    setTimeout(() => {
-      terminal.style.transition = '';
-      terminal.style.animation = 'float-card 6s ease-in-out infinite';
-    }, 500);
-  });
-}
-
-/* ==========================================================================
-   Bento Card Spotlight & Scroll Counter Animations
+   5. Flying Paper Airplane Animation
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mouse Spotlight Effect for Bento Cards
-  const bentoCards = document.querySelectorAll('.bento-card');
-  bentoCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--x', `${x}px`);
-      card.style.setProperty('--y', `${y}px`);
-    });
-  });
-
-  // 2. Count-up Animation for Bento Counter Elements
-  const counters = document.querySelectorAll('.bento-counter');
-  if (counters.length > 0) {
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const target = entry.target;
-          const targetValueStr = target.getAttribute('data-value');
-          const targetValue = parseInt(targetValueStr, 10);
-
-          if (isNaN(targetValue)) {
-            // Non-numeric counters like infinity or text just display immediately
-            target.textContent = targetValueStr;
-          } else {
-            let start = 0;
-            const suffix = target.getAttribute('data-suffix') || '';
-            const duration = 1200; // ms
-            const stepTime = Math.max(Math.floor(duration / targetValue), 15);
-
-            const interval = setInterval(() => {
-              start++;
-              target.textContent = start + suffix;
-              if (start >= targetValue) {
-                clearInterval(interval);
-                target.textContent = targetValueStr; // ensure exact value is displayed at end
-              }
-            }, stepTime);
-          }
-
-          // Stop observing this element once animated
-          observer.unobserve(target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    counters.forEach(counter => {
-      counterObserver.observe(counter);
+  const planeTrigger = document.getElementById('paper-plane-trigger');
+  if (planeTrigger) {
+    planeTrigger.addEventListener('click', () => {
+      planeTrigger.style.transition = 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+      planeTrigger.style.transform = 'translate(250px, -200px) rotate(45deg) scale(0.3)';
+      setTimeout(() => {
+        planeTrigger.style.transition = 'none';
+        planeTrigger.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
+      }, 1400);
     });
   }
+});
 
-  /* ==========================================================================
-     Unlocked Abilities (Skills) Grid Cards Entry Animation
-     ========================================================================== */
-  const skillCards = document.querySelectorAll('.skills-grid-card');
-  if (skillCards.length > 0) {
-    const skillsObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          // Staggered entry animation for cards
-          setTimeout(() => {
-            entry.target.classList.add('animate-in');
-          }, index * 100);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+/* ==========================================================================
+   6. Mobile Menu Drawer Toggle
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-item');
 
-    skillCards.forEach(card => {
-      skillsObserver.observe(card);
-    });
-  }
-
-  /* ==========================================================================
-     Projects Filtering
-     ========================================================================== */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Set active class on filter buttons
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      // Filter project cards in grid
-      projectCards.forEach(card => {
-        const cardComplexity = card.getAttribute('data-complexity');
-        if (filterValue === 'all' || cardComplexity === filterValue) {
-          card.classList.remove('hide');
-        } else {
-          card.classList.add('hide');
-        }
-      });
-    });
-  });
-
-  /* ==========================================================================
-     Mobile Navigation Toggle
-     ========================================================================== */
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const navLinksMain = document.querySelector('.nav-links-main');
-  const navLinksItems = document.querySelectorAll('.nav-links-main .nav-link');
-
-  if (mobileToggle && navLinksMain) {
-    mobileToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
+  if (mobileToggle && mobileDrawer) {
+    mobileToggle.addEventListener('click', () => {
       mobileToggle.classList.toggle('active');
-      navLinksMain.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
+      mobileDrawer.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking a link
-    navLinksItems.forEach(item => {
-      item.addEventListener('click', () => {
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
         mobileToggle.classList.remove('active');
-        navLinksMain.classList.remove('active');
-        document.body.classList.remove('menu-open');
+        mobileDrawer.classList.remove('active');
       });
     });
+  }
+});
 
-    // Close mobile menu when clicking anywhere outside
-    document.addEventListener('click', (e) => {
-      if (!navLinksMain.contains(e.target) && !mobileToggle.contains(e.target)) {
-        mobileToggle.classList.remove('active');
-        navLinksMain.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      }
+/* ==========================================================================
+   7. Theme Mode Toggle Switcher
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
     });
   }
+});
+
+/* ==========================================================================
+   8. Scroll Spy Navigation
+   ========================================================================== */
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('header[id], section[id], footer[id]');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  let currentSection = '';
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (window.scrollY >= sectionTop) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+
+  navItems.forEach(item => {
+    item.classList.remove('active');
+    if (item.getAttribute('href') === `#${currentSection}`) {
+      item.classList.add('active');
+    }
+  });
 });

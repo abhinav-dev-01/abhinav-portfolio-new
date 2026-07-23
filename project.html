@@ -6,79 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Case Study | Portfolio</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts: Kalam, Caveat, Architects Daughter, Fira Code, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&family=Syncopate:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@600;700&family=Fira+Code:wght@400;500;600&family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body class="project-detail-body">
-  <!-- Preloader Screen -->
-  <div id="loader-wrapper">
-    <div class="loader-scanline"></div>
-    <div class="loader-ambient-glow"></div>
-    <div class="loader-content">
-      <div class="loader-avatar-container">
-        <!-- SVG Circular Progress Ring -->
-        <svg class="loader-svg-ring" viewBox="0 0 120 120">
-          <defs>
-            <linearGradient id="loader-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="var(--primary-glow)" />
-              <stop offset="100%" stop-color="var(--secondary-accent)" />
-            </linearGradient>
-          </defs>
-          <!-- Background track -->
-          <circle class="loader-ring-track" cx="60" cy="60" r="54" />
-          <!-- Animated progress circle -->
-          <circle class="loader-ring-progress" id="loader-circle" cx="60" cy="60" r="54" />
-          <!-- Outer Dashed HUD Ring -->
-          <circle class="loader-hud-ring" cx="60" cy="60" r="58" />
-        </svg>
-        <img src="/cyber_avatar.png" alt="Abhinav" class="loader-avatar">
-        <!-- Target Corner Braces -->
-        <div class="loader-corner top-left"></div>
-        <div class="loader-corner top-right"></div>
-        <div class="loader-corner bottom-left"></div>
-        <div class="loader-corner bottom-right"></div>
-      </div>
-      <div class="loader-percentage" id="loader-percent">0%</div>
-      <div class="loader-status" id="loader-status">INITIALIZING NEURAL LINK...</div>
-    </div>
-  </div>
+<body class="paper-sketch-theme project-detail-page">
 
-  <!-- Animated Background Canvas -->
-  <canvas id="particle-canvas"></canvas>
+  <!-- Graph Paper Grid Background -->
+  <div class="graph-paper-grid"></div>
 
-  <!-- Animated Grid Background -->
-  <div class="grid-background"></div>
-
-  <!-- Ambient Glow Effects -->
-  <div class="ambient-glow purple-glow"></div>
-  <div class="ambient-glow cyan-glow"></div>
-
-  <!-- Navbar -->
-  <nav class="navbar" id="main-navbar">
-    <div class="nav-container">
-      <a href="/" class="logo" id="logo-dev">
-        <span class="logo-bracket">&lt;</span>
-        <span class="logo-text">DEV</span>
-        <span class="logo-bracket">/&gt;</span>
+  <!-- Top Dark Navbar -->
+  <nav class="top-dark-navbar">
+    <div class="nav-sketch-container">
+      <a href="/" class="nav-brand">
+        <span class="nav-code-symbol">&lt;/&gt;</span>
+        <span class="nav-brand-text">Abhinav.dev</span>
       </a>
+
       <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="/#projects" class="nav-link" id="nav-back-home">&larr; BACK TO HOME</a></li>
-        </ul>
-        <a href="/Abhinav_P_Full%20stack_Resume.pdf" download="Abhinav_P_Full stack_Resume.pdf" class="btn-resume-download">
-          <span>RESUME</span>
-          <svg class="resume-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
+        <a href="/#projects" class="link-download-cv" style="color: #FFFFFF; border-color: #FFFFFF;">
+          <span>← Back to All Projects</span>
         </a>
       </div>
     </div>
@@ -87,67 +40,70 @@
   <!-- Project Main Content Container -->
   <main class="project-detail-container">
 
-    <!-- 1. Project Title Section -->
-    <header class="project-detail-header">
-      <h1 id="project-title" class="project-detail-title">LOADING PROJECT...</h1>
-    </header>
+    <article class="project-detail-notebook-card wobble-hover">
+      <div class="tape-strip blue-tape top-center"></div>
 
-    <!-- 2. Used Skills (Row of small cards) -->
-    <section class="project-detail-section skills-row-section">
-      <div class="project-skills-row" id="project-skills">
-        <!-- Dynamic skill card elements go here -->
-      </div>
-    </section>
+      <!-- 1. Centered Project Name & Action Links (Live Demo + GitHub) -->
+      <header class="project-centered-header">
+        <span class="highlighter-heading green-highlight">// CASE STUDY</span>
+        <h1 id="project-title" class="project-centered-title">LOADING PROJECT...</h1>
+        
+        <div class="project-detail-action-btns">
+          <a href="#" id="project-live-demo-link" target="_blank" class="btn-blue-primary">
+            <span>Live Demo ↗</span>
+          </a>
+          <a href="#" id="project-github-link" target="_blank" class="link-download-cv">
+            <span>Source Code ↗</span>
+          </a>
+        </div>
+      </header>
 
-    <!-- 3 & 4. Overview Section (Abstract on Left, Modules on Right) -->
-    <section class="project-detail-section overview-section">
-      <div class="project-overview-content">
+      <!-- 2. Used Skills as Small Cards/Badges -->
+      <section class="project-skills-section">
+        <div class="skills-small-cards-row" id="project-skills">
+          <!-- Dynamic skill mini-cards populate here -->
+        </div>
+      </section>
+
+      <!-- 3 & 4. Grid: Abstract (Left Side) & Modules (Right Side) -->
+      <section class="project-two-col-grid">
+        
         <!-- Left Side: Abstract -->
-        <div class="overview-left">
-          <div class="project-abstract-card">
-            <h3 class="project-section-title">Abstract</h3>
-            <p id="project-abstract" class="project-paragraph">Loading project abstract details...</p>
-          </div>
+        <div class="project-abstract-card">
+          <h3 class="highlighter-heading purple-highlight">// ABSTRACT</h3>
+          <p id="project-abstract" class="project-abstract-text">Loading project abstract...</p>
         </div>
 
         <!-- Right Side: Modules -->
-        <div class="overview-right">
-          <div class="project-modules-card">
-            <h3 class="project-section-title">System Modules</h3>
-            <div id="project-modules" class="project-modules-vertical-list">
-              <!-- Dynamic modules list -->
-            </div>
+        <div class="project-modules-card">
+          <h3 class="highlighter-heading blue-highlight">// SYSTEM MODULES</h3>
+          <div id="project-modules" class="project-modules-list">
+            <!-- Dynamic module cards populate here -->
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- 5. Gallery Section (6 pics, 3 in a row) -->
-    <section class="project-detail-section gallery-section">
-      <h3 class="project-section-title centered-heading">Interface Gallery</h3>
-      <div id="project-gallery" class="project-gallery-grid">
-        <!-- 6 pictures arranged 3 in a row -->
-      </div>
-    </section>
+      </section>
 
-    <!-- 6. Key Features Section -->
-    <section class="project-detail-section features-section">
-      <h3 class="project-section-title centered-heading">Key Features</h3>
-      <ul id="project-features" class="project-features-modern-list">
-        <!-- Dynamic feature elements list -->
-      </ul>
-    </section>
+      <!-- 5. Key Features (Bottom Section) -->
+      <section class="project-features-section">
+        <h3 class="highlighter-heading green-highlight">// KEY FEATURES</h3>
+        <ul id="project-features" class="project-features-grid">
+          <!-- Dynamic feature items populate here -->
+        </ul>
+      </section>
 
-    <!-- Back Button at bottom -->
-    <footer class="project-detail-footer">
-      <a href="/#projects" class="btn btn-secondary">
-        <span>&larr; BACK TO PROJECTS</span>
-      </a>
-    </footer>
+      <!-- Back to Projects Footer -->
+      <footer class="project-detail-footer">
+        <a href="/#projects" class="btn-blue-primary">
+          <span>← Back to All Projects</span>
+        </a>
+      </footer>
+
+    </article>
 
   </main>
 
-  <!-- Script -->
+  <!-- Scripts -->
   <script type="module" src="/project.js"></script>
 </body>
 
