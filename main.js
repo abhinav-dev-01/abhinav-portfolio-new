@@ -220,16 +220,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   5. Mobile Drawer Toggle & Navigation Handlers
+   5. Mobile Drawer Toggle
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const mobileDrawer = document.getElementById('mobile-drawer');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-item, .mobile-quick-link');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-item');
 
   if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
+    mobileToggle.addEventListener('click', () => {
       mobileToggle.classList.toggle('active');
       mobileDrawer.classList.toggle('active');
     });
@@ -239,14 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileToggle.classList.remove('active');
         mobileDrawer.classList.remove('active');
       });
-    });
-
-    // Close drawer when clicking outside nav
-    document.addEventListener('click', (e) => {
-      if (!mobileDrawer.contains(e.target) && !mobileToggle.contains(e.target)) {
-        mobileToggle.classList.remove('active');
-        mobileDrawer.classList.remove('active');
-      }
     });
   }
 });
@@ -264,25 +255,24 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   7. Scroll Spy Navigation (Desktop + Mobile Quick Nav + Drawer)
+   7. Scroll Spy Navigation
    ========================================================================== */
 window.addEventListener('scroll', () => {
   const sections = document.querySelectorAll('header[id], section[id], footer[id]');
-  const allNavItems = document.querySelectorAll('.nav-item, .mobile-quick-link, .mobile-nav-item');
+  const navItems = document.querySelectorAll('.nav-item');
 
   let currentSection = '';
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 130;
+    const sectionTop = section.offsetTop - 120;
     if (window.scrollY >= sectionTop) {
       currentSection = section.getAttribute('id');
     }
   });
 
-  allNavItems.forEach(item => {
+  navItems.forEach(item => {
     item.classList.remove('active');
-    const href = item.getAttribute('href');
-    if (href === `#${currentSection}`) {
+    if (item.getAttribute('href') === `#${currentSection}`) {
       item.classList.add('active');
     }
   });
