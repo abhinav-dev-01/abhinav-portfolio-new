@@ -4,34 +4,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Case Study | Portfolio</title>
+  <title>Project Case Study | Cyberpunk Portfolio</title>
 
-  <!-- Google Fonts: Kalam, Caveat, Architects Daughter, Fira Code, Plus Jakarta Sans -->
+  <!-- Google Fonts: Orbitron, Rajdhani, Share Tech Mono, Fira Code, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@600;700&family=Fira+Code:wght@400;500;600&family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body class="paper-sketch-theme project-detail-page">
+<body class="cyberpunk-theme project-detail-page">
 
-  <!-- Graph Paper Grid Background -->
-  <div class="graph-paper-grid"></div>
+  <!-- Holographic Cyber Grid Background -->
+  <div class="cyber-grid-background"></div>
+
+  <!-- CRT Scanlines Overlay -->
+  <div class="cyber-scanlines"></div>
 
   <!-- Top Dark Navbar -->
-  <nav class="top-dark-navbar">
+  <nav class="top-dark-navbar cyber-hud-navbar">
     <div class="nav-sketch-container">
-      <a href="/" class="nav-brand">
-        <span class="nav-code-symbol">&lt;/&gt;</span>
-        <span class="nav-brand-text">Abhinav.dev</span>
+      <a href="/" class="nav-brand cyber-brand">
+        <span class="nav-code-symbol">&lt;CYBER_DEV/&gt;</span>
+        <span class="nav-brand-text">ABHINAV<span class="cyber-highlight">.SYS</span></span>
       </a>
 
       <div class="nav-right">
-        <a href="/#projects" class="link-download-cv" style="color: #FFFFFF; border-color: #FFFFFF;">
-          <span>← Back to All Projects</span>
+        <a href="/#projects" class="link-download-cv cyber-btn-outline">
+          <span>← BACK TO ALL DECKS</span>
         </a>
       </div>
     </div>
@@ -40,44 +43,47 @@
   <!-- Project Main Content Container -->
   <main class="project-detail-container">
 
-    <article class="project-detail-notebook-card wobble-hover">
-      <div class="tape-strip blue-tape top-center"></div>
+    <article class="project-detail-notebook-card cyber-detail-card">
+      <div class="hud-card-corner top-left"></div>
+      <div class="hud-card-corner top-right"></div>
+      <div class="hud-card-corner bottom-left"></div>
+      <div class="hud-card-corner bottom-right"></div>
 
-      <!-- 1. Centered Project Name & Action Links (Live Demo + GitHub) -->
-      <header class="project-centered-header">
-        <span class="highlighter-heading green-highlight">// CASE STUDY</span>
-        <h1 id="project-title" class="project-centered-title">LOADING PROJECT...</h1>
+      <!-- 1. Centered Project Name & Action Links -->
+      <header class="project-centered-header cyber-centered-header">
+        <span class="highlighter-heading cyber-heading-cyan">// SYSTEM CASE STUDY TELEMETRY</span>
+        <h1 id="project-title" class="project-centered-title cyber-glitch-title">LOADING DECK...</h1>
         
-        <div class="project-detail-action-btns">
-          <a href="#" id="project-live-demo-link" target="_blank" class="btn-blue-primary">
-            <span>Live Demo ↗</span>
+        <div class="project-detail-action-btns cyber-action-btns">
+          <a href="#" id="project-live-demo-link" target="_blank" class="btn-blue-primary cyber-btn-cyan">
+            <span>LIVE DEMO ↗</span>
           </a>
-          <a href="#" id="project-github-link" target="_blank" class="link-download-cv">
-            <span>Source Code ↗</span>
+          <a href="#" id="project-github-link" target="_blank" class="link-download-cv cyber-btn-outline">
+            <span>SOURCE CODE ↗</span>
           </a>
         </div>
       </header>
 
       <!-- 2. Used Skills as Small Cards/Badges -->
       <section class="project-skills-section">
-        <div class="skills-small-cards-row" id="project-skills">
+        <div class="skills-small-cards-row cyber-skills-row" id="project-skills">
           <!-- Dynamic skill mini-cards populate here -->
         </div>
       </section>
 
       <!-- 3 & 4. Grid: Abstract (Left Side) & Modules (Right Side) -->
-      <section class="project-two-col-grid">
+      <section class="project-two-col-grid cyber-two-col-grid">
         
         <!-- Left Side: Abstract -->
-        <div class="project-abstract-card">
-          <h3 class="highlighter-heading purple-highlight">// ABSTRACT</h3>
-          <p id="project-abstract" class="project-abstract-text">Loading project abstract...</p>
+        <div class="project-abstract-card cyber-abstract-card">
+          <h3 class="highlighter-heading cyber-heading-pink">// DECK ABSTRACT</h3>
+          <p id="project-abstract" class="project-abstract-text cyber-abstract-text">Loading deck abstract...</p>
         </div>
 
         <!-- Right Side: Modules -->
-        <div class="project-modules-card">
-          <h3 class="highlighter-heading blue-highlight">// SYSTEM MODULES</h3>
-          <div id="project-modules" class="project-modules-list">
+        <div class="project-modules-card cyber-modules-card">
+          <h3 class="highlighter-heading cyber-heading-cyan">// SYSTEM MODULES</h3>
+          <div id="project-modules" class="project-modules-list cyber-modules-list">
             <!-- Dynamic module cards populate here -->
           </div>
         </div>
@@ -85,17 +91,17 @@
       </section>
 
       <!-- 5. Key Features (Bottom Section) -->
-      <section class="project-features-section">
-        <h3 class="highlighter-heading green-highlight">// KEY FEATURES</h3>
-        <ul id="project-features" class="project-features-grid">
+      <section class="project-features-section cyber-features-section">
+        <h3 class="highlighter-heading cyber-heading-yellow">// CORE CAPABILITIES &amp; FEATURES</h3>
+        <ul id="project-features" class="project-features-grid cyber-features-grid">
           <!-- Dynamic feature items populate here -->
         </ul>
       </section>
 
       <!-- Back to Projects Footer -->
-      <footer class="project-detail-footer">
-        <a href="/#projects" class="btn-blue-primary">
-          <span>← Back to All Projects</span>
+      <footer class="project-detail-footer cyber-detail-footer">
+        <a href="/#projects" class="btn-blue-primary cyber-btn-cyan">
+          <span>← RETURN TO ALL DECKS</span>
         </a>
       </footer>
 

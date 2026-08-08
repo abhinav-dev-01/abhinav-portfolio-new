@@ -36,11 +36,11 @@ if (document.readyState === 'loading') {
 }
 
 /* ==========================================================================
-   Project Details Content Loader
+   Project Details Content Loader (Cyberpunk Telemetry)
    ========================================================================== */
 const projectsData = {
   taskvibe: {
-    name: "TaskVibe",
+    name: "TaskVibe.sys",
     liveDemo: "https://taskvibe-demo.netlify.app",
     github: "https://github.com/abhinav-dev-01/taskvibe",
     skills: ["HTML5", "CSS3", "JavaScript", "Local Storage", "Drag & Drop", "Agile UI"],
@@ -54,13 +54,13 @@ const projectsData = {
       "Seamless HTML5 Drag and Drop API integration",
       "Custom category filtering on the fly",
       "Interactive priority-based color coding",
-      "Responsive dark mode compatibility",
+      "Responsive cyberpunk dark mode compatibility",
       "Instant query search filter updates",
       "Automatic state backup caching"
     ]
   },
   fittrack: {
-    name: "FitTrack",
+    name: "FitTrack.sys",
     liveDemo: "https://fittrack-demo.netlify.app",
     github: "https://github.com/abhinav-dev-01/fittrack",
     skills: ["React", "Tailwind CSS", "Firebase", "Chart.js", "NoSQL Sync"],
@@ -80,7 +80,7 @@ const projectsData = {
     ]
   },
   byteforge: {
-    name: "ByteForge",
+    name: "ByteForge.sys",
     liveDemo: "https://byteforge-demo.netlify.app",
     github: "https://github.com/abhinav-dev-01/byteforge",
     skills: ["Next.js", "Django", "PostgreSQL", "OpenAI API", "JWT Security", "Tailwind"],
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const data = projectsData[projectId] || projectsData.taskvibe;
 
   // Update Page Title in Browser
-  document.title = `${data.name} Case Study | Portfolio`;
+  document.title = `${data.name} Case Study | Cyberpunk Portfolio`;
 
   // 1. Populate Project Name
   const projTitleEl = document.getElementById('project-title');
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     projTitleEl.textContent = data.name.toUpperCase();
   }
 
-  // 1b. Populate Action Links (Live Demo + GitHub)
+  // 1b. Populate Action Links
   const liveDemoLinkEl = document.getElementById('project-live-demo-link');
   if (liveDemoLinkEl) {
     liveDemoLinkEl.href = data.liveDemo || '#';
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     githubLinkEl.href = data.github || '#';
   }
 
-  // 2. Populate Used Skills Row (small card badges)
+  // 2. Populate Used Skills Row
   const skillsRowEl = document.getElementById('project-skills');
   if (skillsRowEl) {
     skillsRowEl.innerHTML = '';

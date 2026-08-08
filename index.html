@@ -4,344 +4,631 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhinav | Full Stack Developer</title>
+  <title>Abhinav P | Full Stack Developer & Cyberpunk Portfolio</title>
   <meta name="description"
-    content="Portfolio of Abhinav — Full Stack Developer building clean, modern & scalable web applications with passion and purpose.">
+    content="Portfolio of Abhinav P — Full Stack Developer building clean, modern, high-performance web applications with Python & modern web technologies.">
 
-  <!-- Google Fonts: Kalam, Caveat, Architects Daughter, Fira Code, Plus Jakarta Sans -->
+  <!-- Google Fonts: Orbitron, Rajdhani, Share Tech Mono, Fira Code, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@600;700&family=Fira+Code:wght@400;500;600&family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body class="paper-sketch-theme">
+<body class="cyberpunk-theme">
 
-  <!-- Graph Paper Grid Background -->
-  <div class="graph-paper-grid"></div>
+  <!-- Holographic Cyber Grid Background -->
+  <div class="cyber-grid-background"></div>
 
-  <!-- Pencil Trail Canvas Overlay for Cursor -->
+  <!-- CRT Scanlines Overlay -->
+  <div class="cyber-scanlines"></div>
+
+  <!-- Cyber Laser Pointer Trail Canvas -->
   <canvas id="pencil-trail-canvas"></canvas>
 
-  <!-- Top Dark Navbar -->
-  <nav class="top-dark-navbar">
+  <!-- TOP CYBERNAV BAR -->
+  <nav class="top-dark-navbar cyber-hud-navbar">
     <div class="nav-sketch-container">
-      <a href="#" class="nav-brand">
-        <span class="nav-code-symbol">&lt;/&gt;</span>
-        <span class="nav-brand-text">Abhinav.dev</span>
+      <a href="#" class="nav-brand cyber-brand">
+        <span class="nav-code-symbol">&lt; DEV /&gt;</span>
       </a>
 
-      <!-- Desktop Links -->
-      <ul class="nav-menu-links">
-        <li><a href="#hero" class="nav-item active">HOME</a></li>
+      <!-- Desktop Nav Links -->
+      <ul class="nav-menu-links cyber-nav-links">
         <li><a href="#about" class="nav-item">ABOUT</a></li>
+        <li><a href="#experience" class="nav-item">EDUCATION</a></li>
         <li><a href="#skills" class="nav-item">SKILLS</a></li>
-        <li><a href="#experience" class="nav-item">EXPERIENCE</a></li>
         <li><a href="#projects" class="nav-item">PROJECTS</a></li>
         <li><a href="#contact" class="nav-item">CONTACT</a></li>
       </ul>
 
       <div class="nav-right-actions">
-        <!-- Theme Switcher / Mode Toggle -->
-        <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Light/Dark Theme">
-          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <span class="toggle-pill"></span>
+        <!-- FX / Theme Toggle -->
+        <button class="theme-toggle-btn cyber-fx-toggle" id="theme-toggle" title="Toggle High Glow FX">
+          ⚡ <span class="toggle-label">FX MODE</span>
         </button>
 
-        <!-- Mobile Hamburger Toggle Button -->
-        <button class="mobile-nav-toggle" id="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+        <!-- Mobile Toggle -->
+        <button class="mobile-nav-toggle cyber-mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
-
     </div>
 
-    <!-- Mobile Drawer Menu Links -->
-    <div class="mobile-drawer-menu" id="mobile-drawer">
-      <a href="#hero" class="mobile-nav-item">HOME</a>
-      <a href="#about" class="mobile-nav-item">ABOUT</a>
-      <a href="#skills" class="mobile-nav-item">SKILLS</a>
-      <a href="#experience" class="mobile-nav-item">EXPERIENCE</a>
-      <a href="#projects" class="mobile-nav-item">PROJECTS</a>
-      <a href="#contact" class="mobile-nav-item">CONTACT</a>
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer-menu cyber-mobile-drawer" id="mobile-drawer">
+      <a href="#hero" class="mobile-nav-item">&gt; HOME</a>
+      <a href="#about" class="mobile-nav-item">&gt; ABOUT</a>
+      <a href="#experience" class="mobile-nav-item">&gt; EDUCATION</a>
+      <a href="#skills" class="mobile-nav-item">&gt; SKILLS</a>
+      <a href="#projects" class="mobile-nav-item">&gt; PROJECTS</a>
+      <a href="#contact" class="mobile-nav-item">&gt; CONTACT</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header id="hero" class="hero-sketch-section">
+  <!-- HERO SECTION WITH NEOFETCH CONSOLE -->
+  <header id="hero" class="cyber-hero-section">
     <div class="hero-sketch-container">
 
-      <!-- Left Column: Hero Greeting & Today's Plan -->
+      <!-- LEFT COLUMN: GREETING & TYPEWRITER -->
       <div class="hero-left-col">
-        <!-- Flying paper airplane doodle -->
-        <div class="floating-airplane-doodle" id="paper-plane-trigger" title="Click to launch paper airplane! ✈️">
-          <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 25 L45 5 L28 45 L20 28 Z M20 28 L45 5" />
-          </svg>
+
+        <!-- Top Corner Bracket -->
+        <div class="hero-corner-bracket top-left">
+          <span>┌</span>
         </div>
 
-        <div class="hero-greeting-box">
-          <h1 class="hero-title-sketch">
-            Hi, I'm <br>
-            <span class="hero-name-first">Abhinav</span> <span class="hero-name-highlight">P</span>
-          </h1>
-
-          <div class="role-pill-black wobble-hover">
-            <span>Full Stack Developer</span>
-            <span class="role-code-brackets">&lt;/&gt;</span>
-          </div>
-
-          <p class="hero-subtext">
-            I build clean, modern &amp; scalable web applications with passion and purpose.
-          </p>
-
-          <div class="hero-btn-group">
-            <a href="#projects" class="btn-blue-primary">
-              <span>View My Work</span>
-              <span class="btn-arrow">→</span>
-            </a>
-            <a href="/Abhinav_P_Full%20stack_Resume.pdf" download="Abhinav_P_Full stack_Resume.pdf" class="link-download-cv">
-              <span>Download CV</span>
-              <i data-lucide="download"></i>
-            </a>
-          </div>
+        <!-- Open to Opportunities Badge -->
+        <div class="hero-opportunities-badge">
+          <span class="badge-dash">──</span>
+          <span class="badge-text">OPEN TO OPPORTUNITIES</span>
         </div>
 
-        <!-- Today's Plan Notebook Card -->
-        <div class="todays-plan-card wobble-hover">
-          <div class="plan-card-header">TODAY'S PLAN</div>
-          <ul class="plan-checkbox-list">
-            <li>
-              <input type="checkbox" id="chk1" checked>
-              <label for="chk1">Build something cool</label>
-            </li>
-            <li>
-              <input type="checkbox" id="chk2" checked>
-              <label for="chk2">Learn something new</label>
-            </li>
-            <li>
-              <input type="checkbox" id="chk3" checked>
-              <label for="chk3">Help someone</label>
-            </li>
-            <li>
-              <input type="checkbox" id="chk4" checked>
-              <label for="chk4">Repeat</label>
-            </li>
-          </ul>
-          <span class="plan-star-doodle">★</span>
-          <!-- Pen doodle lying next to notebook -->
-          <div class="pen-sketch-doodle">
-            <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 10 L85 10 L95 14 L85 18 L5 18 Z M15 10 L15 18" />
-            </svg>
-          </div>
+        <!-- Hero Headline -->
+        <h1 class="hero-title-sketch hero-main-heading">
+          <span class="hero-greeting-prefix">Hello, I'm</span><br>
+          <span class="hero-name-cyan">Abhinav</span>
+        </h1>
+
+        <!-- Typewriter Role Subtitle -->
+        <div class="typewriter-role-box">
+          <span class="typewriter-symbol">&gt;</span>
+          <span class="typewriter-text" id="typewriter-text">Software Developer</span>
+          <span class="typewriter-cursor">|</span>
         </div>
+
+        <!-- Paragraph Description -->
+        <p class="hero-subtext cyber-hero-desc">
+          A passionate software developer who loves turning ideas into real working applications. Focused on building
+          clean, functional web apps using Python and modern web technologies.
+        </p>
+
+        <!-- Action CTAs -->
+        <div class="hero-btn-group">
+          <a href="#projects" class="btn-blue-primary cyber-btn-play">
+            <span class="play-icon">▶</span>
+            <span>VIEW PROJECTS</span>
+          </a>
+          <a href="#contact" class="link-download-cv cyber-btn-contact">
+            <span class="contact-icon">💼</span>
+            <span>CONTACT ME</span>
+          </a>
+        </div>
+
+        <!-- Bottom Corner Bracket -->
+        <div class="hero-corner-bracket bottom-right">
+          <span>┘</span>
+        </div>
+
       </div>
 
-      <!-- Right Column: Hand-drawn Workspace Scene -->
+      <!-- RIGHT COLUMN: NEOFETCH CYBER CONSOLE -->
       <div class="hero-right-col">
+        <div class="neofetch-window-card">
 
-        <!-- Available Sticky Note (Top Right) -->
-        <div class="sticky-available-note wobble-hover">
-          <div class="sticky-tape-top"></div>
-          <p>Available for Freelance &amp; Full-time Opportunities</p>
-          <span class="sticky-star">⭐</span>
-        </div>
-
-        <!-- Plant Sketch (Far Right) -->
-        <div class="potted-plant-sketch">
-          <div class="plant-leaves">🪴</div>
-          <div class="plant-pot">
-            <span>Stay Hungry<br>Stay Foolish</span>
-          </div>
-        </div>
-
-        <!-- Laptop Workspace Illustration Card with Interactive Terminal -->
-        <div class="sketch-laptop-wrapper">
-          <div class="laptop-screen-frame">
-            <div class="terminal-body-text" id="terminal-output">
-              <div class="terminal-line green-text">~ about_me.sh</div>
-              <div class="terminal-line">&gt; whoami</div>
-              <div class="terminal-line indent-text">Abhinav P</div>
-              <div class="terminal-line">&gt; role</div>
-              <div class="terminal-line indent-text">Full Stack Developer</div>
-              <div class="terminal-line">&gt; passion</div>
-              <div class="terminal-line indent-text">Building digital solutions that make an impact</div>
+          <!-- Window Header Bar -->
+          <div class="neofetch-window-header">
+            <div class="window-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
             </div>
-
-            <!-- Interactive Terminal Command Line Input -->
-            <div class="terminal-interactive-line">
-              <span class="terminal-prompt">&gt;</span>
-              <input type="text" id="terminal-input" placeholder="type 'help' or 'skills'..." autocomplete="off">
-            </div>
-
-            <!-- Taped Note on Screen -->
-            <div class="sticky-screen-note wobble-hover">
-              <p>Code. Create. Solve. Repeat. 🙂</p>
-            </div>
+            <span class="window-title">abhinav@portfolio ~</span>
           </div>
 
-          <div class="laptop-keyboard-base">
-            <div class="trackpad-sketch"></div>
-          </div>
-        </div>
+          <!-- Window Content Body -->
+          <div class="neofetch-window-body">
 
-        <!-- Coffee Mug & Flowchart Section (Below Laptop) -->
-        <div class="hero-desk-bottom-row">
+            <!-- Left Side: Circular Badge Orbit -->
+            <div class="neofetch-badge-orbit">
+              <div class="orbit-dashed-ring"></div>
 
-          <!-- Coffee Mug (Interactive Sip Counter!) -->
-          <div class="coffee-mug-sketch wobble-hover" id="coffee-mug-trigger" title="Click to take a sip! ☕">
-            <div class="mug-branding">{ }</div>
-            <div class="mug-text">COFFEE FUELS CODE</div>
-            <div class="sip-counter-badge">Sips: <span id="sip-count">4</span></div>
-          </div>
+              <!-- Floating Orbiting Icons -->
+              <div class="orbit-icon icon-1" title="React"><i data-lucide="atom"></i></div>
+              <div class="orbit-icon icon-2" title="Python"><i data-lucide="code-2"></i></div>
+              <div class="orbit-icon icon-3" title="Node.js"><i data-lucide="server"></i></div>
+              <div class="orbit-icon icon-4" title="Database"><i data-lucide="database"></i></div>
 
-          <!-- Flowchart Spiral Notebook -->
-          <div class="flowchart-notebook wobble-hover">
-            <div class="notebook-spiral-top"></div>
-            <div class="flowchart-diagram">
-              <div class="flow-box">IDEA</div>
-              <span class="flow-arrow">→</span>
-              <div class="flow-box">PLAN</div>
-              <span class="flow-arrow">→</span>
-              <div class="flow-box">IMPACT</div>
-              <div class="flow-row-2">
-                <div class="flow-box">CODE</div>
-                <span class="flow-arrow">→</span>
-                <div class="flow-box">TEST</div>
-                <span class="flow-arrow">→</span>
-                <div class="flow-box">DEPLOY</div>
+              <!-- Center Glowing Badge -->
+              <div class="orbit-center-badge">
+                <span class="badge-letter">A</span>
+                <span class="badge-sub">DEV</span>
               </div>
             </div>
-          </div>
 
-          <!-- 100% Developer Badge -->
-          <div class="badge-developer-black wobble-hover">
-            <span class="badge-line-1">100%</span>
-            <span class="badge-line-2">DEVELOPER</span>
-            <span class="badge-line-3">0% LUCK</span>
+            <!-- Right Side: Neofetch Specs Readout Table -->
+            <div class="neofetch-specs-table">
+
+              <div class="neofetch-user-host">
+                <span class="user-cyan">abhinav</span><span class="user-at">@</span><span
+                  class="host-green">portfolio</span>
+              </div>
+              <div class="neofetch-divider">─────────────────────</div>
+
+              <div class="spec-row">
+                <span class="spec-label">OS</span>
+                <span class="spec-value">Developer Mode 🚀</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Role</span>
+                <span class="spec-value">Software Developer</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Level</span>
+                <span class="spec-value">Full Stack Developer</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Location</span>
+                <span class="spec-value">Kerala, India</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Stack</span>
+                <span class="spec-value">Python · Node.js · React</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">DB</span>
+                <span class="spec-value">MongoDB · PostgreSQL</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Status</span>
+                <span class="spec-value status-open">Open to Work ✓</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Coffee</span>
+                <span class="spec-value coffee-cups" id="coffee-mug-trigger" title="Click to drink coffee! ☕">☕ ☕ ☕ ☕
+                  ☕</span>
+              </div>
+
+            </div>
+
           </div>
 
         </div>
-
       </div>
 
     </div>
   </header>
 
-  <!-- // ABOUT ME Section -->
-  <section id="about" class="bottom-two-col-section">
+  <!-- ABOUT ME SECTION (Dual Overlapping Terminal Deck Layout) -->
+  <section id="about" class="cyber-section about-section-wrapper">
     <div class="section-sketch-container">
 
-      <div class="section-sketch-header">
-        <h2 class="highlighter-heading green-highlight">// ABOUT ME</h2>
-      </div>
-
-      <div class="two-col-grid">
-
-        <!-- Profile Sketch Card with Real Illustrated Profile Photo -->
-        <div class="profile-sketch-card blue-taped wobble-hover">
-          <div class="tape-strip blue-tape"></div>
-          <div class="portrait-frame-sketch">
-            <img src="/profile.jpg" alt="Abhinav P" class="portrait-img-sketch">
-          </div>
-          <p class="profile-sketch-text">
-            I'm a Full Stack developer who loves turning ideas into real-world digital products. I enjoy solving problems, learning new technologies and building projects that make impact.
-          </p>
-          <a href="#contact" class="btn-outline-paper">Get In Touch →</a>
+      <!-- Section Header -->
+      <div class="about-header-box">
+        <div class="about-section-tag">
+          <span class="tag-num">01</span>
+          <span class="tag-dash">──</span>
+          <span class="tag-title">ABOUT</span>
+          <span class="tag-line"></span>
         </div>
 
-        <!-- Stats Ring Notebook Card -->
-        <div class="stats-ring-notebook wobble-hover">
-          <div class="notebook-wire-left">
-            <span class="ring-hole"></span>
-            <span class="ring-hole"></span>
-            <span class="ring-hole"></span>
-            <span class="ring-hole"></span>
-            <span class="ring-hole"></span>
-            <span class="ring-hole"></span>
-            <span class="ring-hole"></span>
+        <h2 class="about-main-headline">
+          Crafting Code<br>
+          <span class="headline-highlight">with Purpose</span>
+        </h2>
+      </div>
+
+      <div class="about-two-col-grid">
+
+        <!-- LEFT COLUMN: Bio Paragraphs & 2x2 Metric Cards Grid -->
+        <div class="about-left-content">
+
+          <div class="about-bio-paragraphs">
+            <p>
+              Hi, I'm <strong>Abhinav</strong>, a passionate <strong>full stack software developer</strong> who enjoys
+              building web applications from the ground up. I love working with Python and JavaScript to create
+              practical, user-friendly solutions.
+            </p>
+            <p>
+              I'm skilled in building full-stack web apps using <strong>Django, React, Node.js, and REST APIs</strong>.
+              I'm a fast learner with a strong urge to write clean and meaningful code every day.
+            </p>
           </div>
 
-          <h3 class="highlighter-heading blue-highlight">// SOME STATS</h3>
+          <!-- 2x2 Metric Cards Grid -->
+          <div class="about-metrics-grid">
 
-          <div class="stats-sketch-grid">
-            <div class="stat-box">
-              <div class="stat-num">15+</div>
-              <div class="stat-label">Projects Completed</div>
-              <span class="stat-doodle">&lt;/&gt;</span>
+            <div class="about-metric-card">
+              <div class="metric-icon">🎓</div>
+              <div class="metric-text">Full Stack Architect</div>
             </div>
-            <div class="stat-box">
-              <div class="stat-num">10+</div>
-              <div class="stat-label">Happy Clients</div>
-              <span class="stat-doodle">🙂</span>
+
+            <div class="about-metric-card">
+              <div class="metric-num">15+</div>
+              <div class="metric-text">Projects Built</div>
             </div>
-            <div class="stat-box">
-              <div class="stat-num">2+</div>
-              <div class="stat-label">Years of Experience</div>
-              <span class="stat-doodle">🚀</span>
+
+            <div class="about-metric-card">
+              <div class="metric-num">11</div>
+              <div class="metric-text">Technologies</div>
             </div>
-            <div class="stat-box">
-              <div class="stat-num">∞</div>
-              <div class="stat-label">Lines of Code</div>
-              <span class="stat-doodle">{ }</span>
+
+            <div class="about-metric-card">
+              <div class="metric-icon">💡</div>
+              <div class="metric-text">Always Learning</div>
             </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Dual Overlapping Workspace Terminal Deck -->
+        <div class="about-right-code-window">
+          <div class="workspace-desk-frame">
+
+            <!-- Main Large Monitor Terminal -->
+            <div class="main-terminal-monitor">
+              <div class="code-window-header">
+                <div class="window-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <span class="window-file-name">abhinav@dev-workspace</span>
+              </div>
+
+              <div class="main-terminal-body">
+                <!-- ASCII Robot Logo -->
+                <div class="ascii-robot-logo">
+                  <pre>
+ /-----\
+| ( ) ( ) |
+ \  ^  /
+  |||||
+  |||||
+                  </pre>
+                </div>
+
+                <!-- Terminal Specs Info -->
+                <div class="terminal-specs-info">
+                  <div class="spec-host-title">abhinav@dev-workspace</div>
+                  <div class="spec-divider">-------------------</div>
+                  <div class="spec-line"><span class="lbl">OS:</span> <span class="val cyan">DevOS v4.2.0</span></div>
+                  <div class="spec-line"><span class="lbl">Host:</span> <span class="val pink">Full Stack
+                      Developer</span></div>
+                  <div class="spec-line"><span class="lbl">Kernel:</span> <span class="val purple">5.15.0-dev</span>
+                  </div>
+                  <div class="spec-line"><span class="lbl">Uptime:</span> <span class="val green">2+ Years, 24/7</span>
+                  </div>
+                  <div class="spec-line"><span class="lbl">Languages:</span> <span class="val white">JavaScript, Python,
+                      Go</span></div>
+                  <div class="spec-line"><span class="lbl">Editor:</span> <span class="val cyan">VSCode / Neovim</span>
+                  </div>
+                  <div class="spec-line"><span class="lbl">Frameworks:</span> <span class="val pink">React, Node.js,
+                      Express</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Overlapping Floating React Code Window -->
+            <div class="floating-code-window">
+              <div class="code-window-header">
+                <div class="window-dots">
+                  <span class="dot green"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot red"></span>
+                </div>
+                <span class="window-file-name">DevWorkspace.jsx</span>
+              </div>
+              <div class="floating-code-body">
+                <pre><code><span class="py-kw">import</span> React <span class="py-kw">from</span> <span class="py-str">'react'</span>;
+
+<span class="py-kw">const</span> <span class="py-class">DevWorkspace</span> = () =&gt; {
+  <span class="py-kw">const</span> [isLoading, setIsLoading] = React.useState(<span class="py-kw">true</span>);
+
+  React.useEffect(() =&gt; {
+    <span class="py-kw">const</span> timer = setTimeout(() =&gt; {
+      setIsLoading(<span class="py-kw">false</span>);
+    }, <span class="py-self">2000</span>);
+    <span class="py-kw">return</span> () =&gt; clearTimeout(timer);
+  }, []);
+
+  <span class="py-kw">return</span> (
+    &lt;<span class="py-func">div</span> className=<span class="py-str">"workspace"</span>&gt;
+      {isLoading ? &lt;<span class="py-class">LoadingScreen</span> /&gt; : &lt;<span class="py-class">MainApp</span> /&gt;}
+    &lt;/<span class="py-func">div</span>&gt;
+  );
+};</code></pre>
+              </div>
+            </div>
+
+            <!-- Bottom Coffee Badge -->
+            <div class="workspace-coffee-badge" id="coffee-mug-trigger-2" title="Click for Coffee! ☕">
+              <div class="badge-icon">☕</div>
+              <div class="badge-text">COFFEE</div>
+            </div>
+
           </div>
         </div>
 
       </div>
+
     </div>
   </section>
 
-  <!-- // TECH STACK Section with Continuous Infinite Sliding Marquee -->
-  <section id="skills" class="tech-stack-sketch-section">
+  <!-- SKILLS SECTION (BENTO GRID LAYOUT) -->
+  <section id="skills" class="tech-stack-sketch-section cyber-section">
     <div class="section-sketch-container">
 
-      <div class="section-sketch-header">
-        <h2 class="highlighter-heading purple-highlight">// TECH STACK</h2>
+      <div class="section-sketch-header cyber-section-header">
+        <div class="about-section-tag">
+          <span class="tag-num">03</span>
+          <span class="tag-dash">──</span>
+          <span class="tag-title">SKILLS &amp; TECH STACK</span>
+          <span class="tag-line"></span>
+        </div>
+        <h2 class="about-main-headline">
+          Technical Arsenal<br>
+          <span class="headline-highlight">&amp; Core Expertise</span>
+        </h2>
       </div>
 
-      <!-- Sliding Infinite Marquee Track -->
-      <div class="sketch-marquee-banner">
-        <div class="sketch-marquee-track">
+      <!-- Bento Grid Container -->
+      <div class="bento-skills-grid">
+
+        <!-- Bento Card 1: Programming Languages -->
+        <article class="bento-card bento-card-languages">
+          <div class="hud-card-corner top-left"></div>
+          <div class="hud-card-corner top-right"></div>
+          <div class="bento-card-header">
+            <div class="bento-icon-wrapper cyan">
+              <i data-lucide="code-2"></i>
+            </div>
+            <div class="bento-title-meta">
+              <span class="bento-category-tag">// CATEGORY 01</span>
+              <h3 class="bento-card-title">Programming Languages</h3>
+            </div>
+          </div>
+          <p class="bento-card-desc">Core languages used for problem-solving, application logic, and full-stack development.</p>
+
+          <div class="skill-pills-list">
+            <div class="skill-pill-item featured">
+              <div class="skill-pill-info">
+                <span class="skill-pill-name"><i data-lucide="terminal"></i> Python</span>
+                <span class="skill-pill-badge">Advanced</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 95%;"></div></div>
+            </div>
+
+            <div class="skill-pill-item featured">
+              <div class="skill-pill-info">
+                <span class="skill-pill-name"><i data-lucide="file-json"></i> JavaScript (ES6+)</span>
+                <span class="skill-pill-badge">Advanced</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 98%;"></div></div>
+            </div>
+
+            <div class="skill-pill-item">
+              <div class="skill-pill-info">
+                <span class="skill-pill-name"><i data-lucide="file-code"></i> TypeScript</span>
+                <span class="skill-pill-badge">Proficient</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 88%;"></div></div>
+            </div>
+
+            <div class="skill-tags-flex">
+              <span class="skill-mini-tag">HTML5 &amp; CSS3</span>
+              <span class="skill-mini-tag">SQL</span>
+              <span class="skill-mini-tag">C Language</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bento Card 2: Frontend Development -->
+        <article class="bento-card bento-card-frontend">
+          <div class="hud-card-corner top-left"></div>
+          <div class="hud-card-corner bottom-right"></div>
+          <div class="bento-card-header">
+            <div class="bento-icon-wrapper pink">
+              <i data-lucide="atom"></i>
+            </div>
+            <div class="bento-title-meta">
+              <span class="bento-category-tag">// CATEGORY 02</span>
+              <h3 class="bento-card-title">Frontend Development</h3>
+            </div>
+          </div>
+          <p class="bento-card-desc">Building responsive, accessible, and high-performance interactive user interfaces.</p>
+
+          <div class="frontend-grid-chips">
+            <div class="tech-card-chip">
+              <div class="chip-head"><i data-lucide="atom" class="icon-react"></i> React.js</div>
+              <span class="chip-sub">Hooks, Context, SPAs</span>
+            </div>
+            <div class="tech-card-chip">
+              <div class="chip-head"><i data-lucide="layers" class="icon-next"></i> Next.js</div>
+              <span class="chip-sub">SSR, App Router</span>
+            </div>
+            <div class="tech-card-chip">
+              <div class="chip-head"><i data-lucide="wind" class="icon-tailwind"></i> Tailwind CSS</div>
+              <span class="chip-sub">Utility-first Styling</span>
+            </div>
+            <div class="tech-card-chip">
+              <div class="chip-head"><i data-lucide="palette" class="icon-css"></i> Vanilla CSS3</div>
+              <span class="chip-sub">Flexbox, Grid, FX</span>
+            </div>
+            <div class="tech-card-chip">
+              <div class="chip-head"><i data-lucide="smartphone" class="icon-responsive"></i> Responsive UI</div>
+              <span class="chip-sub">Mobile-first Design</span>
+            </div>
+            <div class="tech-card-chip">
+              <div class="chip-head"><i data-lucide="zap" class="icon-redux"></i> Redux State</div>
+              <span class="chip-sub">Global State Mgmt</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bento Card 3: Backend Development -->
+        <article class="bento-card bento-card-backend">
+          <div class="hud-card-corner top-left"></div>
+          <div class="hud-card-corner top-right"></div>
+          <div class="bento-card-header">
+            <div class="bento-icon-wrapper yellow">
+              <i data-lucide="server"></i>
+            </div>
+            <div class="bento-title-meta">
+              <span class="bento-category-tag">// CATEGORY 03</span>
+              <h3 class="bento-card-title">Backend Development</h3>
+            </div>
+          </div>
+          <p class="bento-card-desc">Architecting robust web servers, secure APIs, and relational/NoSQL databases.</p>
+
+          <div class="backend-skills-showcase">
+            <div class="backend-row-item">
+              <div class="backend-item-main">
+                <i data-lucide="server" class="icon-node"></i>
+                <div>
+                  <strong class="item-heading">Node.js &amp; Express</strong>
+                  <span class="b-desc">REST API Endpoints, Middleware, Async I/O</span>
+                </div>
+              </div>
+              <span class="b-level">94%</span>
+            </div>
+
+            <div class="backend-row-item">
+              <div class="backend-item-main">
+                <i data-lucide="code" class="icon-django"></i>
+                <div>
+                  <strong class="item-heading">Python &amp; Django</strong>
+                  <span class="b-desc">MVC Architecture, ORM, Auth Systems</span>
+                </div>
+              </div>
+              <span class="b-level">90%</span>
+            </div>
+
+            <div class="backend-row-item">
+              <div class="backend-item-main">
+                <i data-lucide="database" class="icon-db"></i>
+                <div>
+                  <strong class="item-heading">MongoDB &amp; PostgreSQL</strong>
+                  <span class="b-desc">NoSQL Collections, SQL Schemas, Indexing</span>
+                </div>
+              </div>
+              <span class="b-level">92%</span>
+            </div>
+
+            <div class="skill-tags-flex">
+              <span class="skill-mini-tag">REST APIs</span>
+              <span class="skill-mini-tag">JWT Auth</span>
+              <span class="skill-mini-tag">GraphQL Basics</span>
+              <span class="skill-mini-tag">SQLite</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bento Card 4: Deployment & Tools -->
+        <article class="bento-card bento-card-tools">
+          <div class="hud-card-corner top-left"></div>
+          <div class="hud-card-corner bottom-right"></div>
+          <div class="bento-card-header">
+            <div class="bento-icon-wrapper purple">
+              <i data-lucide="container"></i>
+            </div>
+            <div class="bento-title-meta">
+              <span class="bento-category-tag">// CATEGORY 04</span>
+              <h3 class="bento-card-title">Deployment &amp; Tools</h3>
+            </div>
+          </div>
+          <p class="bento-card-desc">DevOps, containerization, version control, and productivity tooling.</p>
+
+          <div class="tools-grid-layout">
+            <div class="tool-box-chip">
+              <i data-lucide="git-branch" class="tool-icon"></i>
+              <div class="tool-info">
+                <span class="tool-name">Git &amp; GitHub</span>
+                <span class="tool-desc">Version Control &amp; CI/CD</span>
+              </div>
+            </div>
+            <div class="tool-box-chip">
+              <i data-lucide="container" class="tool-icon"></i>
+              <div class="tool-info">
+                <span class="tool-name">Docker</span>
+                <span class="tool-desc">App Containerization</span>
+              </div>
+            </div>
+            <div class="tool-box-chip">
+              <i data-lucide="globe" class="tool-icon"></i>
+              <div class="tool-info">
+                <span class="tool-name">Vercel &amp; Render</span>
+                <span class="tool-desc">Cloud Deployment</span>
+              </div>
+            </div>
+            <div class="tool-box-chip">
+              <i data-lucide="flame" class="tool-icon"></i>
+              <div class="tool-info">
+                <span class="tool-name">Firebase</span>
+                <span class="tool-desc">BaaS &amp; Auth</span>
+              </div>
+            </div>
+            <div class="tool-box-chip">
+              <i data-lucide="send" class="tool-icon"></i>
+              <div class="tool-info">
+                <span class="tool-name">Postman</span>
+                <span class="tool-desc">API Testing &amp; Docs</span>
+              </div>
+            </div>
+            <div class="tool-box-chip">
+              <i data-lucide="terminal" class="tool-icon"></i>
+              <div class="tool-info">
+                <span class="tool-name">Linux / VS Code</span>
+                <span class="tool-desc">Dev Environment</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Sliding Cyber Marquee Banner -->
+      <div class="sketch-marquee-banner cyber-marquee-wrapper bento-marquee-spacing">
+        <div class="sketch-marquee-track cyber-marquee-track">
           <!-- Group 1 -->
           <div class="sketch-marquee-group">
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="atom" class="tech-icon react"></i> <span class="tech-name">React</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="server" class="tech-icon node"></i> <span class="tech-name">Node.js</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="network" class="tech-icon express"></i> <span class="tech-name">Express.js</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="database" class="tech-icon mongo"></i> <span class="tech-name">MongoDB</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="wind" class="tech-icon tailwind"></i> <span class="tech-name">Tailwind</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="file-json" class="tech-icon js"></i> <span class="tech-name">JavaScript</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="code-2" class="tech-icon ts"></i> <span class="tech-name">TypeScript</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="git-branch" class="tech-icon git"></i> <span class="tech-name">Git</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="flame" class="tech-icon firebase"></i> <span class="tech-name">Firebase</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="atom" class="tech-icon react"></i> <span class="tech-name">React</span> <span class="chip-lvl">98%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="server" class="tech-icon node"></i> <span class="tech-name">Node.js</span> <span class="chip-lvl">94%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="network" class="tech-icon express"></i> <span class="tech-name">Express.js</span> <span class="chip-lvl">92%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="database" class="tech-icon mongo"></i> <span class="tech-name">MongoDB</span> <span class="chip-lvl">90%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="wind" class="tech-icon tailwind"></i> <span class="tech-name">Tailwind</span> <span class="chip-lvl">95%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="file-json" class="tech-icon js"></i> <span class="tech-name">JavaScript</span> <span class="chip-lvl">99%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="code-2" class="tech-icon ts"></i> <span class="tech-name">TypeScript</span> <span class="chip-lvl">90%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="git-branch" class="tech-icon git"></i> <span class="tech-name">Git</span> <span class="chip-lvl">96%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="flame" class="tech-icon firebase"></i> <span class="tech-name">Firebase</span> <span class="chip-lvl">88%</span></div>
           </div>
-          <!-- Group 2 Duplicate for Seamless Loop -->
+          <!-- Group 2 -->
           <div class="sketch-marquee-group" aria-hidden="true">
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="atom" class="tech-icon react"></i> <span class="tech-name">React</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="server" class="tech-icon node"></i> <span class="tech-name">Node.js</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="network" class="tech-icon express"></i> <span class="tech-name">Express.js</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="database" class="tech-icon mongo"></i> <span class="tech-name">MongoDB</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="wind" class="tech-icon tailwind"></i> <span class="tech-name">Tailwind</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="file-json" class="tech-icon js"></i> <span class="tech-name">JavaScript</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="code-2" class="tech-icon ts"></i> <span class="tech-name">TypeScript</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="git-branch" class="tech-icon git"></i> <span class="tech-name">Git</span></div>
-            <div class="tech-sketch-item wobble-hover"><i data-lucide="flame" class="tech-icon firebase"></i> <span class="tech-name">Firebase</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="atom" class="tech-icon react"></i> <span class="tech-name">React</span> <span class="chip-lvl">98%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="server" class="tech-icon node"></i> <span class="tech-name">Node.js</span> <span class="chip-lvl">94%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="network" class="tech-icon express"></i> <span class="tech-name">Express.js</span> <span class="chip-lvl">92%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="database" class="tech-icon mongo"></i> <span class="tech-name">MongoDB</span> <span class="chip-lvl">90%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="wind" class="tech-icon tailwind"></i> <span class="tech-name">Tailwind</span> <span class="chip-lvl">95%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="file-json" class="tech-icon js"></i> <span class="tech-name">JavaScript</span> <span class="chip-lvl">99%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="code-2" class="tech-icon ts"></i> <span class="tech-name">TypeScript</span> <span class="chip-lvl">90%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="git-branch" class="tech-icon git"></i> <span class="tech-name">Git</span> <span class="chip-lvl">96%</span></div>
+            <div class="tech-sketch-item cyber-tech-chip"><i data-lucide="flame" class="tech-icon firebase"></i> <span class="tech-name">Firebase</span> <span class="chip-lvl">88%</span></div>
           </div>
         </div>
       </div>
@@ -349,116 +636,104 @@
     </div>
   </section>
 
-  <!-- // FEATURED PROJECTS Section -->
-  <section id="projects" class="projects-sketch-section">
+  <!-- FEATURED PROJECTS SECTION -->
+  <section id="projects" class="projects-sketch-section cyber-section">
     <div class="section-sketch-container">
 
-      <div class="section-sketch-header space-between">
-        <h2 class="highlighter-heading green-highlight">// FEATURED PROJECTS</h2>
-        <a href="#projects" class="link-view-all">View All Projects →</a>
+      <div class="section-sketch-header space-between cyber-section-header">
+        <h2 class="highlighter-heading cyber-heading-cyan">&lt;04/&gt; // FEATURED PROJECTS</h2>
+        <a href="#projects" class="link-view-all cyber-link-glitch">ALL PROJECTS →</a>
       </div>
 
-      <div class="projects-sketch-grid">
+      <div class="projects-sketch-grid cyber-project-grid">
 
         <!-- Card 1: TaskVibe -->
-        <article class="project-sketch-card paper-clipped wobble-hover">
-          <div class="paper-clip-icon">📎</div>
-          
-          <div class="project-cover-frame">
-            <span class="cover-tag-sketch">// TASKVIBE_UI.PNG</span>
-            <img src="/taskvibe.png" alt="TaskVibe Cover" class="project-cover-img">
-            <div class="cover-doodle-overlay">
-              <span class="cover-star">★</span>
-            </div>
+        <article class="project-sketch-card cyber-project-deck-card">
+          <div class="hud-card-corner top-left"></div>
+          <div class="hud-card-corner top-right"></div>
+
+          <div class="project-cover-frame cyber-cover-frame">
+            <span class="cover-tag-sketch cyber-cover-tag">// SYS_ID: TASKVIBE_UI.SYS</span>
+            <img src="/taskvibe.png" alt="TaskVibe Cover" class="project-cover-img cyber-project-img">
           </div>
 
           <div class="card-sketch-header">
             <div class="project-title-meta">
-              <h3 class="project-sketch-name">TaskVibe</h3>
-              <p class="project-sketch-tagline">Kanban Workspace Platform</p>
+              <h3 class="project-sketch-name cyber-proj-name">TaskVibe</h3>
+              <p class="project-sketch-tagline cyber-proj-tagline">Kanban Workspace Platform</p>
             </div>
           </div>
-          <p class="project-sketch-desc">
-            Sleek Kanban board application featuring drag-and-drop task management, tag filtering, and persistent state storage.
+          <p class="project-sketch-desc cyber-proj-desc">
+            Sleek Kanban board application featuring drag-and-drop task management, tag filtering, and persistent state
+            storage.
           </p>
           <div class="project-sketch-tech-badges">
-            <span class="tech-mini-badge"><i data-lucide="atom"></i></span>
-            <span class="tech-mini-badge"><i data-lucide="server"></i></span>
-            <span class="tech-mini-badge"><i data-lucide="database"></i></span>
+            <span class="tech-mini-badge cyber-mini-chip"><i data-lucide="atom"></i> JS</span>
+            <span class="tech-mini-badge cyber-mini-chip"><i data-lucide="server"></i> HTML5</span>
+            <span class="tech-mini-badge cyber-mini-chip"><i data-lucide="database"></i> STORAGE</span>
           </div>
-          <div class="card-sketch-footer">
-            <a href="project.html?id=taskvibe" class="btn-live-demo">View Project Details →</a>
-            <div class="card-doodle-doodles">
-              <span class="doodle-heart">♡</span>
-            </div>
+          <div class="card-sketch-footer cyber-card-footer">
+            <a href="project.html?id=taskvibe" class="btn-live-demo cyber-btn-cyan">INSPECT CASE STUDY →</a>
           </div>
         </article>
 
         <!-- Card 2: FitTrack -->
-        <article class="project-sketch-card green-taped wobble-hover">
-          <div class="tape-strip green-tape"></div>
-          
-          <div class="project-cover-frame">
-            <span class="cover-tag-sketch">// FITTRACK_UI.PNG</span>
-            <img src="/fittrack.png" alt="FitTrack Cover" class="project-cover-img">
-            <div class="cover-doodle-overlay">
-              <span class="cover-star">☆</span>
-            </div>
+        <article class="project-sketch-card cyber-project-deck-card">
+          <div class="hud-card-corner top-left"></div>
+          <div class="hud-card-corner top-right"></div>
+
+          <div class="project-cover-frame cyber-cover-frame">
+            <span class="cover-tag-sketch cyber-cover-tag">// SYS_ID: FITTRACK_UI.SYS</span>
+            <img src="/fittrack.png" alt="FitTrack Cover" class="project-cover-img cyber-project-img">
           </div>
 
           <div class="card-sketch-header">
             <div class="project-title-meta">
-              <h3 class="project-sketch-name">FitTrack</h3>
-              <p class="project-sketch-tagline">Fitness Analytics Dashboard</p>
+              <h3 class="project-sketch-name cyber-proj-name">FitTrack</h3>
+              <p class="project-sketch-tagline cyber-proj-tagline">Fitness Analytics Dashboard</p>
             </div>
           </div>
-          <p class="project-sketch-desc">
-            A digital fitness analytics platform to track, manage, and explore workout routines and calorie goals online.
+          <p class="project-sketch-desc cyber-proj-desc">
+            Digital fitness analytics platform monitoring workout metrics, diet goals, and trend charts with real-time
+            sync.
           </p>
           <div class="project-sketch-tech-badges">
-            <span class="tech-mini-badge"><i data-lucide="atom"></i></span>
-            <span class="tech-mini-badge"><i data-lucide="server"></i></span>
-            <span class="tech-mini-badge"><i data-lucide="database"></i></span>
+            <span class="tech-mini-badge cyber-mini-chip"><i data-lucide="atom"></i> REACT</span>
+            <span class="tech-mini-badge cyber-mini-chip"><i data-lucide="server"></i> TAILWIND</span>
+            <span class="tech-mini-badge cyber-mini-chip"><i data-lucide="database"></i> FIREBASE</span>
           </div>
-          <div class="card-sketch-footer">
-            <a href="project.html?id=fittrack" class="btn-live-demo">View Project Details →</a>
-            <div class="card-doodle-doodles">
-              <span class="doodle-star-sm">☆</span>
-            </div>
+          <div class="card-sketch-footer cyber-card-footer">
+            <a href="project.html?id=fittrack" class="btn-live-demo cyber-btn-cyan">INSPECT CASE STUDY →</a>
           </div>
         </article>
 
         <!-- Card 3: ByteForge -->
-        <article class="project-sketch-card blue-taped wobble-hover">
-          <div class="tape-strip blue-tape"></div>
+        <article class="project-sketch-card cyber-project-deck-card">
+          <div class="hud-card-corner top-left"></div>
+          <div class="hud-card-corner top-right"></div>
 
-          <div class="project-cover-frame">
-            <span class="cover-tag-sketch">// BYTEFORGE_UI.PNG</span>
-            <img src="/byteforge.png" alt="ByteForge Cover" class="project-cover-img">
-            <div class="cover-doodle-overlay">
-              <span class="cover-star">&lt;/&gt;</span>
-            </div>
+          <div class="project-cover-frame cyber-cover-frame">
+            <span class="cover-tag-sketch cyber-cover-tag">// SYS_ID: BYTEFORGE_UI.SYS</span>
+            <img src="/byteforge.png" alt="ByteForge Cover" class="project-cover-img cyber-project-img">
           </div>
 
           <div class="card-sketch-header">
             <div class="project-title-meta">
-              <h3 class="project-sketch-name">ByteForge</h3>
-              <p class="project-sketch-tagline">AI Developer Assistant</p>
+              <h3 class="project-sketch-name cyber-proj-name">ByteForge</h3>
+              <p class="project-sketch-tagline cyber-proj-tagline">AI Developer Assistant</p>
             </div>
           </div>
-          <p class="project-sketch-desc">
-            AI-driven development companion that auto-generates unit tests, explains functions, and suggests optimizations in real time.
+          <p class="project-sketch-desc cyber-proj-desc">
+            AI-driven SaaS developer assistant auto-generating unit tests, refactoring code, and analyzing speed
+            bottlenecks.
           </p>
           <div class="project-sketch-tech-badges">
-            <span class="tech-mini-badge"><i data-lucide="atom"></i></span>
-            <span class="tech-mini-badge"><i data-lucide="server"></i></span>
-            <span class="tech-mini-badge"><i data-lucide="database"></i></span>
+            <span class="tech-mini-badge cyber-mini-chip"><i data-lucide="atom"></i> NEXT.JS</span>
+            <span class="tech-mini-badge cyber-mini-chip"><i data-lucide="server"></i> DJANGO</span>
+            <span class="tech-mini-badge cyber-mini-chip"><i data-lucide="database"></i> OPENAI</span>
           </div>
-          <div class="card-sketch-footer">
-            <a href="project.html?id=byteforge" class="btn-live-demo">View Project Details →</a>
-            <div class="card-doodle-doodles">
-              <span class="doodle-brackets">&lt;/&gt;</span>
-            </div>
+          <div class="card-sketch-footer cyber-card-footer">
+            <a href="project.html?id=byteforge" class="btn-live-demo cyber-btn-cyan">INSPECT CASE STUDY →</a>
           </div>
         </article>
 
@@ -467,90 +742,77 @@
     </div>
   </section>
 
-  <!-- // EXPERIENCE & EDUCATION Section (Side-by-Side 2-Column Notebook Layout) -->
-  <section id="experience" class="exp-edu-sketch-section">
+  <!-- EXPERIENCE & EDUCATION SECTION -->
+  <section id="experience" class="exp-edu-sketch-section cyber-section">
     <div class="section-sketch-container">
 
-      <div class="exp-edu-grid">
+      <div class="exp-edu-grid cyber-timeline-grid">
 
-        <!-- LEFT COLUMN: EXPERIENCE -->
-        <div class="exp-edu-notebook-card wobble-hover">
-          <div class="tape-strip green-tape top-center"></div>
-
-          <div class="exp-edu-card-header">
-            <h2 class="highlighter-heading blue-highlight">// EXPERIENCE</h2>
-            <span class="exp-trophy-badge">🏆 Work History</span>
+        <!-- WORK HISTORY -->
+        <div class="exp-edu-notebook-card cyber-timeline-card">
+          <div class="exp-edu-card-header cyber-card-header">
+            <h2 class="highlighter-heading cyber-heading-cyan">// WORK HISTORY</h2>
+            <span class="exp-trophy-badge cyber-trophy-tag">🏆 EXPERIENCE</span>
           </div>
 
-          <div class="experience-timeline-container">
-            
-            <!-- Experience Item 1 -->
-            <div class="exp-timeline-card">
-              <div class="exp-timeline-marker"></div>
-              <div class="exp-card-content">
+          <div class="experience-timeline-container cyber-timeline-conduit">
+            <div class="exp-timeline-card cyber-node">
+              <div class="exp-timeline-marker cyber-node-dot"></div>
+              <div class="exp-card-content cyber-node-content">
                 <div class="exp-meta-row">
-                  <span class="exp-date-badge">2024 — PRESENT</span>
-                  <span class="exp-role-hl green-hl">Freelance Developer</span>
+                  <span class="exp-date-badge cyber-date">2024 — PRESENT</span>
+                  <span class="exp-role-hl cyber-hl-green">Freelance Full Stack Developer</span>
                 </div>
-                <h4 class="exp-company-name">Independent Client Projects</h4>
-                <p class="exp-description-text">
-                  Building scalable web applications, REST APIs &amp; database schemas for global clients.
-                </p>
-                <ul class="exp-bullets">
-                  <li>Full-stack React &amp; Node.js applications</li>
-                  <li>Modern UI designs with custom micro-interactions</li>
+                <h4 class="exp-company-name cyber-company">Independent Client Systems</h4>
+                <p class="exp-description-text cyber-desc">Building scalable web applications, REST APIs &amp; database
+                  schemas for global client nodes.</p>
+                <ul class="exp-bullets cyber-bullets">
+                  <li>Full-stack React &amp; Node.js web applications</li>
+                  <li>Futuristic UI designs with high-performance animations</li>
                   <li>PostgreSQL &amp; MongoDB database architecture</li>
                 </ul>
               </div>
             </div>
 
-            <!-- Experience Item 2 -->
-            <div class="exp-timeline-card">
-              <div class="exp-timeline-marker"></div>
-              <div class="exp-card-content">
+            <div class="exp-timeline-card cyber-node">
+              <div class="exp-timeline-marker cyber-node-dot"></div>
+              <div class="exp-card-content cyber-node-content">
                 <div class="exp-meta-row">
-                  <span class="exp-date-badge">2023 — 2024</span>
-                  <span class="exp-role-hl blue-hl">Full Stack Intern</span>
+                  <span class="exp-date-badge cyber-date">2023 — 2024</span>
+                  <span class="exp-role-hl cyber-hl-cyan">Full Stack Intern</span>
                 </div>
-                <h4 class="exp-company-name">Tech Solutions Lab</h4>
-                <p class="exp-description-text">
-                  Collaborated with senior engineering team on user modules and REST endpoint APIs.
-                </p>
-                <ul class="exp-bullets">
+                <h4 class="exp-company-name cyber-company">Tech Solutions Lab</h4>
+                <p class="exp-description-text cyber-desc">Collaborated with engineering team on user modules and REST
+                  endpoint APIs.</p>
+                <ul class="exp-bullets cyber-bullets">
                   <li>Built interactive dashboard components in React</li>
                   <li>Optimized API response performance by 30%</li>
                   <li>Participated in daily agile sprints &amp; code reviews</li>
                 </ul>
               </div>
             </div>
-
           </div>
         </div>
 
-        <!-- RIGHT COLUMN: EDUCATION -->
-        <div class="exp-edu-notebook-card wobble-hover">
-          <div class="tape-strip blue-tape top-center"></div>
-
-          <div class="exp-edu-card-header">
-            <h2 class="highlighter-heading purple-highlight">// EDUCATION</h2>
-            <span class="exp-trophy-badge">🎓 Academic Background</span>
+        <!-- EDUCATION -->
+        <div class="exp-edu-notebook-card cyber-timeline-card">
+          <div class="exp-edu-card-header cyber-card-header">
+            <h2 class="highlighter-heading cyber-heading-pink">// EDUCATION</h2>
+            <span class="exp-trophy-badge cyber-trophy-tag">🎓 CREDENTIALS</span>
           </div>
 
-          <div class="experience-timeline-container">
-            
-            <!-- Education Item 1 -->
-            <div class="exp-timeline-card">
-              <div class="exp-timeline-marker"></div>
-              <div class="exp-card-content">
+          <div class="experience-timeline-container cyber-timeline-conduit">
+            <div class="exp-timeline-card cyber-node">
+              <div class="exp-timeline-marker cyber-node-dot"></div>
+              <div class="exp-card-content cyber-node-content">
                 <div class="exp-meta-row">
-                  <span class="exp-date-badge">2020 — 2024</span>
-                  <span class="exp-role-hl purple-hl">B.Tech Computer Science</span>
+                  <span class="exp-date-badge cyber-date">2020 — 2024</span>
+                  <span class="exp-role-hl cyber-hl-purple">B.Tech Computer Science</span>
                 </div>
-                <h4 class="exp-company-name">APJ Abdul Kalam Technological University</h4>
-                <p class="exp-description-text">
-                  Comprehensive degree focused on software engineering, data structures &amp; web architecture.
-                </p>
-                <ul class="exp-bullets">
+                <h4 class="exp-company-name cyber-company">APJ Abdul Kalam Technological University</h4>
+                <p class="exp-description-text cyber-desc">Comprehensive degree focused on software engineering, data
+                  structures &amp; web architecture.</p>
+                <ul class="exp-bullets cyber-bullets">
                   <li>Data Structures &amp; Algorithms</li>
                   <li>Full Stack Web Development &amp; Database Systems</li>
                   <li>Software Engineering Principles &amp; System Design</li>
@@ -558,26 +820,23 @@
               </div>
             </div>
 
-            <!-- Education Item 2 -->
-            <div class="exp-timeline-card">
-              <div class="exp-timeline-marker"></div>
-              <div class="exp-card-content">
+            <div class="exp-timeline-card cyber-node">
+              <div class="exp-timeline-marker cyber-node-dot"></div>
+              <div class="exp-card-content cyber-node-content">
                 <div class="exp-meta-row">
-                  <span class="exp-date-badge">2018 — 2020</span>
-                  <span class="exp-role-hl yellow-hl">Higher Secondary (CS &amp; Math)</span>
+                  <span class="exp-date-badge cyber-date">2018 — 2020</span>
+                  <span class="exp-role-hl cyber-hl-yellow">Higher Secondary (CS &amp; Math)</span>
                 </div>
-                <h4 class="exp-company-name">Model Higher Secondary School</h4>
-                <p class="exp-description-text">
-                  Specialized in Computer Science, Mathematics &amp; Physics with distinction honors.
-                </p>
-                <ul class="exp-bullets">
+                <h4 class="exp-company-name cyber-company">Model Higher Secondary School</h4>
+                <p class="exp-description-text cyber-desc">Specialized in Computer Science, Mathematics &amp; Physics
+                  with distinction honors.</p>
+                <ul class="exp-bullets cyber-bullets">
                   <li>Core Programming &amp; Logic Building</li>
                   <li>Advanced Mathematics &amp; Problem Solving</li>
                   <li>Computer Science Fundamentals</li>
                 </ul>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -586,83 +845,75 @@
     </div>
   </section>
 
-  </section>
-
-  <!-- Modern Card-Based Contact Section (No Black Block) -->
-  <section id="contact" class="modern-contact-section">
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="modern-contact-section cyber-section">
     <div class="section-sketch-container">
 
-      <div class="section-sketch-header centered">
-        <h2 class="highlighter-heading blue-highlight">// LET'S CONNECT</h2>
-        <p class="contact-sketch-subtitle">Have a project in mind or just want to say hi? I'd love to hear from you!</p>
+      <div class="section-sketch-header centered cyber-section-header">
+        <h2 class="highlighter-heading cyber-heading-cyan">&lt;05/&gt; // LET'S CONNECT</h2>
+        <p class="contact-sketch-subtitle cyber-subtext">Have a project in mind or just want to say hi? I'd love to hear
+          from you!</p>
       </div>
 
-      <div class="contact-cards-layout">
+      <div class="contact-cards-layout cyber-contact-layout">
 
-        <!-- Left Column: Social Channels Paper Index Cards Matrix -->
-        <div class="contact-channels-grid">
-          
-          <a href="mailto:abhinavpadoli@gmail.com" class="contact-paper-tile paper-clipped wobble-hover">
-            <div class="paper-clip-mini">📎</div>
-            <div class="tile-icon-box">
-              <i data-lucide="mail"></i>
-            </div>
+        <!-- Social Channels Grid -->
+        <div class="contact-channels-grid cyber-comms-grid">
+
+          <a href="mailto:abhinavpadoli@gmail.com" class="contact-paper-tile cyber-comms-tile">
+            <div class="tile-icon-box cyber-icon"><i data-lucide="mail"></i></div>
             <div class="tile-meta">
-              <span class="tile-channel">EMAIL</span>
-              <span class="tile-handle">abhinavpadoli@gmail.com</span>
+              <span class="tile-channel cyber-channel">EMAIL</span>
+              <span class="tile-handle cyber-handle">abhinavpadoli@gmail.com</span>
             </div>
           </a>
 
-          <a href="https://github.com/abhinav-dev-01" target="_blank" class="contact-paper-tile blue-taped wobble-hover">
-            <div class="tape-strip blue-tape"></div>
-            <div class="tile-icon-box">
-              <i data-lucide="git-branch"></i>
-            </div>
+          <a href="https://github.com/abhinav-dev-01" target="_blank" class="contact-paper-tile cyber-comms-tile">
+            <div class="tile-icon-box cyber-icon"><i data-lucide="git-branch"></i></div>
             <div class="tile-meta">
-              <span class="tile-channel">GITHUB</span>
+              <span class="tile-channel cyber-channel">GITHUB</span>
               <span class="tile-handle">github/abhinav-dev-01</span>
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/in/abhinav-p-dev" target="_blank" class="contact-paper-tile green-taped wobble-hover">
-            <div class="tape-strip green-tape"></div>
-            <div class="tile-icon-box">
-              <i data-lucide="link-2"></i>
-            </div>
+          <a href="https://www.linkedin.com/in/abhinav-p-dev" target="_blank"
+            class="contact-paper-tile cyber-comms-tile">
+            <div class="tile-icon-box cyber-icon"><i data-lucide="link-2"></i></div>
             <div class="tile-meta">
-              <span class="tile-channel">LINKEDIN</span>
+              <span class="tile-channel cyber-channel">LINKEDIN</span>
               <span class="tile-handle">in/abhinav-p-dev</span>
             </div>
           </a>
 
-          <a href="https://wa.me/919778033362" target="_blank" class="contact-paper-tile paper-clipped wobble-hover">
-            <div class="paper-clip-mini">📎</div>
-            <div class="tile-icon-box">
-              <i data-lucide="message-square"></i>
-            </div>
+          <a href="https://wa.me/919778033362" target="_blank" class="contact-paper-tile cyber-comms-tile">
+            <div class="tile-icon-box cyber-icon"><i data-lucide="message-square"></i></div>
             <div class="tile-meta">
-              <span class="tile-channel">WHATSAPP</span>
+              <span class="tile-channel cyber-channel">WHATSAPP</span>
               <span class="tile-handle">+91 9778033362</span>
             </div>
           </a>
 
         </div>
 
-        <!-- Right Column: Modern Paper Message Sheet Card -->
-        <div class="contact-message-card wobble-hover">
-          <div class="tape-strip blue-tape top-center"></div>
-          <h3 class="message-card-title">Send Me A Note 📝</h3>
-          <p class="message-card-subtitle">Drop a quick message and I'll get back to you within 24 hours.</p>
+        <!-- Form Card -->
+        <div class="contact-message-card cyber-form-card">
+          <div class="hud-card-corner top-left"></div>
+          <div class="hud-card-corner bottom-right"></div>
 
-          <form class="sketch-paper-form">
+          <h3 class="message-card-title cyber-form-title">Send Me A Note 📝</h3>
+          <p class="message-card-subtitle cyber-subtext">Drop a quick message and I'll get back to you within 24 hours.
+          </p>
+
+          <form class="sketch-paper-form cyber-form">
             <div class="form-grid">
-              <input type="text" placeholder="Your Name" required class="sketch-input">
-              <input type="email" placeholder="Your Email" required class="sketch-input">
+              <input type="text" placeholder="Your Name" required class="sketch-input cyber-input">
+              <input type="email" placeholder="Your Email" required class="sketch-input cyber-input">
             </div>
-            <textarea placeholder="Tell me about your project goals or ideas..." required class="sketch-input sketch-textarea"></textarea>
-            <button type="submit" class="btn-blue-primary">
-              <span>Send Message</span>
-              <span class="btn-arrow">→</span>
+            <textarea placeholder="Tell me about your project goals..." required
+              class="sketch-input sketch-textarea cyber-input cyber-textarea"></textarea>
+            <button type="submit" class="btn-blue-primary cyber-btn-pink">
+              <span>SEND MESSAGE</span>
+              <span class="btn-arrow">⚡</span>
             </button>
           </form>
         </div>
@@ -672,12 +923,12 @@
     </div>
   </section>
 
-  <!-- Clean Paper Footer Bar -->
-  <footer class="clean-paper-footer">
-    <div class="section-sketch-container footer-flex">
-      <span class="copy-text">&copy; 2026 Abhinav P. All rights reserved.</span>
-      <span class="made-with-text">Made with ❤️ and lots of ☕</span>
-      <a href="#hero" class="btn-back-top">Back to top ↑</a>
+  <!-- Clean Cyber Footer -->
+  <footer class="clean-paper-footer cyber-footer">
+    <div class="section-sketch-container footer-flex cyber-footer-flex">
+      <span class="copy-text cyber-copy">&copy; 2026 ABHINAV P. ALL RIGHTS RESERVED.</span>
+      <span class="made-with-text cyber-status">STATUS: ONLINE | ENCRYPTION: AES-256</span>
+      <a href="#hero" class="btn-back-top cyber-back-top">BACK TO TOP ↑</a>
     </div>
   </footer>
 

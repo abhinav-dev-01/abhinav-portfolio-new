@@ -95,7 +95,53 @@ if (document.readyState === 'loading') {
 }
 
 /* ==========================================================================
-   2. Pencil Cursor Trail Effect
+   2. Dynamic Typewriter Effect for Hero Subtitle
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const typewriterElement = document.getElementById('typewriter-text');
+  if (typewriterElement) {
+    const roles = [
+      'Software Developer',
+      'Full Stack Architect',
+      'Python & React Developer',
+      'UI/UX Craftsman'
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100;
+
+    function type() {
+      const currentRole = roles[roleIndex];
+
+      if (isDeleting) {
+        typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 50;
+      } else {
+        typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 100;
+      }
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        isDeleting = true;
+        typeSpeed = 2000; // Pause at end
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typeSpeed = 500; // Pause before typing next
+      }
+
+      setTimeout(type, typeSpeed);
+    }
+
+    type();
+  }
+});
+
+/* ==========================================================================
+   3. Midnight Indigo & Royal Violet Laser Trail Canvas Effect
    ========================================================================== */
 const trailCanvas = document.getElementById('pencil-trail-canvas');
 if (trailCanvas) {
@@ -113,24 +159,26 @@ if (trailCanvas) {
     points.push({
       x: e.clientX,
       y: e.clientY,
-      size: Math.random() * 2.5 + 1.5,
-      opacity: 0.5,
-      color: '#2563EB'
+      size: Math.random() * 3 + 2,
+      opacity: 0.85,
+      color: Math.random() > 0.5 ? '#a855f7' : '#6366f1'
     });
 
-    if (points.length > 20) points.shift();
+    if (points.length > 25) points.shift();
   });
 
   function renderTrail() {
     ctx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
     for (let i = 0; i < points.length; i++) {
       const pt = points[i];
-      pt.opacity -= 0.02;
+      pt.opacity -= 0.025;
 
       if (pt.opacity > 0) {
         ctx.beginPath();
         ctx.arc(pt.x, pt.y, pt.size, 0, Math.PI * 2);
         ctx.fillStyle = pt.color;
+        ctx.shadowColor = pt.color;
+        ctx.shadowBlur = 8;
         ctx.globalAlpha = Math.max(0, pt.opacity);
         ctx.fill();
       }
@@ -141,93 +189,38 @@ if (trailCanvas) {
 }
 
 /* ==========================================================================
-   3. Interactive Laptop Terminal Prompt
+   4. Coffee Mug Triggers
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-  const terminalInput = document.getElementById('terminal-input');
-  const terminalOutput = document.getElementById('terminal-output');
+  const coffeeTrigger = document.getElementById('coffee-mug-trigger');
+  const coffeeTrigger2 = document.getElementById('coffee-mug-trigger-2');
+  let coffeeCount = 5;
 
-  if (terminalInput && terminalOutput) {
-    terminalInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const cmd = terminalInput.value.trim().toLowerCase();
-        terminalInput.value = '';
+  if (coffeeTrigger) {
+    coffeeTrigger.addEventListener('click', () => {
+      coffeeCount = (coffeeCount % 5) + 1;
+      let cups = '';
+      for (let i = 0; i < coffeeCount; i++) {
+        cups += '☕ ';
+      }
+      coffeeTrigger.textContent = cups.trim();
+    });
+  }
 
-        const userCmdLine = document.createElement('div');
-        userCmdLine.className = 'terminal-line';
-        userCmdLine.innerHTML = `&gt; <span class="green-text">${cmd}</span>`;
-        terminalOutput.appendChild(userCmdLine);
-
-        let responseText = '';
-        if (cmd === 'help') {
-          responseText = 'Available commands: whoami, skills, projects, contact, clear';
-        } else if (cmd === 'whoami') {
-          responseText = 'Abhinav P — Full Stack Developer & UI Craftsman';
-        } else if (cmd === 'skills') {
-          responseText = 'React, Node.js, Django, PostgreSQL, MongoDB, Tailwind, TypeScript';
-        } else if (cmd === 'projects') {
-          responseText = 'TaskVibe, FitTrack, ByteForge — Click View My Work for details!';
-        } else if (cmd === 'contact') {
-          responseText = 'Email: abhinavpadoli@gmail.com | LinkedIn: in/abhinav-p-dev';
-        } else if (cmd === 'clear') {
-          terminalOutput.innerHTML = '';
-          return;
-        } else if (cmd !== '') {
-          responseText = `Command not recognized: '${cmd}'. Type 'help' for options.`;
-        }
-
-        if (responseText) {
-          const respLine = document.createElement('div');
-          respLine.className = 'terminal-line indent-text';
-          respLine.textContent = responseText;
-          terminalOutput.appendChild(respLine);
-        }
-
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  if (coffeeTrigger2) {
+    let cups2 = 1;
+    coffeeTrigger2.addEventListener('click', () => {
+      cups2 = (cups2 % 5) + 1;
+      const textSpan = coffeeTrigger2.querySelector('.badge-text');
+      if (textSpan) {
+        textSpan.textContent = `COFFEE x${cups2}`;
       }
     });
   }
 });
 
 /* ==========================================================================
-   4. Coffee Sip Counter Trigger
-   ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-  const coffeeTrigger = document.getElementById('coffee-mug-trigger');
-  const sipCountText = document.getElementById('sip-count');
-  let sipCount = 4;
-
-  if (coffeeTrigger && sipCountText) {
-    coffeeTrigger.addEventListener('click', () => {
-      sipCount++;
-      sipCountText.textContent = sipCount;
-      coffeeTrigger.style.transform = 'scale(1.2) rotate(8deg)';
-      setTimeout(() => {
-        coffeeTrigger.style.transform = 'scale(1) rotate(-3deg)';
-      }, 250);
-    });
-  }
-});
-
-/* ==========================================================================
-   5. Flying Paper Airplane Animation
-   ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-  const planeTrigger = document.getElementById('paper-plane-trigger');
-  if (planeTrigger) {
-    planeTrigger.addEventListener('click', () => {
-      planeTrigger.style.transition = 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
-      planeTrigger.style.transform = 'translate(250px, -200px) rotate(45deg) scale(0.3)';
-      setTimeout(() => {
-        planeTrigger.style.transition = 'none';
-        planeTrigger.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
-      }, 1400);
-    });
-  }
-});
-
-/* ==========================================================================
-   6. Mobile Menu Drawer Toggle
+   5. Mobile Drawer Toggle
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   const mobileToggle = document.getElementById('mobile-menu-toggle');
@@ -250,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   7. Theme Mode Toggle Switcher
+   6. Cyber FX Mode Toggle Switcher
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
@@ -262,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   8. Scroll Spy Navigation
+   7. Scroll Spy Navigation
    ========================================================================== */
 window.addEventListener('scroll', () => {
   const sections = document.querySelectorAll('header[id], section[id], footer[id]');
