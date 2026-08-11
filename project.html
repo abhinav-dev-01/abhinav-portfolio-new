@@ -3,114 +3,129 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <title>Project Case Study | Cyberpunk Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project | ABHINAV.DEV</title>
+  <meta name="description" content="Project detail — Abhinav's portfolio">
 
-  <!-- Google Fonts: Orbitron, Rajdhani, Share Tech Mono, Fira Code, Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body class="cyberpunk-theme project-detail-page">
+<body class="is-loading">
 
-  <!-- Holographic Cyber Grid Background -->
-  <div class="cyber-grid-background"></div>
+  <!-- Loading Screen -->
+  <div id="loading-screen" aria-hidden="true">
+    <div class="loader-corner loader-corner-tl">ABHINAV.DEV</div>
+    <div class="loader-corner loader-corner-tr" id="loader-percent">000%</div>
+    <div class="loader-corner loader-corner-bl" id="loader-status">LOADING PROJECT</div>
+    <div class="loader-corner loader-corner-br">© 2026</div>
 
-  <!-- CRT Scanlines Overlay -->
-  <div class="cyber-scanlines"></div>
+    <div class="loader-progress-bar">
+      <div class="loader-progress-fill" id="loader-progress-fill"></div>
+    </div>
 
-  <!-- Top Dark Navbar -->
-  <nav class="top-dark-navbar cyber-hud-navbar">
-    <div class="nav-sketch-container">
-      <a href="/" class="nav-brand cyber-brand">
-        <span class="nav-code-symbol">&lt;CYBER_DEV/&gt;</span>
-        <span class="nav-brand-text">ABHINAV<span class="cyber-highlight">.SYS</span></span>
-      </a>
+    <div class="loader-inner">
+      <div class="loader-ring">
+        <div class="loader-orb-container">
+          <div class="loader-orb"></div>
+          <div class="loader-orb"></div>
+        </div>
+        <svg viewBox="0 0 80 80">
+          <defs>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%"   stop-color="#7C3AED" />
+              <stop offset="50%"  stop-color="#A78BFA" />
+              <stop offset="100%" stop-color="#06B6D4" />
+            </linearGradient>
+          </defs>
+          <circle class="loader-ring-bg"   cx="40" cy="40" r="35" />
+          <circle class="loader-ring-fill" cx="40" cy="40" r="35" id="loader-ring-circle" />
+        </svg>
+        <div class="loader-icon">A<span>.</span></div>
+      </div>
 
-      <div class="nav-right">
-        <a href="/#projects" class="link-download-cv cyber-btn-outline">
-          <span>← BACK TO ALL DECKS</span>
-        </a>
+      <div class="loader-name" id="loader-name" aria-label="Abhinav">
+        <span class="loader-name-char">A</span>
+        <span class="loader-name-char">B</span>
+        <span class="loader-name-char">H</span>
+        <span class="loader-name-char">I</span>
+        <span class="loader-name-char">N</span>
+        <span class="loader-name-char">A</span>
+        <span class="loader-name-char">V</span>
+        <span class="loader-name-char loader-name-dot">.</span>
+      </div>
+
+      <div class="loader-tagline" id="loader-tagline">Loading project...</div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="custom-cursor">
+    <div class="cursor-dot"    id="cursor-dot"></div>
+    <div class="cursor-circle" id="cursor-circle">
+      <span class="cursor-text" id="cursor-text">VIEW ↗</span>
+    </div>
+  </div>
+
+  <!-- Main Project Page -->
+  <main class="project-page-wrap">
+
+    <!-- Header -->
+    <div class="project-page-header">
+      <a href="/index.html#projects" class="back-btn">← BACK TO WORK</a>
+      <span class="project-page-brand">ABHINAV<span>.</span>DEV</span>
+    </div>
+
+    <!-- Category & Title -->
+    <p class="project-detail-category">
+      <span class="meta-divider"></span>
+      <span id="detail-category">Loading...</span>
+    </p>
+
+    <h1 class="project-detail-title" id="project-title">Loading project...</h1>
+
+    <!-- Cover image -->
+    <div class="project-cover-wrap">
+      <img id="project-cover" src="/jeevalink.png" alt="Project Cover"
+        onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80'">
+    </div>
+
+    <!-- Meta row -->
+    <div class="project-meta-row">
+      <div class="project-meta-block">
+        <h4>TECHNOLOGIES USED</h4>
+        <div id="project-skills" class="project-tech-list"></div>
+      </div>
+      <div class="project-meta-block">
+        <h4>PROJECT TYPE</h4>
+        <p id="project-type" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-2);">—</p>
       </div>
     </div>
-  </nav>
 
-  <!-- Project Main Content Container -->
-  <main class="project-detail-container">
+    <!-- Abstract -->
+    <p class="project-abstract" id="project-abstract">Loading description...</p>
 
-    <article class="project-detail-notebook-card cyber-detail-card">
-      <div class="hud-card-corner top-left"></div>
-      <div class="hud-card-corner top-right"></div>
-      <div class="hud-card-corner bottom-left"></div>
-      <div class="hud-card-corner bottom-right"></div>
-
-      <!-- 1. Centered Project Name & Action Links -->
-      <header class="project-centered-header cyber-centered-header">
-        <span class="highlighter-heading cyber-heading-cyan">// SYSTEM CASE STUDY TELEMETRY</span>
-        <h1 id="project-title" class="project-centered-title cyber-glitch-title">LOADING DECK...</h1>
-        
-        <div class="project-detail-action-btns cyber-action-btns">
-          <a href="#" id="project-live-demo-link" target="_blank" class="btn-blue-primary cyber-btn-cyan">
-            <span>LIVE DEMO ↗</span>
-          </a>
-          <a href="#" id="project-github-link" target="_blank" class="link-download-cv cyber-btn-outline">
-            <span>SOURCE CODE ↗</span>
-          </a>
-        </div>
-      </header>
-
-      <!-- 2. Used Skills as Small Cards/Badges -->
-      <section class="project-skills-section">
-        <div class="skills-small-cards-row cyber-skills-row" id="project-skills">
-          <!-- Dynamic skill mini-cards populate here -->
-        </div>
-      </section>
-
-      <!-- 3 & 4. Grid: Abstract (Left Side) & Modules (Right Side) -->
-      <section class="project-two-col-grid cyber-two-col-grid">
-        
-        <!-- Left Side: Abstract -->
-        <div class="project-abstract-card cyber-abstract-card">
-          <h3 class="highlighter-heading cyber-heading-pink">// DECK ABSTRACT</h3>
-          <p id="project-abstract" class="project-abstract-text cyber-abstract-text">Loading deck abstract...</p>
-        </div>
-
-        <!-- Right Side: Modules -->
-        <div class="project-modules-card cyber-modules-card">
-          <h3 class="highlighter-heading cyber-heading-cyan">// SYSTEM MODULES</h3>
-          <div id="project-modules" class="project-modules-list cyber-modules-list">
-            <!-- Dynamic module cards populate here -->
-          </div>
-        </div>
-
-      </section>
-
-      <!-- 5. Key Features (Bottom Section) -->
-      <section class="project-features-section cyber-features-section">
-        <h3 class="highlighter-heading cyber-heading-yellow">// CORE CAPABILITIES &amp; FEATURES</h3>
-        <ul id="project-features" class="project-features-grid cyber-features-grid">
-          <!-- Dynamic feature items populate here -->
-        </ul>
-      </section>
-
-      <!-- Back to Projects Footer -->
-      <footer class="project-detail-footer cyber-detail-footer">
-        <a href="/#projects" class="btn-blue-primary cyber-btn-cyan">
-          <span>← RETURN TO ALL DECKS</span>
-        </a>
-      </footer>
-
-    </article>
+    <!-- Links -->
+    <div class="project-links-row">
+      <a href="#" id="project-live-link" target="_blank" class="project-link-btn primary magnetic-target">
+        VIEW LIVE DEMO ↗
+      </a>
+      <a href="#" id="project-github-link" target="_blank" class="project-link-btn secondary magnetic-target">
+        SOURCE CODE ↗
+      </a>
+    </div>
 
   </main>
 
-  <!-- Scripts -->
+  <div class="toast-container" id="toast-container"></div>
+
   <script type="module" src="/project.js"></script>
+  <script type="module" src="/main.js"></script>
 </body>
 
 </html>
