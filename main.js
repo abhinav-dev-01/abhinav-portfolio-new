@@ -107,21 +107,32 @@ function initLoadingScreen() {
    -------------------------------------------------------------------------- */
 function initThemeSwitcher() {
   const themeBtns = document.querySelectorAll('[data-set-theme]');
-  const savedTheme = localStorage.getItem('abhinav_theme') || 'cosmos';
+  const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
+  const themes = ['cosmos', 'neon', 'light'];
+  let currentTheme = localStorage.getItem('abhinav_theme') || 'cosmos';
 
-  document.documentElement.setAttribute('data-theme', savedTheme);
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('abhinav_theme', t);
+    themeBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-set-theme') === t));
+    currentTheme = t;
+  }
+
+  applyTheme(currentTheme);
 
   themeBtns.forEach(btn => {
-    const t = btn.getAttribute('data-set-theme');
-    btn.classList.toggle('active', t === savedTheme);
-
     btn.addEventListener('click', () => {
-      document.documentElement.setAttribute('data-theme', t);
-      localStorage.setItem('abhinav_theme', t);
-
-      themeBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-set-theme') === t));
+      const t = btn.getAttribute('data-set-theme');
+      applyTheme(t);
       showToast(`Switched to ${t.toUpperCase()} theme 🎨`);
     });
+  });
+
+  mobileThemeBtn?.addEventListener('click', () => {
+    const nextIdx = (themes.indexOf(currentTheme) + 1) % themes.length;
+    const nextTheme = themes[nextIdx];
+    applyTheme(nextTheme);
+    showToast(`Switched to ${nextTheme.toUpperCase()} theme 🎨`);
   });
 }
 
@@ -220,15 +231,19 @@ function initHeroTyping() {
    06. SCROLL SPY
    -------------------------------------------------------------------------- */
 function initScrollSpy() {
-  const navItems = document.querySelectorAll('.side-nav-item');
-  const sections = document.querySelectorAll('section');
-  if (!navItems.length || !sections.length) return;
+  const navItems  = document.querySelectorAll('.side-nav-item');
+  const dockItems = document.querySelectorAll('.dock-item');
+  const sections  = document.querySelectorAll('section');
+  if (!sections.length) return;
 
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
         navItems.forEach(item =>
+          item.classList.toggle('active', item.getAttribute('data-section') === id)
+        );
+        dockItems.forEach(item =>
           item.classList.toggle('active', item.getAttribute('data-section') === id)
         );
       }
