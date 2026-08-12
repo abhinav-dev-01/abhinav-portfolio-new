@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="cosmos">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project | ABHINAV.DEV</title>
-  <meta name="description" content="Project detail — Abhinav's portfolio">
+  <title>Project Details | ABHINAV.DEV</title>
+  <meta name="description" content="Detailed project showcase and technical breakdown — Abhinav's portfolio">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="/style.css">
 </head>
 
 <body class="is-loading">
+
+  <!-- Top Scroll Reading Bar -->
+  <div id="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- Mouse Radial Glow Orb -->
+  <div id="mouse-light-orb" aria-hidden="true"></div>
 
   <!-- Loading Screen -->
   <div id="loading-screen" aria-hidden="true">
@@ -38,12 +44,12 @@
         <svg viewBox="0 0 80 80">
           <defs>
             <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%"   stop-color="#7C3AED" />
-              <stop offset="50%"  stop-color="#A78BFA" />
+              <stop offset="0%" stop-color="#7C3AED" />
+              <stop offset="50%" stop-color="#A78BFA" />
               <stop offset="100%" stop-color="#06B6D4" />
             </linearGradient>
           </defs>
-          <circle class="loader-ring-bg"   cx="40" cy="40" r="35" />
+          <circle class="loader-ring-bg" cx="40" cy="40" r="35" />
           <circle class="loader-ring-fill" cx="40" cy="40" r="35" id="loader-ring-circle" />
         </svg>
         <div class="loader-icon">A<span>.</span></div>
@@ -60,15 +66,7 @@
         <span class="loader-name-char loader-name-dot">.</span>
       </div>
 
-      <div class="loader-tagline" id="loader-tagline">Loading project...</div>
-    </div>
-  </div>
-
-  <!-- Custom Cursor -->
-  <div class="custom-cursor" id="custom-cursor">
-    <div class="cursor-dot"    id="cursor-dot"></div>
-    <div class="cursor-circle" id="cursor-circle">
-      <span class="cursor-text" id="cursor-text">VIEW ↗</span>
+      <div class="loader-tagline" id="loader-tagline">Preparing case study...</div>
     </div>
   </div>
 
@@ -77,14 +75,14 @@
 
     <!-- Header -->
     <div class="project-page-header">
-      <a href="/index.html#projects" class="back-btn">← BACK TO WORK</a>
+      <a href="/index.html#projects" class="back-btn">← BACK TO ALL WORK</a>
       <span class="project-page-brand">ABHINAV<span>.</span>DEV</span>
     </div>
 
     <!-- Category & Title -->
     <p class="project-detail-category">
       <span class="meta-divider"></span>
-      <span id="detail-category">Loading...</span>
+      <span id="detail-category">Full-Stack Application</span>
     </p>
 
     <h1 class="project-detail-title" id="project-title">Loading project...</h1>
@@ -102,25 +100,28 @@
         <div id="project-skills" class="project-tech-list"></div>
       </div>
       <div class="project-meta-block">
-        <h4>PROJECT TYPE</h4>
-        <p id="project-type" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-2);">—</p>
+        <h4>SYSTEM TYPE</h4>
+        <p id="project-type" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-2);">—</p>
       </div>
     </div>
 
     <!-- Abstract -->
-    <p class="project-abstract" id="project-abstract">Loading description...</p>
+    <p class="project-abstract" id="project-abstract">Loading system description...</p>
 
     <!-- Links -->
     <div class="project-links-row">
-      <a href="#" id="project-live-link" target="_blank" class="project-link-btn primary magnetic-target">
-        VIEW LIVE DEMO ↗
+      <a href="#" id="project-live-link" target="_blank" class="project-link-btn primary">
+        LAUNCH LIVE DEMO ↗
       </a>
-      <a href="#" id="project-github-link" target="_blank" class="project-link-btn secondary magnetic-target">
-        SOURCE CODE ↗
+      <a href="#" id="project-github-link" target="_blank" class="project-link-btn secondary">
+        VIEW REPOSITORY ↗
       </a>
     </div>
 
   </main>
+
+  <!-- Back To Top Floating Button -->
+  <button id="back-to-top" aria-label="Back to top">↑</button>
 
   <div class="toast-container" id="toast-container"></div>
 
