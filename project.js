@@ -1,6 +1,9 @@
 /* ==========================================================================
    Project Data & Page Logic
    ========================================================================== */
+
+import { renderLucideIcons } from './main.js';
+
 const projectsData = {
   jeevalink: {
     name:     "JeevaLink",
@@ -73,4 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(s => `<span class="project-chip">${s}</span>`)
       .join('');
   }
+
+  // Render Lucide icons for project view
+  renderLucideIcons();
 });

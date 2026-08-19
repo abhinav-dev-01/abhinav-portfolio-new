@@ -1,114 +1,54 @@
 /* ==========================================================================
-   ABHINAV.DEV — State-of-the-Art Portfolio Controller
+   ABHINAV.DEV — Clean, Humanized Portfolio Controller
    ========================================================================== */
 
+import { createIcons, icons } from 'lucide';
+
+// Brand icons matching Lucide 24x24 standard specifications
+export const customIcons = {
+  ...icons,
+  Github: [
+    ['path', { d: 'M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4' }],
+    ['path', { d: 'M9 18c-4.51 2-5-2-7-2' }]
+  ],
+  Linkedin: [
+    ['path', { d: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z' }],
+    ['rect', { width: '4', height: '12', x: '2', y: '9' }],
+    ['circle', { cx: '4', cy: '4', r: '2' }]
+  ]
+};
+
+export function renderLucideIcons(root = document) {
+  createIcons({
+    icons: customIcons,
+    nameAttr: 'data-lucide',
+    attrs: {
+      'stroke-width': '2',
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round'
+    },
+    root
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  initLoadingScreen();
+  renderLucideIcons();
   initThemeSwitcher();
   initScrollProgress();
-  initMouseOrb();
   initHeroTyping();
+  initHeroVisualStage();
   initScrollSpy();
   initTextRevealObserver();
-  initSkillsFilter();
-  initCodeCard();
-  initProjectsStoryDeck();
-  initProjectViewToggle();
-  initSystemArchitecture();
-  initMobileMenu();
-  initTerminalCLI();
+  initCopyEmail();
   initContactForm();
 });
 
 /* --------------------------------------------------------------------------
-   01. LOADING SCREEN
-   -------------------------------------------------------------------------- */
-function initLoadingScreen() {
-  const screen    = document.getElementById('loading-screen');
-  const fill      = document.getElementById('loader-progress-fill');
-  const ring      = document.getElementById('loader-ring-circle');
-  const percent   = document.getElementById('loader-percent');
-  const statusEl  = document.getElementById('loader-status');
-  const tagline   = document.getElementById('loader-tagline');
-  const nameChars = document.querySelectorAll('.loader-name-char');
-  if (!screen) return;
-
-  const CIRCUMFERENCE = 2 * Math.PI * 35; // r=35
-  const steps = [
-    { at: 0,   label: 'INITIALIZING SYSTEM' },
-    { at: 20,  label: 'LOADING ASSETS' },
-    { at: 45,  label: 'COMPILING STACK' },
-    { at: 75,  label: 'ALMOST READY' },
-    { at: 100, label: 'SYSTEM READY' },
-  ];
-
-  let progress = 0;
-  let startTime = null;
-  const TOTAL_DURATION = 1800; // ms
-
-  function easeInOutQuart(t) {
-    return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
-  }
-
-  function updateProgress(ts) {
-    if (!startTime) startTime = ts;
-    const elapsed = ts - startTime;
-    const raw = Math.min(elapsed / TOTAL_DURATION, 1);
-    progress = Math.round(easeInOutQuart(raw) * 100);
-
-    if (fill) fill.style.width = `${progress}%`;
-
-    if (ring) {
-      const offset = CIRCUMFERENCE * (1 - progress / 100);
-      ring.style.strokeDashoffset = offset;
-    }
-
-    if (percent) percent.textContent = `${String(progress).padStart(3, '0')}%`;
-
-    const currentStep = steps.reduce((acc, s) => progress >= s.at ? s : acc, steps[0]);
-    if (statusEl) statusEl.textContent = currentStep.label;
-
-    const charsToShow = Math.floor((progress / 100) * nameChars.length);
-    nameChars.forEach((c, i) => {
-      if (i < charsToShow) c.classList.add('shown');
-    });
-
-    if (progress >= 70 && tagline) tagline.classList.add('shown');
-
-    if (raw < 1) {
-      requestAnimationFrame(updateProgress);
-    } else {
-      setTimeout(finishLoading, 300);
-    }
-  }
-
-  function finishLoading() {
-    nameChars.forEach(c => c.classList.add('shown'));
-    if (tagline) tagline.classList.add('shown');
-
-    setTimeout(() => {
-      screen.classList.add('hidden');
-      document.body.classList.remove('is-loading');
-
-      const heroSection = document.getElementById('home');
-      if (heroSection) {
-        setTimeout(() => heroSection.classList.add('is-visible'), 100);
-      }
-
-      setTimeout(() => screen.remove(), 700);
-    }, 250);
-  }
-
-  requestAnimationFrame(updateProgress);
-}
-
-/* --------------------------------------------------------------------------
-   02. THEME SWITCHER
+   01. THEME SWITCHER (DARK LEMON / LIGHT LEMON)
    -------------------------------------------------------------------------- */
 function initThemeSwitcher() {
   const themeBtns = document.querySelectorAll('[data-set-theme]');
-  const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
-  const themes = ['cosmos', 'neon', 'light'];
+  const toggleBtns = document.querySelectorAll('#mobile-theme-toggle, #project-theme-toggle, .mobile-theme-toggle, [data-action="toggle-theme"]');
   let currentTheme = localStorage.getItem('abhinav_theme') || 'cosmos';
 
   function applyTheme(t) {
@@ -124,20 +64,21 @@ function initThemeSwitcher() {
     btn.addEventListener('click', () => {
       const t = btn.getAttribute('data-set-theme');
       applyTheme(t);
-      showToast(`Switched to ${t.toUpperCase()} theme 🎨`);
+      showToast(`Switched to ${t === 'cosmos' ? 'Dark Lemon' : 'Light Lemon'} theme`);
     });
   });
 
-  mobileThemeBtn?.addEventListener('click', () => {
-    const nextIdx = (themes.indexOf(currentTheme) + 1) % themes.length;
-    const nextTheme = themes[nextIdx];
-    applyTheme(nextTheme);
-    showToast(`Switched to ${nextTheme.toUpperCase()} theme 🎨`);
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const nextTheme = currentTheme === 'cosmos' ? 'light' : 'cosmos';
+      applyTheme(nextTheme);
+      showToast(`Switched to ${nextTheme === 'cosmos' ? 'Dark Lemon' : 'Light Lemon'} theme`);
+    });
   });
 }
 
 /* --------------------------------------------------------------------------
-   03. SCROLL PROGRESS BAR & BACK TO TOP BUTTON
+   02. SCROLL PROGRESS BAR & BACK TO TOP BUTTON
    -------------------------------------------------------------------------- */
 function initScrollProgress() {
   const bar = document.getElementById('scroll-progress-bar');
@@ -153,9 +94,9 @@ function initScrollProgress() {
     }
 
     if (backToTopBtn) {
-      backToTopBtn.classList.toggle('visible', scrollTop > 500);
+      backToTopBtn.classList.toggle('visible', scrollTop > 400);
     }
-  });
+  }, { passive: true });
 
   backToTopBtn?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -163,38 +104,13 @@ function initScrollProgress() {
 }
 
 /* --------------------------------------------------------------------------
-   04. MOUSE LIGHT ORB
-   -------------------------------------------------------------------------- */
-function initMouseOrb() {
-  const orb = document.getElementById('mouse-light-orb');
-  if (!orb) return;
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let orbX = mouseX, orbY = mouseY;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  (function render() {
-    orbX += (mouseX - orbX) * 0.08;
-    orbY += (mouseY - orbY) * 0.08;
-    orb.style.left = `${orbX}px`;
-    orb.style.top = `${orbY}px`;
-    requestAnimationFrame(render);
-  })();
-}
-
-/* --------------------------------------------------------------------------
-   05. HERO DYNAMIC TYPING TEXT EFFECT
+   03. HERO DYNAMIC TYPING EFFECT
    -------------------------------------------------------------------------- */
 function initHeroTyping() {
   const textEl = document.getElementById('typing-hero');
   if (!textEl) return;
 
-  const words = ['products.', 'web apps.', 'scalable APIs.', 'experiences.'];
+  const words = ['applications.', 'REST APIs.', 'digital products.', 'user interfaces.'];
   let wordIdx = 0;
   let charIdx = words[0].length;
   let isDeleting = false;
@@ -210,58 +126,123 @@ function initHeroTyping() {
       textEl.textContent = currentWord.substring(0, charIdx);
     }
 
-    let delay = isDeleting ? 60 : 110;
+    let delay = isDeleting ? 50 : 100;
 
     if (!isDeleting && charIdx === currentWord.length) {
-      delay = 2500;
+      delay = 2400;
       isDeleting = true;
     } else if (isDeleting && charIdx === 0) {
       isDeleting = false;
       wordIdx = (wordIdx + 1) % words.length;
-      delay = 400;
+      delay = 350;
     }
 
     setTimeout(typeStep, delay);
   }
 
-  setTimeout(typeStep, 3000);
+  setTimeout(typeStep, 2500);
 }
 
 /* --------------------------------------------------------------------------
-   06. SCROLL SPY
+   04. HERO VIDEO CONTROLLER
+   -------------------------------------------------------------------------- */
+function initHeroVisualStage() {
+  const video = document.getElementById('hero-avatar-video');
+  const stage = document.querySelector('.hero-video-stage');
+
+  if (video) {
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        const resumePlayback = () => {
+          video.play().catch(() => { });
+          window.removeEventListener('click', resumePlayback);
+          window.removeEventListener('touchstart', resumePlayback);
+          window.removeEventListener('scroll', resumePlayback);
+        };
+        window.addEventListener('click', resumePlayback, { once: true });
+        window.addEventListener('touchstart', resumePlayback, { once: true });
+        window.addEventListener('scroll', resumePlayback, { once: true });
+      });
+    }
+  }
+
+  if (!stage || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const heroSection = document.getElementById('home');
+  if (!heroSection) return;
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let currentTiltX = 0;
+  let currentTiltY = 0;
+
+  heroSection.addEventListener('mousemove', (e) => {
+    const rect = heroSection.getBoundingClientRect();
+    mouseX = (e.clientX - rect.left) / rect.width - 0.5;
+    mouseY = (e.clientY - rect.top) / rect.height - 0.5;
+  }, { passive: true });
+
+  heroSection.addEventListener('mouseleave', () => {
+    mouseX = 0;
+    mouseY = 0;
+  });
+
+  function renderTilt() {
+    currentTiltX += (mouseY * -5 - currentTiltX) * 0.08;
+    currentTiltY += (mouseX * 7 - currentTiltY) * 0.08;
+
+    if (window.innerWidth > 1024) {
+      stage.style.transform = `perspective(1000px) rotateX(${currentTiltX.toFixed(2)}deg) rotateY(${currentTiltY.toFixed(2)}deg)`;
+    } else {
+      stage.style.transform = '';
+    }
+
+    requestAnimationFrame(renderTilt);
+  }
+
+  requestAnimationFrame(renderTilt);
+}
+
+/* --------------------------------------------------------------------------
+   05. SCROLL SPY
    -------------------------------------------------------------------------- */
 function initScrollSpy() {
-  const navItems  = document.querySelectorAll('.side-nav-item');
+  const navItems = document.querySelectorAll('.side-nav-item');
   const dockItems = document.querySelectorAll('.dock-item');
-  const sections  = document.querySelectorAll('section');
+  const sections = document.querySelectorAll('section');
   if (!sections.length) return;
 
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navItems.forEach(item =>
-          item.classList.toggle('active', item.getAttribute('data-section') === id)
-        );
-        dockItems.forEach(item =>
-          item.classList.toggle('active', item.getAttribute('data-section') === id)
-        );
+        const id = entry.target.id;
+        navItems.forEach(item => {
+          item.classList.toggle('active', item.getAttribute('data-section') === id);
+        });
+        dockItems.forEach(item => {
+          item.classList.toggle('active', item.getAttribute('data-section') === id);
+        });
       }
     });
-  }, { threshold: 0.35 });
+  }, { threshold: 0.25, rootMargin: '-10% 0px -50% 0px' });
 
-  sections.forEach(s => obs.observe(s));
+  sections.forEach(sec => obs.observe(sec));
 }
 
 /* --------------------------------------------------------------------------
-   07. TEXT REVEAL OBSERVER
+   06. TEXT REVEAL & FADE OBSERVER
    -------------------------------------------------------------------------- */
 function initTextRevealObserver() {
-  const targets = document.querySelectorAll('.cinematic-section, .hero-section');
+  const targets = document.querySelectorAll('.fade-up');
+  if (!targets.length) return;
 
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
     });
   }, { threshold: 0.1 });
 
@@ -269,383 +250,37 @@ function initTextRevealObserver() {
 }
 
 /* --------------------------------------------------------------------------
-   08. SKILLS CATEGORY FILTER
+   07. 1-CLICK COPY EMAIL
    -------------------------------------------------------------------------- */
-function initSkillsFilter() {
-  const filterBtns = document.querySelectorAll('.skill-filter-btn');
-  const tagsContainer = document.getElementById('skills-tags-container');
-  if (!filterBtns.length || !tagsContainer) return;
+function initCopyEmail() {
+  const copyBtn = document.getElementById('copy-email-btn');
+  if (!copyBtn) return;
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
-
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const tags = tagsContainer.querySelectorAll('.tag');
-      tags.forEach(tag => {
-        const cat = tag.getAttribute('data-category');
-        if (filter === 'all' || cat === filter) {
-          tag.classList.remove('hidden-tag');
-        } else {
-          tag.classList.add('hidden-tag');
-        }
-      });
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   09. CODE CARD TABS & COPY SNIPPET
-   -------------------------------------------------------------------------- */
-function initCodeCard() {
-  const tabBtns  = document.querySelectorAll('.code-tab-btn');
-  const codePre  = document.getElementById('code-snippet-pre');
-  const copyBtn  = document.getElementById('copy-code-btn');
-  if (!codePre) return;
-
-  const snippets = {
-    developer: `<span class="code-kw">interface</span> Developer {
-  name: <span class="code-str">"Abhinav"</span>;
-  role: <span class="code-str">"Full-Stack Developer"</span>;
-  location: <span class="code-str">"India 🇮🇳"</span>;
-  stack: string[];
-  status: <span class="code-str">"Ready for impact"</span>;
-}
-
-<span class="code-kw">const</span> developer: Developer = {
-  name: <span class="code-str">"Abhinav"</span>,
-  role: <span class="code-str">"Full Stack Engineer"</span>,
-  location: <span class="code-str">"India 🇮🇳"</span>,
-  stack: [<span class="code-str">"React"</span>, <span class="code-str">"Node.js"</span>, <span class="code-str">"PostgreSQL"</span>],
-  status: <span class="code-str">"Ready for impact"</span>,
-};
-
-<span class="code-cmt">// Execute mission</span>
-<span class="code-fn">deploySuccess</span>(developer);`,
-
-    stack: `<span class="code-kw">{</span>
-  <span class="code-key">"name"</span>: <span class="code-str">"abhinav-stack"</span>,
-  <span class="code-key">"frontend"</span>: [<span class="code-str">"React"</span>, <span class="code-str">"Next.js"</span>, <span class="code-str">"TypeScript"</span>],
-  <span class="code-key">"backend"</span>: [<span class="code-str">"Node.js"</span>, <span class="code-str">"Express"</span>, <span class="code-str">"Laravel"</span>],
-  <span class="code-key">"database"</span>: [<span class="code-str">"PostgreSQL"</span>, <span class="code-str">"MongoDB"</span>, <span class="code-str">"Redis"</span>],
-  <span class="code-key">"architecture"</span>: <span class="code-str">"Microservices &amp; REST"</span>
-<span class="code-kw">}</span>`
-  };
-
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tab = btn.getAttribute('data-tab');
-      tabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      if (snippets[tab]) {
-        codePre.querySelector('code').innerHTML = snippets[tab];
-      }
-    });
-  });
-
-  copyBtn?.addEventListener('click', () => {
-    const rawText = codePre.textContent;
-    navigator.clipboard.writeText(rawText).then(() => {
-      copyBtn.textContent = 'Copied!';
-      showToast('Code snippet copied to clipboard 📋');
-      setTimeout(() => copyBtn.textContent = 'Copy', 2000);
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   10. PROJECTS STORY DECK
-   -------------------------------------------------------------------------- */
-function initProjectsStoryDeck() {
-  const slides     = document.querySelectorAll('.story-slide');
-  const pips       = document.querySelectorAll('.progress-pip');
-  const prevBtn    = document.getElementById('story-prev');
-  const nextBtn    = document.getElementById('story-next');
-  const numDisplay = document.getElementById('current-project-num');
-  if (!slides.length) return;
-
-  let current = 0;
-
-  function goTo(index) {
-    slides.forEach((s, i) => s.classList.toggle('active', i === index));
-    pips.forEach((p, i)   => p.classList.toggle('active', i === index));
-    if (numDisplay) numDisplay.textContent = `0${index + 1}`;
-    current = index;
-  }
-
-  prevBtn?.addEventListener('click', () => goTo((current - 1 + slides.length) % slides.length));
-  nextBtn?.addEventListener('click', () => goTo((current + 1) % slides.length));
-
-  document.addEventListener('keydown', (e) => {
-    const sec = document.getElementById('projects');
-    if (!sec) return;
-    const r = sec.getBoundingClientRect();
-    if (r.top < window.innerHeight && r.bottom > 0) {
-      if (e.key === 'ArrowLeft')  goTo((current - 1 + slides.length) % slides.length);
-      if (e.key === 'ArrowRight') goTo((current + 1) % slides.length);
-    }
-  });
-
-  let autoTimer = setInterval(() => goTo((current + 1) % slides.length), 6500);
-
-  [prevBtn, nextBtn].forEach(btn => btn?.addEventListener('click', () => {
-    clearInterval(autoTimer);
-    autoTimer = setInterval(() => goTo((current + 1) % slides.length), 6500);
-  }));
-}
-
-/* --------------------------------------------------------------------------
-   11. PROJECT VIEW TOGGLE (DECK VS GRID)
-   -------------------------------------------------------------------------- */
-function initProjectViewToggle() {
-  const deckBtn  = document.getElementById('view-deck-btn');
-  const gridBtn  = document.getElementById('view-grid-btn');
-  const deckEl   = document.getElementById('story-deck');
-  const gridEl   = document.getElementById('projects-grid');
-  const navWrap  = document.getElementById('story-nav-wrap');
-  const progress = document.getElementById('story-progress');
-  if (!deckBtn || !gridBtn || !deckEl || !gridEl) return;
-
-  deckBtn.addEventListener('click', () => {
-    deckBtn.classList.add('active');
-    gridBtn.classList.remove('active');
-    deckEl.style.display = 'block';
-    gridEl.classList.add('hidden-grid');
-    if (navWrap) navWrap.style.display = 'flex';
-    if (progress) progress.style.display = 'flex';
-  });
-
-  gridBtn.addEventListener('click', () => {
-    gridBtn.classList.add('active');
-    deckBtn.classList.remove('active');
-    deckEl.style.display = 'none';
-    gridEl.classList.remove('hidden-grid');
-    if (navWrap) navWrap.style.display = 'none';
-    if (progress) progress.style.display = 'none';
-  });
-}
-
-/* --------------------------------------------------------------------------
-   12. SYSTEM ARCHITECTURE & PARTICLES
-   -------------------------------------------------------------------------- */
-function initSystemArchitecture() {
-  const container  = document.getElementById('system-architecture-canvas');
-  const canvas     = document.getElementById('data-particles-canvas');
-  const toggleBtns = document.querySelectorAll('.sys-toggle-btn');
-  if (!container || !toggleBtns.length) return;
-
-  const state = { frontend: true, backend: true, database: true };
-
-  toggleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const layer = btn.getAttribute('data-layer');
-      state[layer] = !state[layer];
-      btn.classList.toggle('active', state[layer]);
-      const lbl = btn.querySelector('.toggle-state');
-      if (lbl) lbl.textContent = state[layer] ? 'ON' : 'OFF';
-      syncState();
-    });
-  });
-
-  function syncState() {
-    ['frontend', 'backend', 'database'].forEach(n => {
-      document.getElementById(`layer-${n}`)?.classList.toggle('layer-off', !state[n]);
-    });
-
-    const fbOk = state.frontend && state.backend;
-    const bdOk = state.backend  && state.database;
-    setConn('conn-fb', fbOk);
-    setConn('conn-bd', bdOk);
-
-    ['frontend', 'backend', 'database'].forEach(n => updateRow(n, state[n]));
-
-    let msg = 'SYSTEM OPERATIONAL', offline = false;
-    if (!state.frontend && !state.backend && !state.database) { msg = 'SYSTEM SHUTDOWN'; offline = true; }
-    else if (!state.frontend) { msg = 'FRONTEND OFFLINE';    offline = true; }
-    else if (!state.backend)  { msg = 'API DISCONNECTED';    offline = true; }
-    else if (!state.database) { msg = 'DB DISCONNECTED';     offline = true; }
-
-    const banner = document.getElementById('system-banner');
-    const txt    = document.getElementById('system-status-text');
-    if (txt)    txt.textContent = msg;
-    if (banner) banner.classList.toggle('offline', offline);
-
-    // Update metrics
-    const latEl = document.getElementById('metric-latency');
-    const tpsEl = document.getElementById('metric-tps');
-    if (latEl) latEl.textContent = offline ? 'N/A' : `~${Math.floor(Math.random() * 5 + 10)}ms`;
-    if (tpsEl) tpsEl.textContent = offline ? '0 req/s' : `${Math.floor(Math.random() * 30 + 120)} req/s`;
-  }
-
-  function setConn(id, active) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.classList.toggle('active-conn', active);
-    el.classList.toggle('conn-broken', !active);
-  }
-
-  function updateRow(name, on) {
-    const row   = document.getElementById(`status-row-${name}`);
-    const label = document.getElementById(`status-label-${name}`);
-    if (!row) return;
-    row.querySelector('.sys-status-dot')?.classList.toggle('active-dot', on);
-    if (label) {
-      label.textContent = on ? 'RUNNING' : 'OFFLINE';
-      label.classList.toggle('running',       on);
-      label.classList.toggle('offline-label', !on);
-    }
-  }
-
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-
-  function resize() {
-    canvas.width  = container.clientWidth;
-    canvas.height = container.clientHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function spawn(connId) {
-    const conn = document.getElementById(connId);
-    if (!conn) return;
-    const cr = container.getBoundingClientRect();
-    const lr = conn.getBoundingClientRect();
-    particles.push({
-      x:       lr.left - cr.left + lr.width / 2,
-      y:       lr.top  - cr.top,
-      targetY: lr.bottom - cr.top,
-      speed:   Math.random() * 2.2 + 1.4,
-      radius:  Math.random() * 1.8 + 1.0,
-    });
-  }
-
-  let lastSpawn = 0;
-  function draw(ts) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    if (ts - lastSpawn > 280) {
-      if (state.frontend && state.backend)  spawn('conn-fb');
-      if (state.backend  && state.database) spawn('conn-bd');
-      lastSpawn = ts;
-    }
-    particles = particles.filter(p => {
-      p.y += p.speed;
-      if (p.y >= p.targetY) return false;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(6, 182, 212, 0.85)';
-      ctx.shadowColor = '#06B6D4';
-      ctx.shadowBlur  = 10;
-      ctx.fill();
-      return true;
-    });
-    requestAnimationFrame(draw);
-  }
-  requestAnimationFrame(draw);
-}
-
-/* --------------------------------------------------------------------------
-   13. INTERACTIVE TERMINAL CLI PANEL
-   -------------------------------------------------------------------------- */
-function initTerminalCLI() {
-  const cliInput   = document.getElementById('terminal-cli-input');
-  const cliBody    = document.getElementById('terminal-body-content');
-  const copyEmail  = document.getElementById('copy-email-btn');
-
-  copyEmail?.addEventListener('click', () => {
+  copyBtn.addEventListener('click', () => {
     navigator.clipboard.writeText('abhinav.dev.01@gmail.com').then(() => {
-      showToast('Email address copied to clipboard! 📬');
+      copyBtn.innerHTML = '<i data-lucide="check" style="width: 13px; height: 13px;"></i> Copied!';
+      copyBtn.classList.add('copied');
+      renderLucideIcons(copyBtn);
+      showToast('Email address copied to clipboard!');
+      setTimeout(() => {
+        copyBtn.innerHTML = '<i data-lucide="copy" style="width: 13px; height: 13px;"></i> Copy';
+        copyBtn.classList.remove('copied');
+        renderLucideIcons(copyBtn);
+      }, 2500);
     });
   });
-
-  if (!cliInput || !cliBody) return;
-
-  cliInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const val = cliInput.value.trim().toLowerCase();
-      cliInput.value = '';
-      if (!val) return;
-
-      appendOutput(`abhinav@cli:~$ ${val}`, 'term-prompt');
-      processCommand(val);
-      cliBody.scrollTop = cliBody.scrollHeight;
-    }
-  });
-
-  function appendOutput(text, className = '') {
-    const p = document.createElement('p');
-    if (className) p.className = className;
-    p.textContent = text;
-    cliBody.appendChild(p);
-  }
-
-  function processCommand(cmd) {
-    switch (cmd) {
-      case 'help':
-        appendOutput('Available commands:', 'term-info');
-        appendOutput('  skills   - List technical core stack');
-        appendOutput('  projects - Display featured works');
-        appendOutput('  contact  - Get direct contact email');
-        appendOutput('  clear    - Clear terminal screen');
-        appendOutput('  hire     - Send quick hire interest message');
-        break;
-      case 'skills':
-        appendOutput('> React, Next.js, Node.js, TypeScript, PostgreSQL, MongoDB, Docker, Redis', 'term-success');
-        break;
-      case 'projects':
-        appendOutput('> 01 JeevaLink (Blood Donation) | 02 LibGo (Digital Library) | 03 Exam System', 'term-success');
-        break;
-      case 'contact':
-        appendOutput('> Email: abhinav.dev.01@gmail.com', 'term-success');
-        break;
-      case 'clear':
-        cliBody.innerHTML = '';
-        appendOutput('abhinav@cli:~$ terminal cleared', 'term-muted');
-        break;
-      case 'hire':
-        appendOutput('> Awesome! Drop a message in the form on the right or email abhinav.dev.01@gmail.com directly 🚀', 'term-success');
-        showToast('Form highlighted for contact! 🚀');
-        document.getElementById('contact-name')?.focus();
-        break;
-      default:
-        appendOutput(`Command not recognized: '${cmd}'. Type 'help' for options.`, 'term-muted');
-    }
-  }
 }
 
 /* --------------------------------------------------------------------------
-   14. MOBILE MENU
-   -------------------------------------------------------------------------- */
-function initMobileMenu() {
-  const btn     = document.getElementById('mobile-menu-btn');
-  const overlay = document.getElementById('mobile-overlay');
-  if (!btn || !overlay) return;
-
-  btn.addEventListener('click', () => {
-    const open = overlay.classList.toggle('active');
-    btn.textContent = open ? 'CLOSE' : 'MENU';
-  });
-
-  overlay.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    overlay.classList.remove('active');
-    btn.textContent = 'MENU';
-  }));
-}
-
-/* --------------------------------------------------------------------------
-   15. CONTACT FORM + TOAST NOTIFICATION SYSTEM
+   08. CONTACT FORM HANDLER
    -------------------------------------------------------------------------- */
 function initContactForm() {
-  const form    = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form');
   if (!form) return;
 
-  const nameEl  = document.getElementById('contact-name');
+  const nameEl = document.getElementById('contact-name');
   const emailEl = document.getElementById('contact-email');
-  const msgEl   = document.getElementById('contact-message');
+  const msgEl = document.getElementById('contact-message');
 
   function validate(input, wrapperId) {
     const wrap = document.getElementById(wrapperId);
@@ -667,34 +302,38 @@ function initContactForm() {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const v1 = validate(nameEl,  'field-name');
+    const v1 = validate(nameEl, 'field-name');
     const v2 = validate(emailEl, 'field-email');
-    const v3 = validate(msgEl,   'field-message');
+    const v3 = validate(msgEl, 'field-message');
 
     if (!v1 || !v2 || !v3) {
-      showToast('Please fill in all required fields accurately.');
+      showToast('Please fill in all required fields.');
       return;
     }
 
-    showToast('Message sent! Abhinav will respond to your inquiry shortly. 👋');
+    showToast('Message sent! Abhinav will get back to you shortly. 👋');
     form.reset();
     document.querySelectorAll('.form-field').forEach(f => f.classList.remove('has-error'));
   });
 }
 
+/* --------------------------------------------------------------------------
+   09. TOAST NOTIFICATIONS
+   -------------------------------------------------------------------------- */
 function showToast(msg) {
   const container = document.getElementById('toast-container');
   if (!container) return;
 
   const toast = document.createElement('div');
   toast.className = 'toast';
-  toast.innerHTML = `<span>✨</span> <span>${msg}</span>`;
+  toast.innerHTML = `<i data-lucide="check" style="width: 14px; height: 14px; flex-shrink: 0; color: var(--accent-light);"></i> <span>${msg}</span>`;
   container.appendChild(toast);
+  renderLucideIcons(toast);
 
   setTimeout(() => {
-    toast.style.transition = 'opacity 0.35s, transform 0.35s';
-    toast.style.opacity    = '0';
-    toast.style.transform  = 'translateY(8px)';
-    setTimeout(() => toast.remove(), 400);
-  }, 3800);
+    toast.style.transition = 'opacity 0.3s, transform 0.3s';
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(6px)';
+    setTimeout(() => toast.remove(), 350);
+  }, 3500);
 }

@@ -14,69 +14,36 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="/style.css">
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('abhinav_theme') || 'cosmos';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 </head>
 
-<body class="is-loading">
+<body>
 
   <!-- Top Scroll Reading Bar -->
   <div id="scroll-progress-bar" aria-hidden="true"></div>
-
-  <!-- Mouse Radial Glow Orb -->
-  <div id="mouse-light-orb" aria-hidden="true"></div>
-
-  <!-- Loading Screen -->
-  <div id="loading-screen" aria-hidden="true">
-    <div class="loader-corner loader-corner-tl">ABHINAV.DEV</div>
-    <div class="loader-corner loader-corner-tr" id="loader-percent">000%</div>
-    <div class="loader-corner loader-corner-bl" id="loader-status">LOADING PROJECT</div>
-    <div class="loader-corner loader-corner-br">© 2026</div>
-
-    <div class="loader-progress-bar">
-      <div class="loader-progress-fill" id="loader-progress-fill"></div>
-    </div>
-
-    <div class="loader-inner">
-      <div class="loader-ring">
-        <div class="loader-orb-container">
-          <div class="loader-orb"></div>
-          <div class="loader-orb"></div>
-        </div>
-        <svg viewBox="0 0 80 80">
-          <defs>
-            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#7C3AED" />
-              <stop offset="50%" stop-color="#A78BFA" />
-              <stop offset="100%" stop-color="#06B6D4" />
-            </linearGradient>
-          </defs>
-          <circle class="loader-ring-bg" cx="40" cy="40" r="35" />
-          <circle class="loader-ring-fill" cx="40" cy="40" r="35" id="loader-ring-circle" />
-        </svg>
-        <div class="loader-icon">A<span>.</span></div>
-      </div>
-
-      <div class="loader-name" id="loader-name" aria-label="Abhinav">
-        <span class="loader-name-char">A</span>
-        <span class="loader-name-char">B</span>
-        <span class="loader-name-char">H</span>
-        <span class="loader-name-char">I</span>
-        <span class="loader-name-char">N</span>
-        <span class="loader-name-char">A</span>
-        <span class="loader-name-char">V</span>
-        <span class="loader-name-char loader-name-dot">.</span>
-      </div>
-
-      <div class="loader-tagline" id="loader-tagline">Preparing case study...</div>
-    </div>
-  </div>
 
   <!-- Main Project Page -->
   <main class="project-page-wrap">
 
     <!-- Header -->
     <div class="project-page-header">
-      <a href="/index.html#projects" class="back-btn">← BACK TO ALL WORK</a>
-      <span class="project-page-brand">ABHINAV<span>.</span>DEV</span>
+      <a href="/index.html#projects" class="back-btn">
+        <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+        <span>BACK TO ALL WORK</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="mobile-theme-toggle" id="project-theme-toggle" title="Toggle Theme" aria-label="Toggle Theme"
+          style="cursor: pointer;">
+          <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px;"></i>
+          <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+        </button>
+        <span class="project-page-brand">ABHINAV<span>.</span>DEV</span>
+      </div>
     </div>
 
     <!-- Category & Title -->
@@ -111,22 +78,25 @@
     <!-- Links -->
     <div class="project-links-row">
       <a href="#" id="project-live-link" target="_blank" class="project-link-btn primary">
-        LAUNCH LIVE DEMO ↗
+        <span>LAUNCH LIVE DEMO</span>
+        <i data-lucide="external-link" style="width: 15px; height: 15px;"></i>
       </a>
       <a href="#" id="project-github-link" target="_blank" class="project-link-btn secondary">
-        VIEW REPOSITORY ↗
+        <i data-lucide="github" style="width: 15px; height: 15px;"></i>
+        <span>VIEW REPOSITORY</span>
       </a>
     </div>
 
   </main>
 
   <!-- Back To Top Floating Button -->
-  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <button id="back-to-top" aria-label="Back to top">
+    <i data-lucide="arrow-up" style="width: 18px; height: 18px;"></i>
+  </button>
 
   <div class="toast-container" id="toast-container"></div>
 
   <script type="module" src="/project.js"></script>
-  <script type="module" src="/main.js"></script>
 </body>
 
 </html>

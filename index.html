@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhinav — Creative Full-Stack Developer & System Architect</title>
+  <title>Abhinav — Full-Stack Developer & Software Engineer</title>
   <meta name="description"
-    content="Full-Stack Developer portfolio of Abhinav — engineering scalable web applications, real-time systems, and high-performance digital experiences.">
-  <meta name="keywords" content="Full-Stack Developer, React, Node.js, TypeScript, PostgreSQL, Web Developer, Portfolio, Abhinav">
+    content="Full-Stack Developer portfolio of Abhinav — building scalable web applications, REST APIs, and modern digital experiences.">
+  <meta name="keywords"
+    content="Full-Stack Developer, React, Node.js, TypeScript, PostgreSQL, MongoDB, Web Developer, Portfolio, Abhinav">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,62 +17,18 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="/style.css">
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('abhinav_theme') || 'cosmos';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 </head>
 
-<body class="is-loading">
+<body>
 
   <!-- Top Scroll Reading Bar -->
   <div id="scroll-progress-bar" aria-hidden="true"></div>
-
-  <!-- Mouse Radial Glow Orb -->
-  <div id="mouse-light-orb" aria-hidden="true"></div>
-
-  <!-- ─── LOADING SCREEN ─────────────────────────────────────────── -->
-  <div id="loading-screen" aria-hidden="true">
-
-    <div class="loader-corner loader-corner-tl">ABHINAV.DEV</div>
-    <div class="loader-corner loader-corner-tr" id="loader-percent">000%</div>
-    <div class="loader-corner loader-corner-bl" id="loader-status">INITIALIZING SYSTEM</div>
-    <div class="loader-corner loader-corner-br">© 2026</div>
-
-    <div class="loader-progress-bar">
-      <div class="loader-progress-fill" id="loader-progress-fill"></div>
-    </div>
-
-    <div class="loader-inner">
-      <div class="loader-ring">
-        <div class="loader-orb-container">
-          <div class="loader-orb"></div>
-          <div class="loader-orb"></div>
-        </div>
-        <svg viewBox="0 0 80 80">
-          <defs>
-            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#7C3AED" />
-              <stop offset="50%" stop-color="#A78BFA" />
-              <stop offset="100%" stop-color="#06B6D4" />
-            </linearGradient>
-          </defs>
-          <circle class="loader-ring-bg" cx="40" cy="40" r="35" />
-          <circle class="loader-ring-fill" cx="40" cy="40" r="35" id="loader-ring-circle" />
-        </svg>
-        <div class="loader-icon">A<span>.</span></div>
-      </div>
-
-      <div class="loader-name" id="loader-name" aria-label="Abhinav">
-        <span class="loader-name-char">A</span>
-        <span class="loader-name-char">B</span>
-        <span class="loader-name-char">H</span>
-        <span class="loader-name-char">I</span>
-        <span class="loader-name-char">N</span>
-        <span class="loader-name-char">A</span>
-        <span class="loader-name-char">V</span>
-        <span class="loader-name-char loader-name-dot">.</span>
-      </div>
-
-      <div class="loader-tagline" id="loader-tagline">Full-Stack Developer &amp; System Architect</div>
-    </div>
-  </div>
 
   <!-- ─── SIDE NAVIGATION (DESKTOP) ─────────────────────────────── -->
   <aside class="side-navigation">
@@ -94,9 +51,9 @@
           <span class="nav-text">WORK</span>
           <span class="nav-indicator"></span>
         </a>
-        <a href="#stack" class="side-nav-item" data-section="stack">
+        <a href="#skills" class="side-nav-item" data-section="skills">
           <span class="nav-num">04</span>
-          <span class="nav-text">SYSTEM</span>
+          <span class="nav-text">SKILLS</span>
           <span class="nav-indicator"></span>
         </a>
         <a href="#experience" class="side-nav-item" data-section="experience">
@@ -112,16 +69,41 @@
       </nav>
 
       <div class="nav-controls">
+        <a href="/Abhinav_P_Full stack_Resume.pdf" target="_blank" class="nav-resume-btn" download>
+          <span style="display: inline-flex; align-items: center; gap: 0.45rem;">
+            <i data-lucide="file-text" style="width: 14px; height: 14px;"></i> RESUME (PDF)
+          </span>
+          <i data-lucide="download" style="width: 14px; height: 14px;"></i>
+        </a>
+
         <div class="theme-toggle-bar">
-          <button class="theme-btn active" data-set-theme="cosmos" title="Cosmos Theme">Dark</button>
-          <button class="theme-btn" data-set-theme="neon" title="Neon Cyber Theme">Neon</button>
-          <button class="theme-btn" data-set-theme="light" title="Light Theme">Light</button>
+          <button class="theme-btn active" data-set-theme="cosmos" title="Dark Theme">
+            <i data-lucide="moon" style="width: 13px; height: 13px;"></i> Dark
+          </button>
+          <button class="theme-btn" data-set-theme="light" title="Light Theme">
+            <i data-lucide="sun" style="width: 13px; height: 13px;"></i> Light
+          </button>
         </div>
 
         <div class="side-socials">
-          <a href="https://github.com/abhinav-dev-01" target="_blank" class="social-link">GitHub <span>↗</span></a>
-          <a href="https://linkedin.com/in/abhinav-dev-01" target="_blank" class="social-link">LinkedIn <span>↗</span></a>
-          <a href="mailto:abhinav.dev.01@gmail.com" class="social-link">Email <span>↗</span></a>
+          <a href="https://github.com/abhinav-dev-01" target="_blank" class="social-link">
+            <span style="display: inline-flex; align-items: center; gap: 0.45rem;">
+              <i data-lucide="github" style="width: 14px; height: 14px;"></i> GitHub
+            </span>
+            <i data-lucide="arrow-up-right" style="width: 13px; height: 13px;"></i>
+          </a>
+          <a href="https://linkedin.com/in/abhinav-dev-01" target="_blank" class="social-link">
+            <span style="display: inline-flex; align-items: center; gap: 0.45rem;">
+              <i data-lucide="linkedin" style="width: 14px; height: 14px;"></i> LinkedIn
+            </span>
+            <i data-lucide="arrow-up-right" style="width: 13px; height: 13px;"></i>
+          </a>
+          <a href="mailto:abhinav.dev.01@gmail.com" class="social-link">
+            <span style="display: inline-flex; align-items: center; gap: 0.45rem;">
+              <i data-lucide="mail" style="width: 14px; height: 14px;"></i> Email
+            </span>
+            <i data-lucide="arrow-up-right" style="width: 13px; height: 13px;"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -130,50 +112,41 @@
   <!-- ─── MOBILE TOP BRAND HEADER ───────────────────────────────── -->
   <header class="mobile-top-nav">
     <a href="#home" class="brand-logo">ABHINAV<span class="dot">.</span>DEV</a>
-    <button class="mobile-theme-toggle" id="mobile-theme-toggle" title="Cycle Theme" aria-label="Cycle Theme">
-      <span class="theme-icon">🎨</span>
-    </button>
+    <div class="mobile-nav-actions">
+      <a href="/Abhinav_P_Full stack_Resume.pdf" target="_blank" class="mobile-resume-link" download>
+        <i data-lucide="download" style="width: 13px; height: 13px; margin-right: 4px;"></i> Resume
+      </a>
+      <button class="mobile-theme-toggle" id="mobile-theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+        <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px;"></i>
+        <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+      </button>
+    </div>
   </header>
 
   <!-- ─── MOBILE APP BOTTOM BAR DOCK ─────────────────────────────── -->
   <nav class="mobile-bottom-dock" aria-label="Mobile Navigation Dock">
     <a href="#home" class="dock-item active" data-section="home">
-      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-      </svg>
+      <i data-lucide="home" class="dock-icon"></i>
       <span class="dock-label">Home</span>
     </a>
 
     <a href="#about" class="dock-item" data-section="about">
-      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-        <circle cx="12" cy="7" r="4"></circle>
-      </svg>
+      <i data-lucide="user" class="dock-icon"></i>
       <span class="dock-label">About</span>
     </a>
 
     <a href="#projects" class="dock-item" data-section="projects">
-      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-      </svg>
+      <i data-lucide="folder-git-2" class="dock-icon"></i>
       <span class="dock-label">Work</span>
     </a>
 
-    <a href="#stack" class="dock-item" data-section="stack">
-      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-        <polyline points="2 17 12 22 22 17"></polyline>
-        <polyline points="2 12 12 17 22 12"></polyline>
-      </svg>
-      <span class="dock-label">System</span>
+    <a href="#skills" class="dock-item" data-section="skills">
+      <i data-lucide="code-2" class="dock-icon"></i>
+      <span class="dock-label">Skills</span>
     </a>
 
     <a href="#contact" class="dock-item" data-section="contact">
-      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-      </svg>
+      <i data-lucide="mail" class="dock-icon"></i>
       <span class="dock-label">Contact</span>
     </a>
   </nav>
@@ -182,67 +155,87 @@
   <main class="editorial-viewport">
 
     <!-- ══ 01 HERO ══════════════════════════════════════════════ -->
-    <section id="home" class="hero-section">
-      <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
-      <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
-      <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
+    <section id="home" class="hero-section is-visible">
       <div class="hero-grid" aria-hidden="true"></div>
 
-      <div class="hero-content">
-        <div class="hero-badge fade-up">
-          <span class="hero-badge-dot"></span>
-          Available for full-time roles &amp; select freelance work
-        </div>
-
-        <div class="section-meta fade-up">
-          <span class="meta-divider"></span>
-          <span>01</span>
-          CREATIVE FULL-STACK ENGINEER
-        </div>
-
-        <h1 class="editorial-headline">
-          <span class="line-wrap"><span class="reveal-text">I architect &amp;</span></span>
-          <span class="line-wrap"><span class="reveal-text accent-text">build digital</span></span>
-          <span class="line-wrap"><span class="reveal-text italic-text"><span class="typing-text" id="typing-hero">products.</span></span></span>
-        </h1>
-
-        <p class="hero-description fade-up">
-          I craft robust web applications, high-performance APIs, and interactive software experiences — bridging technical excellence with intuitive design.
-        </p>
-
-        <div class="hero-actions-row fade-up">
-          <a href="#projects" class="btn-primary">
-            EXPLORE WORK <span class="arrow-icon">↗</span>
-          </a>
-          <a href="#contact" class="btn-ghost">
-            GET IN TOUCH <span class="arrow-icon">↗</span>
-          </a>
-        </div>
-
-        <div class="hero-stats fade-up">
-          <div class="hero-stat">
-            <span class="hero-stat-num" data-target="3">3+</span>
-            <span class="hero-stat-label">YEARS EXPERIENCE</span>
+      <div class="hero-two-col">
+        <!-- Left Column: Introduction & Core Info -->
+        <div class="hero-content">
+          <div class="hero-badge fade-up">
+            <span class="hero-badge-dot"></span>
+            Available for full-time roles &amp; freelance projects
           </div>
-          <div class="hero-stat">
-            <span class="hero-stat-num" data-target="10">10+</span>
-            <span class="hero-stat-label">PRODUCTION PROJECTS</span>
+
+          <div class="section-meta fade-up">
+            <span class="meta-divider"></span>
+            <span>01</span>
+            FULL-STACK DEVELOPER • INDIA
           </div>
-          <div class="hero-stat">
-            <span class="hero-stat-num">99.9%</span>
-            <span class="hero-stat-label">SYSTEM UPTIME</span>
+
+          <h1 class="editorial-headline">
+            <span class="line-wrap"><span class="reveal-text">Building fast &amp;</span></span>
+            <span class="line-wrap"><span class="reveal-text accent-text">reliable web</span></span>
+            <span class="line-wrap"><span class="reveal-text italic-text"><span class="typing-text"
+                  id="typing-hero">applications.</span></span></span>
+          </h1>
+
+          <p class="hero-description fade-up">
+            Hi, I'm <strong>Abhinav</strong> — a software developer focused on React, TypeScript, Node.js, and scalable
+            database architectures. I build practical, accessible products with clean code and great user experience.
+          </p>
+
+          <div class="hero-actions-row fade-up">
+            <a href="#projects" class="btn-primary">
+              <span>VIEW PROJECTS</span>
+              <i data-lucide="arrow-up-right" class="arrow-icon"></i>
+            </a>
+            <a href="/Abhinav_P_Full stack_Resume.pdf" target="_blank" class="btn-ghost" download>
+              <span>DOWNLOAD RESUME</span>
+              <i data-lucide="download" class="arrow-icon"></i>
+            </a>
+            <a href="#contact" class="btn-text-link">
+              <span>Get in Touch</span>
+              <i data-lucide="arrow-right" class="arrow-icon"></i>
+            </a>
+          </div>
+
+          <div class="hero-stats fade-up">
+            <div class="hero-stat">
+              <span class="hero-stat-num">3+</span>
+              <span class="hero-stat-label">YEARS CODING</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">10+</span>
+              <span class="hero-stat-label">PROJECTS BUILT</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">100%</span>
+              <span class="hero-stat-label">COMMITMENT TO QUALITY</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Clean Transparent Video Animation -->
+        <div class="hero-visual-col fade-up">
+          <div class="hero-video-stage">
+            <video class="hero-transparent-video" id="hero-avatar-video" autoplay loop muted playsinline preload="auto">
+              <source src="/transparent-video (19).webm" type="video/webm">
+              <source src="/hero-character.webm" type="video/webm">
+            </video>
           </div>
         </div>
       </div>
 
       <div class="hero-scroll-indicator">
         <span class="scroll-line"></span>
-        SCROLL TO EXPLORE
+        <span style="display: inline-flex; align-items: center; gap: 0.35rem;">
+          <i data-lucide="arrow-down" style="width: 12px; height: 12px;"></i> SCROLL TO EXPLORE
+        </span>
       </div>
     </section>
 
     <!-- ══ 02 ABOUT ══════════════════════════════════════════════ -->
-    <section id="about" class="cinematic-section">
+    <section id="about" class="cinematic-section is-visible">
       <div class="section-label fade-up">
         <span class="meta-divider"></span>
         <span>02</span>
@@ -250,108 +243,145 @@
       </div>
 
       <div class="about-grid">
-        <div>
+        <div class="about-text-col">
           <h2 class="section-headline fade-up">
-            <span class="line-wrap"><span class="reveal-text">Turning complex code</span></span>
-            <span class="line-wrap"><span class="reveal-text accent-text">into seamless</span></span>
-            <span class="line-wrap"><span class="reveal-text italic-text">user experiences.</span></span>
+            <span class="line-wrap"><span class="reveal-text">Passionate about clean code,</span></span>
+            <span class="line-wrap"><span class="reveal-text accent-text">usable software,</span></span>
+            <span class="line-wrap"><span class="reveal-text italic-text">and real impact.</span></span>
           </h2>
 
           <p class="about-body fade-up">
-            Full-stack software developer dedicated to building <strong>scalable, high-throughput</strong> applications.
-            I combine clean modular architecture with <em>intentional user interaction</em> to engineer systems that deliver real-world impact.
+            I am a full-stack software developer with a practical mindset. I love taking complex business logic and
+            transforming it into simple, maintainable code and intuitive digital experiences.
           </p>
 
-          <!-- Interactive Skill Category Filtering -->
-          <div class="skills-filter-bar fade-up">
-            <button class="skill-filter-btn active" data-filter="all">All Tech</button>
-            <button class="skill-filter-btn" data-filter="frontend">Frontend</button>
-            <button class="skill-filter-btn" data-filter="backend">Backend</button>
-            <button class="skill-filter-btn" data-filter="database">Database</button>
-            <button class="skill-filter-btn" data-filter="tools">Cloud &amp; DevOps</button>
-          </div>
+          <p class="about-body fade-up">
+            My background spans both frontend crafting (React, Next.js, TypeScript, modern CSS) and backend engineering
+            (Node.js, Express, PostgreSQL, MongoDB, Redis). Whether it's architecting donor dispatch pipelines or
+            optimizing seat-allocation engines, I prioritize reliability, speed, and clean documentation.
+          </p>
 
-          <div class="about-tags fade-up" id="skills-tags-container">
-            <span class="tag" data-category="frontend">React</span>
-            <span class="tag" data-category="frontend">Next.js</span>
-            <span class="tag" data-category="frontend">TypeScript</span>
-            <span class="tag" data-category="frontend">TailwindCSS</span>
-            <span class="tag" data-category="backend">Node.js</span>
-            <span class="tag" data-category="backend">Express.js</span>
-            <span class="tag" data-category="backend">Laravel</span>
-            <span class="tag" data-category="backend">RESTful APIs</span>
-            <span class="tag" data-category="database">MongoDB</span>
-            <span class="tag" data-category="database">PostgreSQL</span>
-            <span class="tag" data-category="database">Redis</span>
-            <span class="tag" data-category="tools">Docker</span>
-            <span class="tag" data-category="tools">Firebase</span>
-            <span class="tag" data-category="tools">Git / GitHub</span>
+          <div class="about-quick-facts fade-up">
+            <div class="fact-card">
+              <span class="fact-icon">
+                <i data-lucide="map-pin"></i>
+              </span>
+              <div>
+                <strong>Location</strong>
+                <span>India (Available for Remote &amp; On-Site)</span>
+              </div>
+            </div>
+            <div class="fact-card">
+              <span class="fact-icon">
+                <i data-lucide="briefcase"></i>
+              </span>
+              <div>
+                <strong>Current Status</strong>
+                <span>Open for Full-Time Roles &amp; Freelance</span>
+              </div>
+            </div>
+            <div class="fact-card">
+              <span class="fact-icon">
+                <i data-lucide="graduation-cap"></i>
+              </span>
+              <div>
+                <strong>Focus</strong>
+                <span>Full-Stack Web Engineering &amp; System Design</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Interactive Multi-Tab Code Card -->
-        <div class="code-card fade-up">
-          <div class="code-card-bar">
-            <span class="win-dot win-dot-r"></span>
-            <span class="win-dot win-dot-y"></span>
-            <span class="win-dot win-dot-g"></span>
-
-            <div class="code-card-tabs">
-              <button class="code-tab-btn active" data-tab="developer">developer.ts</button>
-              <button class="code-tab-btn" data-tab="stack">stack.json</button>
-            </div>
-
-            <button class="copy-code-btn" id="copy-code-btn" title="Copy code snippet">Copy</button>
+        <!-- Humanized Bio Highlights Card -->
+        <div class="about-highlight-card fade-up">
+          <div class="highlight-card-header">
+            <h3>What I Bring to Your Team</h3>
+            <span class="highlight-pill">ENGINEERING MINDSET</span>
           </div>
 
-          <pre id="code-snippet-pre"><code><span class="code-kw">interface</span> Developer {
-  name: <span class="code-str">"Abhinav"</span>;
-  role: <span class="code-str">"Full-Stack Developer"</span>;
-  location: <span class="code-str">"India 🇮🇳"</span>;
-  stack: string[];
-  status: <span class="code-str">"Ready for impact"</span>;
-}
+          <ul class="highlight-list">
+            <li>
+              <div class="highlight-bullet">01</div>
+              <div>
+                <strong>End-to-End Product Delivery</strong>
+                <p>From initial database schema design to responsive frontend implementation and cloud deployment.</p>
+              </div>
+            </li>
+            <li>
+              <div class="highlight-bullet">02</div>
+              <div>
+                <strong>Clean, Maintainable Architecture</strong>
+                <p>Modular component structure, type safety with TypeScript, and testable API endpoints.</p>
+              </div>
+            </li>
+            <li>
+              <div class="highlight-bullet">03</div>
+              <div>
+                <strong>Performance &amp; User Experience First</strong>
+                <p>Fast page loads, accessible UI components, and intuitive user workflows.</p>
+              </div>
+            </li>
+            <li>
+              <div class="highlight-bullet">04</div>
+              <div>
+                <strong>Collaborative &amp; Reliable</strong>
+                <p>Clear communication, active problem solving, and adherence to production deadlines.</p>
+              </div>
+            </li>
+          </ul>
 
-<span class="code-kw">const</span> developer: Developer = {
-  name: <span class="code-str">"Abhinav"</span>,
-  role: <span class="code-str">"Full Stack Engineer"</span>,
-  location: <span class="code-str">"India 🇮🇳"</span>,
-  stack: [<span class="code-str">"React"</span>, <span class="code-str">"Node.js"</span>, <span class="code-str">"PostgreSQL"</span>],
-  status: <span class="code-str">"Ready for impact"</span>,
-};
-
-<span class="code-cmt">// Execute mission</span>
-<span class="code-fn">deploySuccess</span>(developer);</code></pre>
+          <div class="highlight-cta-row">
+            <a href="mailto:abhinav.dev.01@gmail.com" class="btn-primary"
+              style="font-size: 0.72rem; padding: 0.7rem 1.2rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+              <span>DISCUSS OPPORTUNITIES</span>
+              <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- Process Workflow -->
       <div class="process-flow">
-        <p class="process-flow-title">DEVELOPMENT METHODOLOGY</p>
+        <p class="process-flow-title">HOW I WORK &amp; DELIVER</p>
         <div class="process-steps">
           <div class="process-step fade-up">
-            <h3 class="step-lbl">Discover</h3>
-            <p class="step-desc">Deconstruct requirements &amp; user goals</p>
+            <h3 class="step-lbl">
+              <i data-lucide="search" style="width: 15px; height: 15px; margin-right: 4px; color: var(--accent-light);"></i>
+              Understand
+            </h3>
+            <p class="step-desc">Analyze user requirements &amp; project constraints</p>
             <span class="step-num">01</span>
           </div>
           <div class="process-step fade-up">
-            <h3 class="step-lbl">Design</h3>
-            <p class="step-desc">Architecture &amp; UX prototyping</p>
+            <h3 class="step-lbl">
+              <i data-lucide="cpu" style="width: 15px; height: 15px; margin-right: 4px; color: var(--accent-light);"></i>
+              Architect
+            </h3>
+            <p class="step-desc">Design database models &amp; API structure</p>
             <span class="step-num">02</span>
           </div>
           <div class="process-step fade-up">
-            <h3 class="step-lbl">Build</h3>
-            <p class="step-desc">Clean, scalable modular code</p>
+            <h3 class="step-lbl">
+              <i data-lucide="code-2" style="width: 15px; height: 15px; margin-right: 4px; color: var(--accent-light);"></i>
+              Develop
+            </h3>
+            <p class="step-desc">Write clean, tested, type-safe full-stack code</p>
             <span class="step-num">03</span>
           </div>
           <div class="process-step fade-up">
-            <h3 class="step-lbl">Test</h3>
-            <p class="step-desc">Rigorous QA &amp; performance checks</p>
+            <h3 class="step-lbl">
+              <i data-lucide="sparkles" style="width: 15px; height: 15px; margin-right: 4px; color: var(--accent-light);"></i>
+              Refine
+            </h3>
+            <p class="step-desc">Polish UI responsiveness &amp; optimize speed</p>
             <span class="step-num">04</span>
           </div>
           <div class="process-step fade-up">
-            <h3 class="step-lbl">Ship</h3>
-            <p class="step-desc">CI/CD deployment &amp; monitoring</p>
+            <h3 class="step-lbl">
+              <i data-lucide="rocket" style="width: 15px; height: 15px; margin-right: 4px; color: var(--accent-light);"></i>
+              Deploy
+            </h3>
+            <p class="step-desc">Ship to production with CI/CD &amp; monitoring</p>
             <span class="step-num">05</span>
           </div>
         </div>
@@ -359,324 +389,232 @@
     </section>
 
     <!-- ══ 03 SELECTED WORK ══════════════════════════════════════ -->
-    <section id="projects" class="cinematic-section projects-story-section">
-      <div class="story-header">
+    <section id="projects" class="cinematic-section is-visible">
+      <div class="section-label fade-up">
+        <span class="meta-divider"></span>
+        <span>03</span>
+        FEATURED WORK
+      </div>
+
+      <div class="projects-section-header fade-up">
         <div>
-          <div class="section-label fade-up">
-            <span class="meta-divider"></span>
-            <span>03</span>
-            SELECTED WORK
-          </div>
-          <h2 class="section-headline fade-up">Featured Engineering</h2>
-        </div>
-
-        <div class="story-header-controls fade-up">
-          <!-- View Toggle Mode: Deck vs Grid -->
-          <div class="view-mode-toggle">
-            <button class="view-toggle-btn active" id="view-deck-btn">Deck View</button>
-            <button class="view-toggle-btn" id="view-grid-btn">Grid View</button>
-          </div>
-
-          <div class="story-nav" id="story-nav-wrap">
-            <button class="story-nav-btn" id="story-prev" aria-label="Previous project">←</button>
-            <div class="story-counter">
-              <span id="current-project-num">01</span>&thinsp;/&thinsp;<span>03</span>
-            </div>
-            <button class="story-nav-btn" id="story-next" aria-label="Next project">→</button>
-          </div>
+          <h2 class="section-headline">Featured Projects</h2>
+          <p class="section-subtext">Real-world applications built with modern web technologies, addressing practical
+            problems.</p>
         </div>
       </div>
 
-      <!-- Story Deck Mode Carousel -->
-      <div class="story-deck" id="story-deck">
+      <!-- Humanized Projects Grid -->
+      <div class="featured-projects-grid">
 
         <!-- Project 01: JeevaLink -->
-        <article class="story-slide active" data-index="0">
-          <div class="slide-grid">
-            <div class="slide-info-col">
-              <span class="slide-num">01 / 03</span>
-              <span class="slide-cat">Blood Donation &amp; Emergency Platform</span>
-              <h3 class="slide-title">JeevaLink</h3>
-              <p class="slide-description">
-                Real-time donor matching and emergency medical coordination system featuring instant donor geolocation, SMS alerts, and hospital coordinator dispatch controls.
-              </p>
-              <div class="slide-tech-row">
-                <span>React</span><span>Node.js</span><span>MongoDB</span><span>Firebase</span><span>Socket.io</span>
-              </div>
-              <a href="/project.html?id=jeevalink" class="cinematic-link project-view-link">
-                EXPLORE CASE STUDY <span class="arrow-icon">↗</span>
-              </a>
+        <article class="featured-project-card fade-up">
+          <div class="project-card-media">
+            <img src="/jeevalink.png" alt="JeevaLink Blood Donation Platform" class="project-card-img"
+              onerror="this.src='https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80'">
+            <span class="project-featured-badge">
+              <i data-lucide="sparkles" style="width: 11px; height: 11px; margin-right: 4px;"></i> FEATURED
+            </span>
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-meta">
+              <span class="project-card-tag">Healthcare &amp; Emergency</span>
+              <span class="project-card-year">2025</span>
             </div>
-            <div class="slide-image-col">
-              <div class="slide-image-mask">
-                <img src="/jeevalink.png" alt="JeevaLink Blood Donation Platform" class="slide-image"
-                  onerror="this.src='https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80'">
-              </div>
+            <h3 class="project-card-title">JeevaLink</h3>
+            <p class="project-card-desc">
+              Real-time blood donor matching and emergency medical coordination platform with instant geolocation, SMS
+              alerts, and a hospital coordinator dispatch panel.
+            </p>
+            <div class="project-tech-tags">
+              <span>React</span><span>Node.js</span><span>MongoDB</span><span>Firebase</span><span>Socket.io</span>
+            </div>
+            <div class="project-card-links">
+              <a href="/project.html?id=jeevalink" class="card-btn-primary">
+                <span>View Case Study</span>
+                <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+              </a>
+              <a href="https://github.com/abhinav-dev-01/jeevalink" target="_blank" class="card-btn-ghost">
+                <i data-lucide="github" style="width: 14px; height: 14px;"></i>
+                <span>GitHub</span>
+              </a>
             </div>
           </div>
         </article>
 
         <!-- Project 02: LibGo -->
-        <article class="story-slide" data-index="1">
-          <div class="slide-grid">
-            <div class="slide-info-col">
-              <span class="slide-num">02 / 03</span>
-              <span class="slide-cat">Digital Library Management System</span>
-              <h3 class="slide-title">LibGo</h3>
-              <p class="slide-description">
-                Digital library ecosystem automating inventory tracking, QR check-in/out, member circulation, and automated overdue calculation.
-              </p>
-              <div class="slide-tech-row">
-                <span>React</span><span>Node.js</span><span>MongoDB</span><span>Express</span>
-              </div>
-              <a href="/project.html?id=libgo" class="cinematic-link project-view-link">
-                EXPLORE CASE STUDY <span class="arrow-icon">↗</span>
-              </a>
+        <article class="featured-project-card fade-up">
+          <div class="project-card-media">
+            <img src="/fittrack.png" alt="LibGo Digital Library" class="project-card-img"
+              onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=80'">
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-meta">
+              <span class="project-card-tag">Library &amp; Inventory</span>
+              <span class="project-card-year">2024</span>
             </div>
-            <div class="slide-image-col">
-              <div class="slide-image-mask">
-                <img src="/fittrack.png" alt="LibGo Digital Library" class="slide-image"
-                  onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=80'">
-              </div>
+            <h3 class="project-card-title">LibGo</h3>
+            <p class="project-card-desc">
+              Digital library management ecosystem automating book inventory tracking, QR-code member circulation, and
+              automated overdue calculation.
+            </p>
+            <div class="project-tech-tags">
+              <span>React</span><span>Node.js</span><span>MongoDB</span><span>Express</span>
+            </div>
+            <div class="project-card-links">
+              <a href="/project.html?id=libgo" class="card-btn-primary">
+                <span>View Case Study</span>
+                <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+              </a>
+              <a href="https://github.com/abhinav-dev-01/libgo" target="_blank" class="card-btn-ghost">
+                <i data-lucide="github" style="width: 14px; height: 14px;"></i>
+                <span>GitHub</span>
+              </a>
             </div>
           </div>
         </article>
 
         <!-- Project 03: Exam System -->
-        <article class="story-slide" data-index="2">
-          <div class="slide-grid">
-            <div class="slide-info-col">
-              <span class="slide-num">03 / 03</span>
-              <span class="slide-cat">Exam &amp; Seat Allocation Engine</span>
-              <h3 class="slide-title">Exam System</h3>
-              <p class="slide-description">
-                Intelligent seat arrangement platform automating hall ticket validation, bulk CSV student onboarding, and anti-cheating seat distribution algorithms.
-              </p>
-              <div class="slide-tech-row">
-                <span>React</span><span>Express</span><span>PostgreSQL</span><span>Node.js</span>
-              </div>
-              <a href="/project.html?id=examsystem" class="cinematic-link project-view-link">
-                EXPLORE CASE STUDY <span class="arrow-icon">↗</span>
+        <article class="featured-project-card fade-up">
+          <div class="project-card-media">
+            <img src="/byteforge.png" alt="Exam System Allocation Platform" class="project-card-img"
+              onerror="this.src='https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=1200&q=80'">
+          </div>
+          <div class="project-card-content">
+            <div class="project-card-meta">
+              <span class="project-card-tag">Education &amp; Logistics</span>
+              <span class="project-card-year">2024</span>
+            </div>
+            <h3 class="project-card-title">Exam Seat Allocation Engine</h3>
+            <p class="project-card-desc">
+              Automated examination hall seating arrangement system with bulk CSV student onboarding, random allocation
+              algorithms, and attendance verification.
+            </p>
+            <div class="project-tech-tags">
+              <span>React</span><span>Express</span><span>PostgreSQL</span><span>Node.js</span>
+            </div>
+            <div class="project-card-links">
+              <a href="/project.html?id=examsystem" class="card-btn-primary">
+                <span>View Case Study</span>
+                <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+              </a>
+              <a href="https://github.com/abhinav-dev-01/examsystem" target="_blank" class="card-btn-ghost">
+                <i data-lucide="github" style="width: 14px; height: 14px;"></i>
+                <span>GitHub</span>
               </a>
             </div>
-            <div class="slide-image-col">
-              <div class="slide-image-mask">
-                <img src="/byteforge.png" alt="Exam System Allocation Platform" class="slide-image"
-                  onerror="this.src='https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=1200&q=80'">
-              </div>
-            </div>
           </div>
         </article>
 
-      </div>
-
-      <!-- Grid Mode Display (Hidden by default) -->
-      <div class="projects-grid hidden-grid" id="projects-grid">
-        <article class="project-card-grid">
-          <div class="card-img-wrap">
-            <img src="/jeevalink.png" alt="JeevaLink" onerror="this.src='https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80'">
-          </div>
-          <div class="card-body">
-            <span class="card-cat">Emergency Response</span>
-            <h3 class="card-title">JeevaLink</h3>
-            <p class="card-desc">Real-time donor matching and urgent medical coordination engine.</p>
-            <a href="/project.html?id=jeevalink" class="cinematic-link">View Details ↗</a>
-          </div>
-        </article>
-
-        <article class="project-card-grid">
-          <div class="card-img-wrap">
-            <img src="/fittrack.png" alt="LibGo" onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=80'">
-          </div>
-          <div class="card-body">
-            <span class="card-cat">Library Management</span>
-            <h3 class="card-title">LibGo</h3>
-            <p class="card-desc">Digital indexing, QR lending tracking, and member circulation web application.</p>
-            <a href="/project.html?id=libgo" class="cinematic-link">View Details ↗</a>
-          </div>
-        </article>
-
-        <article class="project-card-grid">
-          <div class="card-img-wrap">
-            <img src="/byteforge.png" alt="Exam System" onerror="this.src='https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=1200&q=80'">
-          </div>
-          <div class="card-body">
-            <span class="card-cat">Education Engine</span>
-            <h3 class="card-title">Exam System</h3>
-            <p class="card-desc">Automated examination hall seating allocation and hall ticket verification.</p>
-            <a href="/project.html?id=examsystem" class="cinematic-link">View Details ↗</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="story-progress" id="story-progress">
-        <div class="progress-pip active"></div>
-        <div class="progress-pip"></div>
-        <div class="progress-pip"></div>
       </div>
     </section>
 
-    <!-- ══ 04 SYSTEM ARCHITECTURE ════════════════════════════════ -->
-    <section id="stack" class="cinematic-section system-architecture-section">
+    <!-- ══ 04 TECHNICAL SKILLS & STACK ═════════════════════════════ -->
+    <section id="skills" class="cinematic-section is-visible">
       <div class="section-label fade-up">
         <span class="meta-divider"></span>
         <span>04</span>
-        FULL-STACK SYSTEM
+        SKILLS &amp; CAPABILITIES
       </div>
 
       <h2 class="section-headline fade-up">
-        End-to-end Architecture —<br>from Client to Persistence.
+        Technical Skills &amp; Stack
       </h2>
+      <p class="section-subtext fade-up">
+        Technologies and tools I use regularly to build reliable, high-performance web applications.
+      </p>
 
-      <div class="system-two-col">
+      <!-- Clean Humanized Skills Category Matrix -->
+      <div class="skills-matrix-grid fade-up">
 
-        <div class="system-left-panel">
-          <div class="system-panel-heading">
-            <span class="system-panel-title">SYSTEM MONITOR</span>
+        <div class="skills-category-card">
+          <div class="skills-card-header">
+            <span class="skills-card-icon">
+              <i data-lucide="layout"></i>
+            </span>
+            <h3>Frontend Development</h3>
           </div>
-
-          <div class="system-status-list">
-            <div class="sys-status-row" id="status-row-frontend">
-              <span class="sys-status-dot active-dot"></span>
-              <span class="sys-status-layer">FRONTEND UI</span>
-              <span class="sys-status-label running" id="status-label-frontend">RUNNING</span>
-            </div>
-            <div class="sys-status-row" id="status-row-backend">
-              <span class="sys-status-dot active-dot"></span>
-              <span class="sys-status-layer">BACKEND API</span>
-              <span class="sys-status-label running" id="status-label-backend">RUNNING</span>
-            </div>
-            <div class="sys-status-row" id="status-row-database">
-              <span class="sys-status-dot active-dot"></span>
-              <span class="sys-status-layer">DATABASE</span>
-              <span class="sys-status-label running" id="status-label-database">RUNNING</span>
-            </div>
-          </div>
-
-          <div class="system-metrics-box">
-            <div class="sys-metric-row">
-              <span>LATENCY:</span>
-              <span class="sys-metric-val" id="metric-latency">~12ms</span>
-            </div>
-            <div class="sys-metric-row">
-              <span>POOL SIZE:</span>
-              <span class="sys-metric-val" id="metric-pool">8/10 active</span>
-            </div>
-            <div class="sys-metric-row">
-              <span>THROUGHPUT:</span>
-              <span class="sys-metric-val" id="metric-tps">140 req/s</span>
-            </div>
-          </div>
-
-          <div class="system-operational-banner" id="system-banner">
-            <span class="status-pulse-indicator"></span>
-            <span id="system-status-text">SYSTEM OPERATIONAL</span>
-          </div>
-
-          <div class="system-controls-col">
-            <button class="sys-toggle-btn active" data-layer="frontend">
-              <span class="toggle-dot"></span>
-              <span class="toggle-label">FRONTEND</span>
-              <span class="toggle-state">ON</span>
-            </button>
-            <button class="sys-toggle-btn active" data-layer="backend">
-              <span class="toggle-dot"></span>
-              <span class="toggle-label">BACKEND</span>
-              <span class="toggle-state">ON</span>
-            </button>
-            <button class="sys-toggle-btn active" data-layer="database">
-              <span class="toggle-dot"></span>
-              <span class="toggle-label">DATABASE</span>
-              <span class="toggle-state">ON</span>
-            </button>
+          <p class="skills-card-desc">Building responsive, accessible, and fast interfaces.</p>
+          <div class="skills-pill-group">
+            <span class="skill-pill">React</span>
+            <span class="skill-pill">Next.js</span>
+            <span class="skill-pill">TypeScript</span>
+            <span class="skill-pill">JavaScript (ES6+)</span>
+            <span class="skill-pill">Tailwind CSS</span>
+            <span class="skill-pill">HTML5 / CSS3</span>
+            <span class="skill-pill">Responsive Design</span>
+            <span class="skill-pill">State Management</span>
           </div>
         </div>
 
-        <div class="system-architecture-canvas" id="system-architecture-canvas">
-          <canvas id="data-particles-canvas"></canvas>
-
-          <!-- Layer 01 -->
-          <div class="system-layer-block active-layer" id="layer-frontend">
-            <div class="layer-inner">
-              <div class="layer-header">
-                <span class="layer-tag">LAYER 01</span>
-                <h3 class="layer-title">FRONTEND &amp; UI INTERFACE</h3>
-              </div>
-              <div class="layer-tech-pills">
-                <span class="tech-pill">React</span>
-                <span class="tech-pill">Next.js</span>
-                <span class="tech-pill">TypeScript</span>
-                <span class="tech-pill">TailwindCSS</span>
-              </div>
-              <p class="layer-detail">Client state management, responsive UI, micro-animations, fast asset delivery</p>
-            </div>
-            <div class="layer-offline-overlay"><span>OFFLINE</span></div>
+        <div class="skills-category-card">
+          <div class="skills-card-header">
+            <span class="skills-card-icon">
+              <i data-lucide="server"></i>
+            </span>
+            <h3>Backend &amp; APIs</h3>
           </div>
-
-          <div class="system-connection-line active-conn" id="conn-fb">
-            <div class="conn-label-row">
-              <span class="conn-label">REST / WEBSOCKET REQUEST</span>
-              <span class="conn-label conn-label-right">JSON / PROTO PAYLOAD</span>
-            </div>
+          <p class="skills-card-desc">Engineering robust server logic and data endpoints.</p>
+          <div class="skills-pill-group">
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">Express.js</span>
+            <span class="skill-pill">RESTful APIs</span>
+            <span class="skill-pill">Laravel</span>
+            <span class="skill-pill">WebSockets / Socket.io</span>
+            <span class="skill-pill">JWT &amp; Auth</span>
+            <span class="skill-pill">Middleware Design</span>
           </div>
+        </div>
 
-          <!-- Layer 02 -->
-          <div class="system-layer-block active-layer" id="layer-backend">
-            <div class="layer-inner">
-              <div class="layer-header">
-                <span class="layer-tag">LAYER 02</span>
-                <h3 class="layer-title">BACKEND API &amp; SERVICES</h3>
-              </div>
-              <div class="layer-tech-pills">
-                <span class="tech-pill">Node.js</span>
-                <span class="tech-pill">Express</span>
-                <span class="tech-pill">Laravel</span>
-                <span class="tech-pill">JWT Auth</span>
-              </div>
-              <p class="layer-detail">Authentication, payload validation, business logic pipelines, security middleware</p>
-            </div>
-            <div class="layer-offline-overlay"><span>API DISCONNECTED</span></div>
+        <div class="skills-category-card">
+          <div class="skills-card-header">
+            <span class="skills-card-icon">
+              <i data-lucide="database"></i>
+            </span>
+            <h3>Databases &amp; Persistence</h3>
           </div>
-
-          <div class="system-connection-line active-conn" id="conn-bd">
-            <div class="conn-label-row">
-              <span class="conn-label">SQL / MONGODB QUERY</span>
-              <span class="conn-label conn-label-right">RESULT SET / CACHE</span>
-            </div>
+          <p class="skills-card-desc">Structuring reliable relational and NoSQL stores.</p>
+          <div class="skills-pill-group">
+            <span class="skill-pill">PostgreSQL</span>
+            <span class="skill-pill">MongoDB</span>
+            <span class="skill-pill">Redis (Caching)</span>
+            <span class="skill-pill">Firebase</span>
+            <span class="skill-pill">Query Optimization</span>
+            <span class="skill-pill">Schema Design</span>
           </div>
+        </div>
 
-          <!-- Layer 03 -->
-          <div class="system-layer-block active-layer" id="layer-database">
-            <div class="layer-inner">
-              <div class="layer-header">
-                <span class="layer-tag">LAYER 03</span>
-                <h3 class="layer-title">DATABASE &amp; CACHE PERSISTENCE</h3>
-              </div>
-              <div class="layer-tech-pills">
-                <span class="tech-pill">PostgreSQL</span>
-                <span class="tech-pill">MongoDB</span>
-                <span class="tech-pill">Redis</span>
-                <span class="tech-pill">Firebase</span>
-              </div>
-              <p class="layer-detail">ACID transactions, indexed schemas, Redis caching layer, persistent data storage</p>
-            </div>
-            <div class="layer-offline-overlay"><span>DATABASE DISCONNECTED</span></div>
+        <div class="skills-category-card">
+          <div class="skills-card-header">
+            <span class="skills-card-icon">
+              <i data-lucide="terminal"></i>
+            </span>
+            <h3>Tools &amp; Workflow</h3>
           </div>
-
+          <p class="skills-card-desc">Modern developer tooling and deployment workflows.</p>
+          <div class="skills-pill-group">
+            <span class="skill-pill">Git / GitHub</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">CI / CD</span>
+            <span class="skill-pill">Postman</span>
+            <span class="skill-pill">Vite</span>
+            <span class="skill-pill">Linux / Shell</span>
+            <span class="skill-pill">Agile Delivery</span>
+          </div>
         </div>
 
       </div>
     </section>
 
     <!-- ══ 05 EXPERIENCE ══════════════════════════════════════════ -->
-    <section id="experience" class="cinematic-section">
+    <section id="experience" class="cinematic-section is-visible">
       <div class="section-label fade-up">
         <span class="meta-divider"></span>
         <span>05</span>
-        EXPERIENCE
+        EXPERIENCE &amp; BACKGROUND
       </div>
 
-      <h2 class="section-headline fade-up">Career Progression</h2>
+      <h2 class="section-headline fade-up">Work Experience</h2>
 
       <div class="experience-list">
 
@@ -690,7 +628,8 @@
               CURRENT POSITION
             </span>
             <p class="exp-details">
-              Engineering web applications, scalable REST APIs, and database schemas. Collaborating on client solutions and optimization.
+              Engineering full-stack web applications, architecting REST APIs, and designing optimized database schemas.
+              Collaborating closely with team members to deliver scalable client solutions on time.
             </p>
           </div>
         </div>
@@ -701,7 +640,8 @@
             <span class="exp-role">Freelance Full-Stack Developer</span>
             <span class="exp-company">Self-Employed</span>
             <p class="exp-details">
-              Building custom web software, management platforms, and emergency donor platforms for clients with high-quality UI/UX.
+              Building custom web solutions, management software, and donor coordination systems for clients. Managing
+              the complete lifecycle from requirements gathering to production release.
             </p>
           </div>
         </div>
@@ -709,10 +649,11 @@
         <div class="experience-item fade-up">
           <span class="exp-period">2024</span>
           <div class="exp-content">
-            <span class="exp-role">Junior Developer</span>
+            <span class="exp-role">Junior Web Developer</span>
             <span class="exp-company">ABC Solutions</span>
             <p class="exp-details">
-              Contributed to frontend component building, bug fixes, and API integrations for enterprise client portals.
+              Built responsive frontend interfaces, fixed cross-browser UI bugs, and integrated backend API endpoints
+              for enterprise client portals.
             </p>
           </div>
         </div>
@@ -721,7 +662,7 @@
     </section>
 
     <!-- ══ 06 CONTACT ════════════════════════════════════════════ -->
-    <section id="contact" class="cinematic-section">
+    <section id="contact" class="cinematic-section is-visible">
       <div class="section-label fade-up">
         <span class="meta-divider"></span>
         <span>06</span>
@@ -730,74 +671,105 @@
 
       <div class="contact-intro fade-up">
         <h2 class="section-headline">
-          <span class="line-wrap"><span class="reveal-text">Let's build</span></span>
-          <span class="line-wrap"><span class="reveal-text accent-text">something great</span></span>
-          <span class="line-wrap"><span class="reveal-text italic-text">together.</span></span>
+          <span class="line-wrap"><span class="reveal-text">Let's connect &amp;</span></span>
+          <span class="line-wrap"><span class="reveal-text accent-text">build something</span></span>
+          <span class="line-wrap"><span class="reveal-text italic-text">meaningful.</span></span>
         </h2>
-        <p class="section-subtext" style="margin-top: 1.5rem;">
-          Have a product idea, technical challenge, or opportunity? I am available for full-time roles and high-impact freelance engineering.
+        <p class="section-subtext" style="margin-top: 1.25rem;">
+          Whether you have a job opportunity, project in mind, or just want to connect — my inbox is always open.
         </p>
       </div>
 
       <div class="contact-two-col">
 
-        <!-- Interactive Terminal CLI Panel -->
-        <div class="subtle-terminal-panel fade-up">
-          <div class="terminal-bar">
-            <span class="win-dot win-dot-r"></span>
-            <span class="win-dot win-dot-y"></span>
-            <span class="win-dot win-dot-g"></span>
-            <span class="terminal-title">terminal — abhinav@cli</span>
-          </div>
+        <!-- Human Direct Contact Info Card -->
+        <div class="contact-info-card fade-up">
+          <h3 class="contact-card-title">Contact Information</h3>
+          <p class="contact-card-subtitle">Feel free to reach out directly via email or connect on LinkedIn.</p>
 
-          <div class="terminal-body" id="terminal-body-content">
-            <p><span class="term-prompt">abhinav@cli:~$ </span>connect --to abhinav</p>
-            <p class="term-success">&gt; connection established ✓</p>
-            <p class="term-muted">Type <span class="term-info">'help'</span> to see available commands or select an option below:</p>
-            
-            <div class="terminal-actions-row">
-              <a href="mailto:abhinav.dev.01@gmail.com" class="terminal-email-btn">
-                SEND EMAIL ↗
-              </a>
-              <button class="copy-email-btn" id="copy-email-btn">
-                COPY EMAIL
+          <div class="contact-methods-list">
+            <div class="contact-method-item">
+              <span class="contact-icon">
+                <i data-lucide="mail"></i>
+              </span>
+              <div class="contact-details">
+                <span class="contact-label">EMAIL ADDRESS</span>
+                <a href="mailto:abhinav.dev.01@gmail.com" class="contact-link">abhinav.dev.01@gmail.com</a>
+              </div>
+              <button class="copy-email-btn" id="copy-email-btn" title="Copy email address">
+                <i data-lucide="copy" style="width: 13px; height: 13px;"></i>
+                <span>Copy</span>
               </button>
+            </div>
+
+            <div class="contact-method-item">
+              <span class="contact-icon">
+                <i data-lucide="linkedin"></i>
+              </span>
+              <div class="contact-details">
+                <span class="contact-label">LINKEDIN</span>
+                <a href="https://linkedin.com/in/abhinav-dev-01" target="_blank"
+                  class="contact-link">linkedin.com/in/abhinav-dev-01 <i data-lucide="arrow-up-right" style="width: 13px; height: 13px;"></i></a>
+              </div>
+            </div>
+
+            <div class="contact-method-item">
+              <span class="contact-icon">
+                <i data-lucide="github"></i>
+              </span>
+              <div class="contact-details">
+                <span class="contact-label">GITHUB</span>
+                <a href="https://github.com/abhinav-dev-01" target="_blank"
+                  class="contact-link">github.com/abhinav-dev-01 <i data-lucide="arrow-up-right" style="width: 13px; height: 13px;"></i></a>
+              </div>
+            </div>
+
+            <div class="contact-method-item">
+              <span class="contact-icon">
+                <i data-lucide="file-text"></i>
+              </span>
+              <div class="contact-details">
+                <span class="contact-label">FULL RESUME</span>
+                <a href="/Abhinav_P_Full stack_Resume.pdf" target="_blank" class="contact-link" download>Download
+                  Abhinav_Resume.pdf <i data-lucide="download" style="width: 13px; height: 13px;"></i></a>
+              </div>
             </div>
           </div>
 
-          <div class="terminal-input-row">
-            <span class="term-prompt">abhinav@cli:~$</span>
-            <input type="text" id="terminal-cli-input" class="term-input" placeholder="type 'help', 'skills', 'contact', 'clear'..." autocomplete="off">
+          <div class="contact-availability-box">
+            <span class="avail-dot"></span>
+            <span>Currently open for full-time engineering positions &amp; select freelance projects.</span>
           </div>
         </div>
 
-        <!-- Contact Form -->
+        <!-- Clean Contact Form -->
         <form id="contact-form" class="minimal-underline-form fade-up" novalidate>
           <div class="form-field" id="field-name">
-            <input type="text" id="contact-name" placeholder="Your name *" required>
+            <input type="text" id="contact-name" placeholder="Your Name *" required>
             <span class="field-line"></span>
             <span class="error-hint">Please enter your name</span>
           </div>
 
           <div class="form-field" id="field-email">
-            <input type="email" id="contact-email" placeholder="Email address *" required>
+            <input type="email" id="contact-email" placeholder="Your Email *" required>
             <span class="field-line"></span>
             <span class="error-hint">Please enter a valid email address</span>
           </div>
 
           <div class="form-field">
-            <input type="text" id="contact-subject" placeholder="Subject">
+            <input type="text" id="contact-subject" placeholder="Subject / Project Title">
             <span class="field-line"></span>
           </div>
 
           <div class="form-field" id="field-message">
-            <textarea id="contact-message" rows="4" placeholder="Your message *" required></textarea>
+            <textarea id="contact-message" rows="4" placeholder="Your Message *" required></textarea>
             <span class="field-line"></span>
             <span class="error-hint">Please enter a message</span>
           </div>
 
           <button type="submit" class="cinematic-submit-btn">
-            SEND MESSAGE <span>↗</span>
+            <span>SEND MESSAGE</span>
+            <i data-lucide="send" class="arrow-icon"></i>
           </button>
         </form>
 
@@ -807,21 +779,31 @@
     <!-- ─── FOOTER ───────────────────────────────────────────── -->
     <footer class="editorial-footer">
       <div class="footer-left">
-        <span class="footer-brand">ABHINAV.DEV</span>
-        <span class="footer-copyright">© 2026 Abhinav. All rights reserved.</span>
+        <span class="footer-brand">ABHINAV<span class="dot">.</span>DEV</span>
+        <span class="footer-copyright">© 2026 Abhinav. Built with React, JavaScript &amp; Modern CSS.</span>
       </div>
-      <div class="footer-center">Crafted with modern web technologies</div>
       <div class="footer-right">
-        <a href="https://github.com/abhinav-dev-01" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/abhinav-dev-01" target="_blank">LinkedIn</a>
-        <a href="mailto:abhinav.dev.01@gmail.com">Email</a>
+        <a href="/Abhinav_P_Full stack_Resume.pdf" target="_blank" download>
+          <i data-lucide="download" style="width: 12px; height: 12px;"></i> Resume
+        </a>
+        <a href="https://github.com/abhinav-dev-01" target="_blank">
+          <i data-lucide="github" style="width: 12px; height: 12px;"></i> GitHub
+        </a>
+        <a href="https://linkedin.com/in/abhinav-dev-01" target="_blank">
+          <i data-lucide="linkedin" style="width: 12px; height: 12px;"></i> LinkedIn
+        </a>
+        <a href="mailto:abhinav.dev.01@gmail.com">
+          <i data-lucide="mail" style="width: 12px; height: 12px;"></i> Email
+        </a>
       </div>
     </footer>
 
   </main>
 
   <!-- Back To Top Floating Button -->
-  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <button id="back-to-top" aria-label="Back to top">
+    <i data-lucide="arrow-up" style="width: 18px; height: 18px;"></i>
+  </button>
 
   <div class="toast-container" id="toast-container"></div>
 
